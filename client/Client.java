@@ -9,7 +9,12 @@ public class Client
 	{
 		DatagramSocket socket = new DatagramSocket();		
 		ClientUtils utils = new ClientUtils(socket);
-		String fileName = utils.getFileName();
+		String request = utils.getRequestInfo();
+
+		if (request.compareTo("__quit__") == 0) 
+			return;
+
+		String fileName = request.split(" ")[1];
 
 		ByteArrayInputStream bin;
 		DataInputStream dis;
@@ -23,47 +28,26 @@ public class Client
 
 		byte rbuf[] = new byte[1024];
 
-		DatagramPacket packet = new DatagramPacket(fileName.getBytes(), fileName.length(), address, port);
+		DatagramPacket packet = new DatagramPacket(request.getBytes(), request.length(), address, port);
 
 		// connects to middleware
 		socket.send(packet);
 
-		// Recieve host packet w/ tcpPortNum
+		// Recieve host packet
 		packet = new DatagramPacket(rbuf, rbuf.length);
 		socket.receive(packet);
 		utils.setHostInfo(packet);
-		String fileType = utils.getFileType();
 
-		if (fileType.compareTo("upload") == 0)
+		if (request.split(" ")[0].compareTo("upload") == 0)
 		{
-			File f = new File(fileName);
-			while (!f.exists()) 
-			{
-				fileName = utils.getNewFileName();
-				f = new File(fileName);
-
-				if (fileName.compareTo("__quit__") == 0)
-				{
-					utils.exit();
-					return;
-				}
-			}
-
-			String data = fileType + "," + fileName;
-			packet = new DatagramPacket(data.getBytes(), data.length(), utils.getHostAddress(), utils.getHostPort());
-			socket.send(packet);
-			// utils.sendPacket(fileType);			
 			System.out.println("Connecting to server...");
-			utils.uploadFile();
+			utils.uploadFile(fileName);
 		}
 
 		else
 		{
-			String data = fileType + "," + fileName;
-			packet = new DatagramPacket(data.getBytes(), data.length(), utils.getHostAddress(), utils.getHostPort());
-			socket.send(packet);
 			System.out.println("Waiting for file from Server...");
-			utils.downloadFile();
+			utils.downloadFile(fileName);
 		}
 
 		utils.exit();
