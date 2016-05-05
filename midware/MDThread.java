@@ -29,6 +29,19 @@ public class MDThread implements Runnable
 			e.printStackTrace();
 		}
 
-		
+		String type = data.split(",");
+
+		if (type.compareTo("upload") || type.compareTo("upload"))
+		{
+			
+		}
+		else if (type.compareTo("host"))
+		{
+
+		}
+		else
+		{
+
+		}
 	}
 }
