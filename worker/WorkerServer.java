@@ -1,11 +1,11 @@
-public class RMServer 
+public class WorkerServer 
 {
 	public static void main(String[] args) 
 	{
 		DatagramSocket socket = new DatagramSocket();	
 		DatagramPacket packet;
 
-		RMUtils rUtils = new RMUtils(socket);
+		WorkerUtils wUtils = new WorkerUtils(socket);
 
 		int port = Integer.parseInt(args[1]);		
 		InetAddress address = InetAddress.getByName(args[0]);
@@ -13,24 +13,14 @@ public class RMServer
 		byte[] sbuf = new byte[1024];
 		byte[] rbuf = new byte[1024];
 
-		sbuf = "__rm__".getBytes();
+		sbuf = "__w__".getBytes();
 
 		DatagramPacket packet = new DatagramPacket(sbuf, sbuf.length, address, port);
 
-		socket.send(packet);
-		rUtils.setUp();
+		socket.send(packet);		
+		wUtils.setUp();
 
 		while(rUtils.isUpdating())
 			continue;
-
-		while(true)
-		{
-			packet = new DatagramPacket(rbuf, rbuf.length);	
-			socket.receive(packet);
-			System.out.println("Just recieved..." + rUtils.getDataFromPacket(packet));
-
-			Thread thread = new Thread(new RMThread(rUtils, packet));
-			thread.start();
-		}
-	}
+	}	
 }

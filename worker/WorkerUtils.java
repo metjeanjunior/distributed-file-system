@@ -1,14 +1,9 @@
-public class RMUtils implements java.io.Serializable
+public class WorkerUtils 
 {
-	private DatagramSocket socket;
-	protected LinkedList<WorkerInfo> workerList = new LinkedList<WorkerInfo>(); //FIXME: Change class name
+	DatagramSocket socket;
 	private boolean isUpdating = true;
 
-	MulticastSocket updateDirSocket; 
-	
-	
-
-	public RMUtils(DatagramSocket socket)
+	public WorkerUtils(DatagramSocket socket)	
 	{
 		this.socket = socket;
 	}
@@ -20,27 +15,7 @@ public class RMUtils implements java.io.Serializable
 
 	public void setUp()
 	{
-		isUpdating = true;
 
-		String updateDirInfo = getPacketAndData();
-
-		System.out.println("Connected to MD");
-
-		InetAddress updateDirGroup = InetAddress.getByName(updateDirInfo.split(",")[0]);
-		int updateDirPort = updateDirInfo.split(",")[1];
-		int pos = Integer.parseInt(updateDirInfo.split(",")[2]);
-
-		updateDirSocket = new MulticastSocket(updateDirPort);
-		updateDirSocket.joinGroup(updateDirGroup);
-
-
-	}
-
-	public synchronized  void sendPacket(String data, int workerNum) throws Exception
-	{
-		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), 
-			getWorkerAddress(workerNum), getWorkerPort(workerNum));
-		socket.send(packet);
 	}
 
 	public synchronized void sendGenericPacket(String data, DatagramPacket genPacket) throws Exception
@@ -81,16 +56,6 @@ public class RMUtils implements java.io.Serializable
 		return packet;
 	}
 
-	public synchronized void pushWorker(DatagramPacket packet)
-	{
-		WorkerInfo workerInfo = new WorkerInfo(packet);
-		workerList.push(workerInfo);
-		// primary = primary == null ? workerInfo : primary;
-		// primaryNum = primaryNum == -1 ? workerList.size()-1 :primaryNum;
-	}
-
-
-	// Returns the server that facilitates the download request from the client
 	public String getDownloader()
 	{
 
