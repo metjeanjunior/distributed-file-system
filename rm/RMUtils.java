@@ -33,6 +33,7 @@ public class RMUtils implements java.io.Serializable
 		if (updateDirInfo.compareTo("__quit__") == 0)
 		{
 			shutdown = true;
+			isUpdating = false;
 			System.out.println("Farm is already full. Try again later.");
 			return;
 		}
@@ -45,8 +46,7 @@ public class RMUtils implements java.io.Serializable
 
 		updateDirSocket = new MulticastSocket(updateDirPort);
 		updateDirSocket.joinGroup(updateDirGroup);
-
-
+		isUpdating = false;
 	}
 
 	public synchronized  void sendPacket(String data, int workerNum) throws Exception

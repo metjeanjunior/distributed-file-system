@@ -64,7 +64,7 @@ public class MDThread implements Runnable
 		{
 			if (debug)
 				System.out.println("A Client just connected");
-
+			
 		}
 	}
 }

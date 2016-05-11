@@ -25,6 +25,8 @@ public class WorkerServer
 
 		while(rUtils.isUpdating())
 			continue;
+		if (rUtils.isShutDown())
+			return;
 
 		while(true)
 		{

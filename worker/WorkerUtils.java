@@ -8,6 +8,7 @@ public class WorkerUtils
 {
 	DatagramSocket socket;
 	private boolean isUpdating = true;
+	private boolean shutdown = false;
 	Map<String, Integer> fileVersionMap = Collections.synchronizedMap(new HashMap<String, Integer>());
 	Map<String, Boolean> fileLockMap = Collections.synchronizedMap(new HashMap<String, Boolean>());
 
@@ -21,11 +22,26 @@ public class WorkerUtils
 		return isUpdating;
 	}
 
+	public boolean isShutDown()
+	{
+		return shutdown;
+	}
+
 	public void setUp()
 	{
 		isUpdating = true;
 
+		String tempName = getPacketAndData();
 
+		if (tempName.compareTo("__quit__") == 0)
+		{
+			shutdown = true;
+			isUpdating = false;
+			System.out.println("Connection to farm was rejected. Try again later.");
+			return;
+		}
+
+		System.out.println("Connected to RM");
 
 		isUpdating = false;
 	}
