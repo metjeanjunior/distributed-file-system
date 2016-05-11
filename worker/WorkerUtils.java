@@ -8,6 +8,7 @@ public class WorkerUtils
 	DatagramSocket socket;
 	private boolean isUpdating = true;
 	Map<String, Integer> fileVersionMap = Collections.synchronizedMap(new HashMap<String, Integer>());
+	Map<String, Boolean> fileLockMap = Collections.synchronizedMap(new HashMap<String, Boolean>());
 
 	public WorkerUtils(DatagramSocket socket)	
 	{
@@ -21,7 +22,11 @@ public class WorkerUtils
 
 	public void setUp()
 	{
+		isUpdating = true;
 
+		
+		
+		isUpdating = false;
 	}
 
 	public synchronized void incrementVersion(String filename)
@@ -36,84 +41,86 @@ public class WorkerUtils
 
 	public synchronized int getFileVersion(String filename)
 	{
-		return fileVersionMap.get(filename);
+		return fileVersionMap.get(filename) == null ? false : fileVersionMap.get(filename);
 	}
 
-	public void sendFile(String fileName, InetAddress address, int port) throws Exception
+	public synchronized boolean fileLockTaken(String fileName)
 	{
-		Charset charset = Charset.forName("US-ASCII");
-		clientAddress = address;
-		clientPort = port;
-		System.out.println("sending file to client...");
+		return fileLockMap.get(fileName);
+	}
 
-		File f = new File(fileName);
-		if (!f.exists()) 
-		{
-			sendPacket("__dne__");
-			System.out.println("The file does not exit");
-			f = null;
-			return;
-		}
+	public synchronized void grabFileLock(String filename)
+	{
+		fileLockMap.put(filename, true);
+	}
 
-		try (BufferedReader reader = Files.newBufferedReader(Paths.get(socket.getLocalPort() +'/' + fileName), charset)) {
+	public synchronized void returnFileLock(String filename)
+	{
+		fileLockMap.put(filename, false);
+	}
+
+	public synchronized void sendFile(String fileName, InetAddress address, int port) throws Exception
+	{
+		while(fileLockTaken(fileName))
+			continue;
+		
+		grabFileLock(fileName);
+			System.out.println("sending file to client...");
+
+			File f = new File(fileName);
+			if (!f.exists()) 
+			{
+				sendPacket("__dne__", address, port);
+				System.out.println("The file does not exit");
+				f = null;
+				returnFileLock(fileName);
+				return;
+			}
+
+			BufferedReader reader = Files.newBufferedReader(Paths.get(socket.getLocalPort() +'/' + fileName), "UTF-8"));
 		    String line = null;
-		    while ((line = reader.readLine()) != null) 
-		    	sendPacket(line);
-		    sendPacket("__end__");
 		    
-			System.out.println("File sent succesfully");
-		} catch (IOException x) {
-		    System.err.format("IOException: %s%n", x);
-		}
+		    while ((line = reader.readLine()) != null) 
+		    	sendPacket(line, address, port);
+		    sendPacket("__end__", address, port);
+		returnFileLock(fileName);
+	    
+		System.out.println("File sent succesfully");
 	}
 
-	public void recieveFile(String fileName) throws Exception
+	public synchronized void recieveFile(String fileName) throws Exception
 	{
-		// Charset charset = Charset.forName("US-ASCII");
 		String line;
-		Semaphore mutex = new Semaphore(1);
-		myself = true;
-		sendMCLine("__newFile__," + fileName);
 
-		try (PrintWriter writer = new PrintWriter(socket.getLocalPort() +'/' + fileName, "UTF-8"))
-		{
+		while(fileLockTaken(fileName))
+			continue;
+
+		grabFileLock(fileName);
+			PrintWriter writer = new PrintWriter("files/" + fileName, "UTF-8")
 			System.out.println("Recieving...");
-			mutex.acquire();
+
 			while ((line = receivePacketAndData()).compareTo("__end__") !=0)
 			{
 			    System.out.println(line);
 			    writer.println(line);
-			    sendMCLine(line);
 			}
-			mutex.release();
+		returnFileLock(fileName);
 
-			writer.close();
-			System.out.println("File received succesfully");
-		} 
-		catch (IOException x) 
-		{
-		    System.err.format("IOException: %s%n", x);
-		}
-		myself = false;
+		writer.close();
+		System.out.println("File received succesfully");
 	}
 
-	public synchronized void sendGenericPacket(String data, DatagramPacket genPacket) throws Exception
+	public synchronized void sendPacket(String data, InetAddress address, int port) throws Exception
 	{
-		if (data.length() == 0)
-		{
-			socket.send(packet);
-			return;
-		}
-		
-		genPacket = new DatagramPacket(data.getBytes(), data.length(), genPacket.getAddress(), genPacket.getPort());
-		socket.send(genPacket);
+		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), address, port);
+		socket.send(packet);
 	}
 
 	@SuppressWarnings("deprecation")
 	public String getDataFromPacket(DatagramPacket packet) throws Exception
 	{
-		bin = new ByteArrayInputStream(packet.getData(), 0, packet.getLength());
-		dis = new DataInputStream(bin);
+		ByteArrayInputStream bin = new ByteArrayInputStream(packet.getData(), 0, packet.getLength());
+		DataInputStream dis = new DataInputStream(bin);
 
 		return dis.readLine();
 	}
