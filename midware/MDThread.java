@@ -2,6 +2,7 @@ public class MDThread implements Runnable
 {
 	private DatagramPacket packet;
 	private MdServerUtils mdUtils;
+	boolean debug = true;
 
 	public MDThread(MdServerUtils mdUtils, DatagramPacket packet) 
 	{
@@ -9,7 +10,7 @@ public class MDThread implements Runnable
 		this.packet = packet;	
 	}
 
-	public void run()
+	public void run() throws Exception
 	{
 		System.out.println(Thread.currentThread().getName() + " started w/ id " + Thread.currentThread().getId());
 
@@ -21,26 +22,29 @@ public class MDThread implements Runnable
 		bin = new ByteArrayInputStream(packet.getData(), 0, packet.getLength());
 		dis = new DataInputStream(bin);
 
-		String data;
+		String data = dis.readLine();
 
-		try {
-			data = dis.readLine();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		String type = data.split(",");
-
-		if (type.compareTo("upload") || type.compareTo("upload"))
+		if (data.compareTo("__rm__") == 0)
 		{
-			
+			if (debug)
+				System.out.println("A Remote Manager just connected");
+
+			if (mdUtils.getNumRM() == 3)
+			{
+				packet = new DatagramPacket("__quit".getBytes(), "__quit__".length(), packet.getAddress(), packet.getPort());
+				
+			}
 		}
-		else if (type.compareTo("host"))
+		else if (data.compareTo("__w__") == 0)
 		{
+			if (debug)
+				System.out.println("A Worker just connected");
 
 		}
 		else
 		{
+			if (debug)
+				System.out.println("A Client just connected");
 
 		}
 	}

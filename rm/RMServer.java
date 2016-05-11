@@ -22,6 +22,8 @@ public class RMServer
 
 		while(rUtils.isUpdating())
 			continue;
+		if(rUtils.isShutDown)
+			return;
 
 		while(true)
 		{

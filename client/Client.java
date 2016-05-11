@@ -1,6 +1,5 @@
 import java.io.*;
 import java.net.*;
-import java.nio.charset.StandardCharsets;
 
 @SuppressWarnings("unused")
 public class Client 
@@ -39,16 +38,9 @@ public class Client
 		utils.setHostInfo(packet);
 
 		if (request.split(" ")[0].compareTo("upload") == 0)
-		{
-			System.out.println("Connecting to server...");
 			utils.uploadFile(fileName);
-		}
-
 		else
-		{
-			System.out.println("Waiting for file from Server...");
 			utils.downloadFile(fileName);
-		}
 
 		utils.exit();
 		socket.close();

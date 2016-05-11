@@ -2,7 +2,10 @@ public class MDServer
 {
 	public static void main(String[] args) 
 	{
-		DatagramSocket socket = new DatagramSocket(Integer.parseInt(args[0]));
+		// DatagramSocket socket = new DatagramSocket(Integer.parseInt(args[0]));
+
+		// For testing on local machine
+		DatagramSocket socket = new DatagramSocket(4576);
 
 		byte[] rbuf = new byte[1024];
 

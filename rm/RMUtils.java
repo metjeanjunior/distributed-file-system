@@ -3,6 +3,7 @@ public class RMUtils implements java.io.Serializable
 	private DatagramSocket socket;
 	protected LinkedList<WorkerInfo> workerList = new LinkedList<WorkerInfo>(); //FIXME: Change class name
 	private boolean isUpdating = true;
+	private boolean shutdown = false;
 
 	MulticastSocket updateDirSocket; 
 	
@@ -18,11 +19,23 @@ public class RMUtils implements java.io.Serializable
 		return isUpdating;
 	}
 
+	public boolean isShutDown()
+	{
+		return shutdown;
+	}
+
 	public void setUp()
 	{
 		isUpdating = true;
 
 		String updateDirInfo = getPacketAndData();
+
+		if (updateDirInfo.compareTo("__quit__") == 0)
+		{
+			shutdown = true;
+			System.out.println("Farm is already full. Try again later.");
+			return;
+		}
 
 		System.out.println("Connected to MD");
 

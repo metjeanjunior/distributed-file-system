@@ -2,7 +2,6 @@ public class ClientUtils
 {
 	private InetAddress hostAddress;
 	private int hostPort;
-	boolean shutdown = false;
 
 	public String getRequestInfo() throws Exception
 	{
@@ -101,55 +100,44 @@ public class ClientUtils
 		String fileInfo = "__filename__," +fileName;
 		sendLine(fileInfo);
 
-		try (BufferedReader reader = Files.newBufferedReader(Paths.get(fileName), charset)) 
-		{
-		    String line = null;
-		    while ((line = reader.readLine()) != null) 
-		    {
-		        System.out.println(line);
-		    	sendLine(line);
-		    }
-		    sendLine("__end__");
-			System.out.println("File upload was succesfull");
-		} catch (IOException x) {
-		    System.err.format("IOException: %s%n", x);
-		}
+		BufferedReader reader = Files.newBufferedReader(Paths.get(fileName), charset);
+	    String line = null;
+
+	    while ((line = reader.readLine()) != null) 
+	    {
+	        System.out.println(line);
+	    	sendLine(line);
+	    }
+
+	    sendLine("__end__");
+		System.out.println("File upload was succesfull");
 	}
 
 	public void downloadFile(String fileName) throws Exception
 	{
+		System.out.println("Waiting for file from Server...");
 		Charset charset = Charset.forName("US-ASCII");
 		String line = null;
 
-		try (PrintWriter writer = new PrintWriter(fileName, "UTF-8"))
+		PrintWriter writer = new PrintWriter(fileName, "UTF-8");
+
+		while ((line = getPacketAndData()).compareTo("__end__") !=0)
 		{
-			while ((line = getPacketAndData()).compareTo("__end__") !=0)
+			System.out.println(line);
+			line += "";
+			if (line.compareTo("__dne__") ==0)
 			{
-				System.out.println(line);
-				line += "";
-				if (line.compareTo("__dne__") ==0)
-				{
-				    System.out.println("The file you indicated is not hosted in on our servers");
-				    System.out.println("Please try again with a different name");
-				    Files.deleteIfExists(Paths.get(fileName));
-				    exit();
-				    return;
-				}
-				
-			    writer.println(line);
+			    System.out.println("The file you indicated is not hosted in on our servers");
+			    System.out.println("Please try again with a different name");
+			    Files.deleteIfExists(Paths.get(fileName));
+			    exit();
+			    return;
 			}
 			
-			System.out.println("File download was succesfull");
-		} 
-		catch (IOException x) 
-		{
-		    System.err.format("IOException: %s%n", x);
+		    writer.println(line);
 		}
-	}
-
-	public boolean isShutdown()
-	{
-		return shutdown;
+		
+		System.out.println("File download was succesfull");
 	}
 
 	public void exit()
