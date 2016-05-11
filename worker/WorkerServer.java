@@ -5,7 +5,7 @@ public class WorkerServer
 		DatagramSocket socket = new DatagramSocket();	
 		DatagramPacket packet;
 
-		WorkerUtils wUtils = new WorkerUtils(socket);
+		WorkerUtils WorkerUtils = new WorkerUtils(socket);
 
 		int port = Integer.parseInt(args[1]);		
 		InetAddress address = InetAddress.getByName(args[0]);
@@ -22,5 +22,15 @@ public class WorkerServer
 
 		while(rUtils.isUpdating())
 			continue;
+
+		while(true)
+		{
+			packet = new DatagramPacket(rbuf, rbuf.length);	
+			socket.receive(packet);
+			System.out.println("Just recieved..." + rUtils.getDataFromPacket(packet));
+
+			Thread thread = new Thread(new WorkerThread(rUtils, packet));
+			thread.start();
+		}
 	}	
 }
