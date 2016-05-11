@@ -19,4 +19,16 @@ public class MDUtils implements java.io.Serializable
 	{
 		return rmList.size();
 	}
+
+	public RMInfo getnextRM()
+	{
+		RMInfo lowRM = rmList[0];
+		int lowRM = 0;
+
+		for (RMInfo rm: rmList) 
+			if (getNumWorker.getNumWorker() < lowRM.getNumWorker())
+				lowRM = rm;
+
+		return lowRM;
+	}
 }
