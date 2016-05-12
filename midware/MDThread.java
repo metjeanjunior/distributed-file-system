@@ -57,14 +57,29 @@ public class MDThread implements Runnable
 				return;
 			}
 
-			RMinfo rm = mdUtils.getnextRM();
-			
+			RMInfo rm = mdUtils.getnextRM();
+			String data = rm.getAddress() + "," + rm.getPort();
+			mdUtils.sendGenericPacket(data, packet.getAddress(), packet.getPort());
 		}
 		else
 		{
 			if (debug)
 				System.out.println("A Client just connected");
-			
+			if (mdUtils.getNumRM() == 0)
+			{
+				packet = new DatagramPacket("__quit".getBytes(), "__quit__".length(), packet.getAddress(), packet.getPort());
+				DatagramSocket socket = new DatagramSocket();
+				socket.send(packet);
+				System.out.println("Connection from previous client rejected (we're either empty)!");
+				return;
+			}
+
+			String cInfo = data.split(" ")[0] + ',' + data.split(" ")[1] 
+				+ packet.getAddress() + "," + packet.getPort();
+			if (data.split(" ")[0].compareTo("upload") == 0)
+				mdUtils.sendRolePacket(cInfo, "upl");
+			else
+				mdUtils.sendRolePacket(cInfo, "dwl");
 		}
 	}
 }

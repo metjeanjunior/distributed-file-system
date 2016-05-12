@@ -9,6 +9,8 @@ public class WorkerUtils
 	DatagramSocket socket;
 	private boolean isUpdating = true;
 	private boolean shutdown = false;
+	private InetAddress rmAddress;
+	private int rmPort;
 	Map<String, Integer> fileVersionMap = Collections.synchronizedMap(new HashMap<String, Integer>());
 	Map<String, Boolean> fileLockMap = Collections.synchronizedMap(new HashMap<String, Boolean>());
 
@@ -31,9 +33,9 @@ public class WorkerUtils
 	{
 		isUpdating = true;
 
-		String tempName = getPacketAndData();
+		String rmInfo = getPacketAndData();
 
-		if (tempName.compareTo("__quit__") == 0)
+		if (rmInfo.compareTo("__quit__") == 0)
 		{
 			shutdown = true;
 			isUpdating = false;
@@ -41,9 +43,13 @@ public class WorkerUtils
 			return;
 		}
 
-		System.out.println("Connected to RM");
+		rmAddress = InetAddress.getByName(rmInfo.split(",")[0]);
+		rmPort = rmInfo.split(",")[0];
+
+		sendPacket("__server__", rmAddress, rmPort);
 
 		isUpdating = false;
+		System.out.println("Connected to RM");
 	}
 
 	public synchronized void incrementVersion(String filename)

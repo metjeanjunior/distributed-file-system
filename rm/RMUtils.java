@@ -1,14 +1,20 @@
+import java.io.*;
+import java.net.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.LinkedList;
+
 public class RMUtils implements java.io.Serializable
 {
 	private DatagramSocket socket;
-	protected LinkedList<WorkerInfo> workerList = new LinkedList<WorkerInfo>(); //FIXME: Change class name
+	protected LinkedList<WorkerInfo> workerList = new LinkedList<WorkerInfo>();
+	Map<String, Integer> roleMap = Collections.synchronizedMap(new HashMap<String, Integer>());
 	private boolean isUpdating = true;
 	private boolean shutdown = false;
 
 	MulticastSocket updateDirSocket; 
 	
-	
-
 	public RMUtils(DatagramSocket socket)
 	{
 		this.socket = socket;
@@ -102,32 +108,43 @@ public class RMUtils implements java.io.Serializable
 		// primaryNum = primaryNum == -1 ? workerList.size()-1 :primaryNum;
 	}
 
-
-	// Returns the server that facilitates the download request from the client
-	public String getDownloader()
+	public void initRoles()
 	{
-
+		roleMap.put("upl", 0);
+		roleMap.put("upd", 0);
+		roleMap.put("dwl", 0);
 	}
 
-	public void sendToDownloader()
+	public void sendRolePacket(String data, String role)
 	{
-		
+		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), 
+			rmList.get(getRoleRep(role).getAddress(), rmList.get(getRoleRep(role)).getPort());
+		DatagramSocket socket = new DatagramSocket();
+		socket.send(packet);
+		socket.close();
 	}
 
-	// Returns the server that facilitates the upload request from the client
-	public String getUploadder()
+	public synchronized void setRole(String role, int rmNum)
 	{
-
+		roleMap.put(role, rmNum);
 	}
 
-	public void sendToUploader()
+	public synchronized int getRoleRep(String role)
 	{
-
+		return roleMap.get(role);
 	}
 
-	// Returns the server that facilitates the update of the directory
-	public String getUpdater()
+	public synchronized String nextRole()
 	{
+		String role;
 
+		if (roleMap.get("upl") == roleMap.get("dwl"))
+			return "dwl";
+		if (roleMap.get("upl") == roleMap.get("upd"))
+			return "upl";
+		if (roleMap.get("dwl") == roleMap.get("upd"))
+			return "dwl";
+
+		return role;
 	}
 }

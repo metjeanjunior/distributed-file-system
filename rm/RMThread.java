@@ -8,23 +8,23 @@ public class RMThread implements Runnable
 		this.packet = packet;
 	}
 
-	public void run() throws 
+	public void run() throws Exception
 	{
 		System.out.println(Thread.currentThread().getName() + " started w/ id " + Thread.currentThread().getId());
 
 		String data = rUtils.getDataFromPacket(packet);
 
-		if (data.compareTo("server") == 0)
+		if (data.compareTo("__server__") == 0)
 		{
 			rUtils.pushWorker(packet);
 		}
-		else if (data.split(",")[0].compareTo("client"))
+		else // if (data.split(",")[0].compareTo("client"))
 		{
-			if(data.split(",")[1].compareTo("upload"))
-				rUtils.sendToUploader(packet);
+			if(data.split(",")[0].compareTo("upload"))
+				rUtils.sendRolePacket(data, "upl");
 			else
-				rUtils.sendToDownloader(packet);
+				rUtils.sendToDownloader(data, "dwl");
 		}
-		
+
 	}
 }

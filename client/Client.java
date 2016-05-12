@@ -37,6 +37,9 @@ public class Client
 		socket.receive(packet);
 		utils.setHostInfo(packet);
 
+		if (utils.isShutDown())
+			return;
+
 		if (request.split(" ")[0].compareTo("upload") == 0)
 			utils.uploadFile(fileName);
 		else

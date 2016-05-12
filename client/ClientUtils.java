@@ -2,6 +2,7 @@ public class ClientUtils
 {
 	private InetAddress hostAddress;
 	private int hostPort;
+	private boolean shutdown = false;
 
 	public String getRequestInfo() throws Exception
 	{
@@ -69,16 +70,23 @@ public class ClientUtils
 		}
 	}
 
-	public void setHostInfo(DatagramPacket packet) throws Exception
+	public void setHostInfo1(DatagramPacket packet) throws Exception
 	{
 		hostAddress = packet.getAddress();
 		hostPort = packet.getPort();
 	}
 
 	@SuppressWarnings("deprecation")
-	public void setHostInfo1(DatagramPacket packet) throws Exception
+	public void setHostInfo(DatagramPacket packet) throws Exception
 	{
 		String data = new String(packet.getData());
+
+		if (data.compareTo("__quit__"))
+		{
+			System.out.println("Servers are currently not up :( Sorry");
+			shutdown = true;
+			return;
+		}
 			
 		String[] data1 = data.split(",");
 
@@ -138,6 +146,11 @@ public class ClientUtils
 		}
 		
 		System.out.println("File download was succesfull");
+	}
+
+	public boolean isShutDown()
+	{
+		return shutdown;
 	}
 
 	public void exit()
