@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.LinkedList;
+import java.awt.List;
 
 
 public class MDUtils implements java.io.Serializable
@@ -18,9 +19,35 @@ public class MDUtils implements java.io.Serializable
 		initRoles();
 	}
 
-	public synchronized void pushRM(RMInfo rmInfo)
+	// Using just one address w/ different ports
+	public InetAddress getMCAddress()
 	{
+		return InetAddress.getByName("228.5.6.7");
+	}
+
+	public String getPortForRM(int rmNum)
+	{
+		Map<Integer, String> rmPortMap = Collections.synchronizedMap(new HashMap<Integer, String>());
+		rmPortMap.put(0,"65003, 65004");
+		rmPortMap.put(1,"65005, 65006");
+		rmPortMap.put(2,"65007, 65008");
+
+		// Using 3 for the communication between the actually RM
+		rmPortMap.put(3,"65001,65002");
+		return rmPortMap.get(rmNum);
+	}
+
+	public String getMCInfo(int rmNum)
+	{
+		return getMCAddress() + "," + getPortForRM(rmNum);
+	}
+
+	public synchronized void pushRM(DatagramPacket packet)
+	{
+		RMInfo rmInfo = new RMInfo(packet);
 		rmList.push(rmInfo);
+		int rmNum = rmList.size() -1;
+		sendPacket(getMCInfo(rmNum), rmNum);
 	}
 
 	public synchronized int getNumRM()

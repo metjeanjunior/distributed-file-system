@@ -21,7 +21,7 @@ public class RMThread implements Runnable
 		else // if (data.split(",")[0].compareTo("client"))
 		{
 			if(data.split(",")[0].compareTo("upload"))
-				rUtils.sendRolePacket(data, "upl");
+				rUtils.sendRolePacket(data, "upl+");
 			else
 				rUtils.sendToDownloader(data, "dwl");
 		}

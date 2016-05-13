@@ -38,8 +38,7 @@ public class MDThread implements Runnable
 				return;
 			}
 
-			RMInfo rmInfo = new RMInfo(packet);
-			mdUtils.pushRM(rmInfo);
+			mdUtils.pushRM(packet);
 
 			if (debug)
 				System.out.println("Added host at" + packet.getAddress());

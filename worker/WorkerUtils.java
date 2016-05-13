@@ -54,7 +54,10 @@ public class WorkerUtils
 
 	public synchronized void incrementVersion(String filename)
 	{
-		fileVersionMap.put(filename, fileVersionMap.get(filename) + 1);
+		if (fileVersionMap.get(fileName) == null)
+			fileVersionMap.put(filename, 0);
+		else
+			fileVersionMap.put(filename, fileVersionMap.get(filename) + 1);
 	}
 
 	public synchronized void updateFileVersion(String filename, int version)
@@ -111,9 +114,18 @@ public class WorkerUtils
 		System.out.println("File sent succesfully");
 	}
 
-	public synchronized void recieveFile(String fileName) throws Exception
+	public synchronized void recieveFile(DatagramPacket packet) throws Exception
 	{
 		String line;
+		String uploadInfo = getDataFromPacket(packet);
+		String fileName = uploadInfo.split(",")[1];
+
+		DatagramPacket packet;
+		DatagramSocket socket = new DatagramSocket();
+		InetAddress cAddress = InetAddress.getByName(uploadInfo.split(",")[2]);
+		
+		int cPort = Integer.parseInt(uploadInfo.split(",")[3]);
+		socket.send(''.getBytes(), ''.getLength(), cAddress, cPort);
 
 		while(fileLockTaken(fileName))
 			continue;
@@ -122,11 +134,15 @@ public class WorkerUtils
 			PrintWriter writer = new PrintWriter("files/" + fileName, "UTF-8")
 			System.out.println("Recieving...");
 
-			while ((line = receivePacketAndData()).compareTo("__end__") !=0)
+			while ((line = getPacketAndData()).compareTo("__end__") !=0)
 			{
 			    System.out.println(line);
 			    writer.println(line);
+			    packet = new DatagramPacket(line.getBytes(), line.length(), 
+			    	packet.getAddress(), packet.getPort());
+			    socket.send(packet);
 			}
+			incrementVersion(fileName); 
 		returnFileLock(fileName);
 
 		writer.close();

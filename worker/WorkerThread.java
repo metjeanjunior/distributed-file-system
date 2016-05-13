@@ -25,6 +25,9 @@ public class WorkerThread implements Runnable
 			System.out.println("\t with the following info: " + data);
 		}
 
-		
+		if (data.split(",")[0].compareTo("upload") == 0)
+			wUtils.recieveFile(packet);
+		else
+			wUtils.sendFile(packet);
 	}
 }

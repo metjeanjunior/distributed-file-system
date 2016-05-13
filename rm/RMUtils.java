@@ -13,7 +13,8 @@ public class RMUtils implements java.io.Serializable
 	private boolean isUpdating = true;
 	private boolean shutdown = false;
 
-	MulticastSocket updateDirSocket; 
+	MulticastSocket updateSocket; 
+	MulticastSocket uploadSocket; 
 	
 	public RMUtils(DatagramSocket socket)
 	{
@@ -34,9 +35,9 @@ public class RMUtils implements java.io.Serializable
 	{
 		isUpdating = true;
 
-		String updateDirInfo = getPacketAndData();
+		String mcInfo = getPacketAndData();
 
-		if (updateDirInfo.compareTo("__quit__") == 0)
+		if (mcInfo.compareTo("__quit__") == 0)
 		{
 			shutdown = true;
 			isUpdating = false;
@@ -46,12 +47,14 @@ public class RMUtils implements java.io.Serializable
 
 		System.out.println("Connected to MD");
 
-		InetAddress updateDirGroup = InetAddress.getByName(updateDirInfo.split(",")[0]);
-		int updateDirPort = updateDirInfo.split(",")[1];
-		int pos = Integer.parseInt(updateDirInfo.split(",")[2]);
+		InetAddress rmGroup = InetAddress.getByName(mcInfo.split(",")[0]);
+		int updatePort = mcInfo.split(",")[1];
+		int uploadPort = Integer.parseInt(mcInfo.split(",")[2]);
 
-		updateDirSocket = new MulticastSocket(updateDirPort);
-		updateDirSocket.joinGroup(updateDirGroup);
+		updateSocket = new MulticastSocket(updatePort);
+		updateSocketupdateSocket = new MulticastSocket(uploadPort);
+		updateSocket.joinGroup(rmGroup);
+		updateSocket.joinGroup(rmGroup);
 		isUpdating = false;
 	}
 
@@ -92,6 +95,17 @@ public class RMUtils implements java.io.Serializable
 		return getDataFromPacket(packet);
 	}
 
+	// Same as above but recieves from specific socket as opposed to main socket
+	// Get packet and data from an alternate socket (meaning of name)
+	public synchronized String getPacketAndDataAltSoc(DatagramSocket socket)
+	{
+		byte[] rbuf = new byte[1024];
+		packet = new DatagramPacket(rbuf, rbuf.length);		
+		socket.receive(packet);
+
+		return getDataFromPacket(packet);
+	}
+
 	public synchronized DatagramPacket getPacket() throws Exception
 	{
 		byte[] rbuf = new byte[1024];
@@ -115,12 +129,22 @@ public class RMUtils implements java.io.Serializable
 		roleMap.put("dwl", 0);
 	}
 
+	// On steriods as it also manages updating RMs thru new socket
+	// We cant be wasteful :)
 	public void sendRolePacket(String data, String role)
 	{
+		int pass = 0;
+		if(role.compareTo("upl+") == 0)
+		{
+			pass = 1;
+			role = "upl";
+		}
+
 		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), 
 			rmList.get(getRoleRep(role).getAddress(), rmList.get(getRoleRep(role)).getPort());
 		DatagramSocket socket = new DatagramSocket();
 		socket.send(packet);
+		uploadMC(socket);
 		socket.close();
 	}
 
@@ -146,5 +170,23 @@ public class RMUtils implements java.io.Serializable
 			return "dwl";
 
 		return role;
+	}
+
+	public void uploadMC(DatagramSocket socket)
+	{
+		System.out.println("uploading prev recieved file to other farms...");
+		String line;
+		while ((line = getPacketAndDataAltSoc(socket)).compareTo("__end__") !=0)
+		{
+		    System.out.println(line);
+		 	DatagramPacket packet = new DatagramPacket(line.getBytes(), line.length(), 
+		 		socket.getLocalPort(), socket.getLocalSocketAddress());   
+		 	socket.send(packet);
+		}
+	}
+
+	public void updateMC(DatagramPacket socket)
+	{
+		
 	}
 }
