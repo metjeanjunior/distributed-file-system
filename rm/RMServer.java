@@ -10,8 +10,12 @@ public class RMServer
 
 		RMUtils rUtils = new RMUtils(socket);
 
-		int port = Integer.parseInt(args[1]);		
-		InetAddress address = InetAddress.getByName(args[0]);
+//		int port = Integer.parseInt(args[1]);		
+//		InetAddress address = InetAddress.getByName(args[0]);
+
+//		For testing on a local machine
+		int port = 4576;		
+		InetAddress address = InetAddress.getByName("localhost");
 
 		byte[] sbuf = new byte[1024];
 		byte[] rbuf = new byte[1024];
@@ -30,9 +34,10 @@ public class RMServer
 
 		while(true)
 		{
+			System.out.println("RM waiting new requests...");
 			packet = new DatagramPacket(rbuf, rbuf.length);	
 			socket.receive(packet);
-			System.out.println("Just recieved..." + rUtils.getDataFromPacket(packet));
+			System.out.println("\tJust recieved..." + rUtils.getDataFromPacket(packet));
 
 			Thread thread = new Thread(new RMThread(rUtils, packet));
 			thread.start();

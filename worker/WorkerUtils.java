@@ -10,6 +10,7 @@ public class WorkerUtils
 	DatagramSocket socket;
 	private boolean isUpdating = true;
 	private boolean shutdown = false;
+	private boolean debub = true;
 	private InetAddress rmAddress;
 	private int rmPort;
 	Map<String, Integer> fileVersionMap = Collections.synchronizedMap(new HashMap<String, Integer>());
@@ -44,8 +45,8 @@ public class WorkerUtils
 			return;
 		}
 
-		rmAddress = InetAddress.getByName(rmInfo.split(",")[0]);
-		rmPort = Integer.parseInt(rmInfo.split(",")[0]);
+		rmAddress = InetAddress.getByName(rmInfo.split(",")[0].substring(1));
+		rmPort = Integer.parseInt(rmInfo.split(",")[1]);
 
 		sendPacket("__server__", rmAddress, rmPort);
 
@@ -73,6 +74,8 @@ public class WorkerUtils
 
 	public synchronized boolean fileLockTaken(String fileName)
 	{
+		if (fileLockMap.get(fileName) == null)
+			fileLockMap.put(fileName, false);
 		return fileLockMap.get(fileName);
 	}
 
@@ -108,6 +111,19 @@ public class WorkerUtils
 		DatagramPacket packet = new DatagramPacket(rbuf, rbuf.length);		
 		socket.receive(packet);
 
+		if (debub)
+			System.out.println("\t" + "Recieving from: " + packet.getPort());
+		return getDataFromPacket(packet);
+	}
+
+	// Same as above but recieves from specific socket as opposed to main socket
+	// Get packet and data from an alternate socket (meaning of name)
+	public synchronized String getPacketAndDataAltSoc(DatagramSocket socket) throws Exception
+	{
+		byte[] rbuf = new byte[1024];
+		DatagramPacket packet = new DatagramPacket(rbuf, rbuf.length);		
+		socket.receive(packet);
+
 		return getDataFromPacket(packet);
 	}
 
@@ -127,20 +143,24 @@ public class WorkerUtils
 		String uploadInfo = getDataFromPacket(packet);
 		String fileName = uploadInfo.split(",")[1];
 
-		InetAddress cAddress = InetAddress.getByName(uploadInfo.split(",")[2]);
+		InetAddress cAddress = InetAddress.getByName(uploadInfo.split(",")[2].substring(1));
 		int cPort = Integer.parseInt(uploadInfo.split(",")[3]);
+
+		// Sent to client so they can know what address to send file to. content is meaningless
+		packet = new DatagramPacket("".getBytes(), "".length(), cAddress, cPort);
+		socket.send(packet);
 
 		while(fileLockTaken(fileName))
 			continue;
 		
 		grabFileLock(fileName);
-			System.out.println("sending file to client...");
+			System.out.println("\t" + "sending file to client...");
 
-			File f = new File(fileName);
+			File f = new File("files/" + fileName);
 			if (!f.exists()) 
 			{
 				sendPacket("__dne__", cAddress, cPort);
-				System.out.println("The file does not exit");
+				System.out.println("\t" + "The file does not exit");
 				f = null;
 				returnFileLock(fileName);
 				socket.close();
@@ -155,7 +175,7 @@ public class WorkerUtils
 		    sendPacket("__end__", cAddress, cPort);
 		returnFileLock(fileName);
 	    
-		System.out.println("File sent succesfully");
+		System.out.println("\t" + "File sent succesfully");
 		socket.close();
 	}
 
@@ -166,10 +186,10 @@ public class WorkerUtils
 		String uploadInfo = getDataFromPacket(packet);
 		String fileName = uploadInfo.split(",")[1];
 
-		InetAddress cAddress = InetAddress.getByName(uploadInfo.split(",")[2]);
+		InetAddress cAddress = InetAddress.getByName(uploadInfo.split(",")[2].substring(1));
 		int cPort = Integer.parseInt(uploadInfo.split(",")[3]);
 
-		// Sent to host so they can know what address to send file to. content is meaningless
+		// Sent to client so they can know what address to send file to. content is meaningless
 		packet = new DatagramPacket("".getBytes(), "".length(), cAddress, cPort);
 		socket.send(packet);
 
@@ -178,12 +198,12 @@ public class WorkerUtils
 
 		grabFileLock(fileName);
 			PrintWriter writer = new PrintWriter("files/" + fileName, "UTF-8");
-			System.out.println("Recieving...");
+			System.out.println("\t" + "Recieving...");
 
 			String line;
-			while ((line = getPacketAndData()).compareTo("__end__") !=0)
+			while ((line = getPacketAndDataAltSoc(socket)).compareTo("__end__") != 0)
 			{
-			    System.out.println(line);
+			    System.out.println("\t" + line);
 			    writer.println(line);
 			    packet = new DatagramPacket(line.getBytes(), line.length(), 
 			    	cAddress, cPort);
@@ -193,7 +213,7 @@ public class WorkerUtils
 		returnFileLock(fileName);
 
 		writer.close();
-		System.out.println("File received succesfully");
+		System.out.println("\t" + "File received succesfully");
 		socket.close();
 	}
 

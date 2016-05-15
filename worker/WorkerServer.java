@@ -8,8 +8,12 @@ public class WorkerServer
 
 		WorkerUtils wUtils = new WorkerUtils(socket);
 
-		int port = Integer.parseInt(args[1]);		
-		InetAddress address = InetAddress.getByName(args[0]);
+//		int port = Integer.parseInt(args[1]);		
+//		InetAddress address = InetAddress.getByName(args[0]);
+
+//		For testing on a local machine
+		int port = 4576;		
+		InetAddress address = InetAddress.getByName("localhost");
 
 		byte[] sbuf = new byte[1024];
 		byte[] rbuf = new byte[1024];
@@ -28,12 +32,14 @@ public class WorkerServer
 
 		while(true)
 		{
+			System.out.println("Worker waiting for new requests...");
 			packet = new DatagramPacket(rbuf, rbuf.length);	
 			socket.receive(packet);
 			System.out.println("Just recieved..." + wUtils.getDataFromPacket(packet));
 
 			Thread thread = new Thread(new WorkerThread(wUtils, packet));
 			thread.start();
+			System.out.println("THread finished");
 		}
 	}	
 }

@@ -8,6 +8,7 @@ public class ClientUtils
 	private int hostPort;
 	private boolean shutdown = false;
 	DatagramSocket socket;
+	private boolean debug = true;
 	
 	public ClientUtils(DatagramSocket socket)
 	{
@@ -17,14 +18,14 @@ public class ClientUtils
 	public String getRequestInfo() throws Exception
 	{
 		System.out.println("Welcome to the Beast File Sharing System");
-		System.out.println("Please type your request in the following format:");
-		System.out.println("upload/download filename");
+		System.out.println("Please type your request in the following format: upload/download filename");
+		System.out.print(">>> ");
 
 		BufferedReader keyboard = new BufferedReader( new InputStreamReader( System.in ) );
 		String request = keyboard.readLine();
 
-		String fileName = request.split(" ")[0];
-		String fileType = request.split(" ")[1];
+		String fileType = request.split(" ")[0];
+		String fileName = request.split(" ")[1];
 
 		while (!(fileType.toLowerCase().compareTo("upload") == 0) && !(fileType.toLowerCase().compareTo("download") == 0))
 		 {
@@ -33,10 +34,13 @@ public class ClientUtils
 			fileType =  keyboard.readLine().toLowerCase();
 		}
 
-		File f = new File(fileName);
+		if (fileType.compareTo("download") == 0)
+			return request;
+			
+		File f = new File("files/" + fileName);
 		while (!f.exists()) 
 		{
-			fileName = getNewFileName();
+			fileName = getNewFileName(fileName);
 
 			if (fileName.compareTo("__quit__") == 0)
 			{
@@ -44,16 +48,17 @@ public class ClientUtils
 				return fileName;
 			}
 
-			f = new File(fileName);
+			f = new File("files/" + fileName);
 
 		}
 		
 		return request;
 	}
 
-	public String getNewFileName() throws Exception
+	public String getNewFileName(String fileName) throws Exception
 	{
-		System.out.println("The file you indicated does not exists.");
+		System.out.println("You requested the following file: " + fileName);
+		System.out.println("We could not find this file.");
 		System.out.println("Would you like to change the file name?");
 
 		BufferedReader keyboard = new BufferedReader( new InputStreamReader( System.in ) );
@@ -69,7 +74,7 @@ public class ClientUtils
 
 		if (response.compareTo("yes") == 0)
 		{
-			System.out.println("Please type the name of the file >>>");
+			System.out.print("Please type the name of the file >>> ");
 			keyboard = new BufferedReader( new InputStreamReader( System.in ) );
 			response =  keyboard.readLine();
 			return response;
@@ -89,19 +94,25 @@ public class ClientUtils
 	@SuppressWarnings("deprecation")
 	public void setHostInfo(DatagramPacket packet) throws Exception
 	{
-		String data = new String(packet.getData());
+		String data = getDataFromPacket(packet);
+		
+		if (debug)
+			System.out.println("Recieved " + data);
 
-		if (data.compareTo("__quit__") == 0)
+		if (data != null && data.compareTo("__quit__") == 0)
 		{
 			System.out.println("Servers are currently not up :( Sorry");
 			shutdown = true;
 			return;
 		}
 			
-		String[] data1 = data.split(",");
+		// String[] data1 = data.split(",");
 
-		hostAddress = InetAddress.getByName(data1[0].substring(1));
-		hostPort = Integer.parseInt(data1[1]);
+		// hostAddress = InetAddress.getByName(data1[0].substring(1));
+		// hostPort = Integer.parseInt(data1[1]);
+
+		hostAddress = packet.getAddress();
+		hostPort = packet.getPort();
 	}
 
 	public void sendLine(String data) throws Exception
@@ -114,15 +125,15 @@ public class ClientUtils
 	{
 		System.out.println("uploading to " + hostAddress + " with port " + hostPort + "...");
 
-		String fileInfo = "__filename__," +fileName;
-		sendLine(fileInfo);
+		// String fileInfo = "__filename__," +fileName;
+		// sendLine(fileInfo);
 
-		BufferedReader reader = Files.newBufferedReader(Paths.get(fileName));
+		BufferedReader reader = Files.newBufferedReader(Paths.get("files/" +fileName));
 	    String line = null;
 
 	    while ((line = reader.readLine()) != null) 
 	    {
-	        System.out.println(line);
+	        // System.out.println(line);
 	    	sendLine(line);
 	    }
 
@@ -135,11 +146,11 @@ public class ClientUtils
 		System.out.println("Waiting for file from Server...");
 		String line = null;
 
-		PrintWriter writer = new PrintWriter(fileName, "UTF-8");
+		PrintWriter writer = new PrintWriter("files/" +fileName, "UTF-8");
 
 		while ((line = getPacketAndData()).compareTo("__end__") !=0)
 		{
-			System.out.println(line);
+			// System.out.println(line);
 			line += "";
 			if (line.compareTo("__dne__") ==0)
 			{

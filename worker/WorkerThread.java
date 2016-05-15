@@ -19,12 +19,12 @@ public class WorkerThread implements Runnable
 
 		try 
 		{
-			String data = wUtils.getDataFromPacket(packet);
+			 String data = wUtils.getDataFromPacket(packet);
 
 			if(debug)
 			{
-				System.out.println("Incoming connection from" + packet.getAddress() + ":" + packet.getPort());
-				System.out.println("\t with the following info: " + data);
+				System.out.println("\tIncoming connection from" + packet.getAddress() + ":" + packet.getPort());
+				System.out.println("\t\t with the following info: " + data);
 			}
 
 			if (data.split(",")[0].compareTo("upload") == 0)
@@ -36,6 +36,6 @@ public class WorkerThread implements Runnable
 		{
 			e.printStackTrace();
 		}
-
+		System.out.println("\tRequest was processed succesfully");
 	}
 }

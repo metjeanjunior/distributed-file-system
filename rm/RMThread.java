@@ -17,13 +17,14 @@ public class RMThread implements Runnable
 		try 
 		{
 			String data = rUtils.getDataFromPacket(packet);
-			
+
 			if (data.compareTo("__server__") == 0)
 			{
 				rUtils.pushWorker(packet);
 			}
 			else // if (data.split(",")[0].compareTo("client"))
 			{
+				System.out.println("\tClient request recieved");
 				if(data.split(",")[0].compareTo("upload") == 0)
 					rUtils.sendRolePacket(data, "upl+");
 				else

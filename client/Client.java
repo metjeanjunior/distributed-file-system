@@ -30,6 +30,7 @@ public class Client
 		DatagramPacket packet = new DatagramPacket(request.getBytes(), request.length(), address, port);
 
 		// connects to middleware
+		System.out.println("Connecting to MD...");
 		socket.send(packet);
 
 		// Recieve host packet

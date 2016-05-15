@@ -37,7 +37,7 @@ public class MDThread implements Runnable
 
 				if (mdUtils.getNumRM() == 3)
 				{
-					packet = new DatagramPacket("__quit".getBytes(), "__quit__".length(), packet.getAddress(), packet.getPort());
+					packet = new DatagramPacket("__quit__".getBytes(), "__quit__".length(), packet.getAddress(), packet.getPort());
 					socket.send(packet);
 					System.out.println("Connection from previous RM rejected (we're full)!");
 					return;
@@ -52,9 +52,9 @@ public class MDThread implements Runnable
 			{
 				if (debug)
 					System.out.println("A Worker just connected");
-				if (mdUtils.getNumRM() == 0 || mdUtils.getNumRM() == 3)
+				if (mdUtils.getNumRM() == 0 || mdUtils.subFarmIsFull())
 				{
-					packet = new DatagramPacket("__quit".getBytes(), "__quit__".length(), packet.getAddress(), packet.getPort());
+					packet = new DatagramPacket("__quit__".getBytes(), "__quit__".length(), packet.getAddress(), packet.getPort());
 					socket.send(packet);
 					System.out.println("Connection from previous Worker rejected (we're either full or empty)!");
 					return;
@@ -63,6 +63,8 @@ public class MDThread implements Runnable
 				RMInfo rm = mdUtils.getnextRM();
 				String rmInfo = rm.getAddress() + "," + rm.getPort();
 				mdUtils.sendGenericPacket(rmInfo, packet.getAddress(), packet.getPort());
+				rm.incrNumWorkers();
+				System.out.println("Worker was connected to " + rmInfo);
 			}
 			else
 			{
@@ -70,13 +72,13 @@ public class MDThread implements Runnable
 					System.out.println("A Client just connected");
 				if (mdUtils.getNumRM() == 0)
 				{
-					packet = new DatagramPacket("__quit".getBytes(), "__quit__".length(), packet.getAddress(), packet.getPort());
+					packet = new DatagramPacket("__quit__".getBytes(), "__quit__".length(), packet.getAddress(), packet.getPort());
 					socket.send(packet);
-					System.out.println("Connection from previous client rejected (we're either empty)!");
+					System.out.println("Connection from previous client rejected (we're empty)!");
 					return;
 				}
 
-				String cInfo = data.split(" ")[0] + ',' + data.split(" ")[1] 
+				String cInfo = data.split(" ")[0] + ',' + data.split(" ")[1] + ','
 					+ packet.getAddress() + "," + packet.getPort();
 				if (data.split(" ")[0].compareTo("upload") == 0)
 					mdUtils.sendRolePacket(cInfo, "upl");

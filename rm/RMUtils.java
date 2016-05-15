@@ -15,7 +15,8 @@ public class RMUtils implements java.io.Serializable
 	private boolean shutdown = false;
 
 	MulticastSocket updateSocket; 
-	MulticastSocket uploadSocket; 
+	MulticastSocket uploadSocket;
+	private boolean debug = true; 
 	
 	public RMUtils(DatagramSocket socket)
 	{
@@ -48,14 +49,22 @@ public class RMUtils implements java.io.Serializable
 
 		System.out.println("Connected to MD");
 
-		InetAddress rmGroup = InetAddress.getByName(mcInfo.split(",")[0]);
+		if (debug)
+			System.out.println("Setting up with:" + mcInfo);
+
+		InetAddress rmGroup = InetAddress.getByName(mcInfo.split(",")[0].substring(1));
 		int updatePort = Integer.parseInt(mcInfo.split(",")[1]);
 		int uploadPort = Integer.parseInt(mcInfo.split(",")[2]);
 
 		updateSocket = new MulticastSocket(updatePort);
 		uploadSocket = new MulticastSocket(uploadPort);
 		updateSocket.joinGroup(rmGroup);
-		updateSocket.joinGroup(rmGroup);
+		uploadSocket.joinGroup(rmGroup);
+
+		initRoles();
+
+		if (debug)
+			System.out.println("Done setting up");
 		isUpdating = false;
 	}
 
@@ -113,6 +122,8 @@ public class RMUtils implements java.io.Serializable
 	{
 		WorkerInfo workerInfo = new WorkerInfo(packet);
 		workerList.push(workerInfo);
+		setRole(0, getnextRole());
+		System.out.println("\t" + "Just added a new worker to subfarm.");
 		// primary = primary == null ? workerInfo : primary;
 		// primaryNum = primaryNum == -1 ? workerList.size()-1 :primaryNum;
 	}
@@ -135,15 +146,22 @@ public class RMUtils implements java.io.Serializable
 			role = "upl";
 		}
 
+		System.out.println("\t" + "Sending " + data + " to " + role);
+		System.out.println("\t" + "Find why we have upl+ in Utils");
+
+		InetAddress address = workerList.get(getRoleRep(role)).getAddress();
+		int port = workerList.get(getRoleRep(role)).getPort();
+		System.out.println("data being sent to " + address + ":" + port);
+
 		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), 
-				workerList.get(getRoleRep(role)).getAddress(), workerList.get(getRoleRep(role)).getPort());
+				address, port);
 		DatagramSocket socket = new DatagramSocket();
 		socket.send(packet);
-		uploadMC(socket);
+		// uploadMC(socket);
 		socket.close();
 	}
 
-	public synchronized void setRole(String role, int rmNum)
+	public synchronized void setRole(int rmNum, String role)
 	{
 		roleMap.put(role, rmNum);
 	}
@@ -164,6 +182,18 @@ public class RMUtils implements java.io.Serializable
 			return "dwl";
 	}
 
+	public synchronized String getnextRole()
+	{
+		if (roleMap.get("upl") == roleMap.get("dwl"))
+			return "dwl";
+		if (roleMap.get("upl") == roleMap.get("upd"))
+			return "upl";
+		if (roleMap.get("dwl") == roleMap.get("upd"))
+			return "dwl";
+		else
+			return "dwl";
+	}
+
 	public InetAddress getWorkerAddress(int workerNum)
 	{
 		return workerList.get(workerNum).getAddress();
@@ -176,11 +206,11 @@ public class RMUtils implements java.io.Serializable
 
 	public void uploadMC(DatagramSocket socket) throws Exception
 	{
-		System.out.println("uploading prev recieved file to other farms...");
+		System.out.println("\t" + "uploading prev recieved file to other farms...");
 		String line;
 		while ((line = getPacketAndDataAltSoc(socket)).compareTo("__end__") != 0)
 		{
-		    System.out.println(line);
+		    System.out.println("\t" + line);
 		 	DatagramPacket packet = new DatagramPacket(line.getBytes(), line.length(), 
 		 		socket.getLocalPort(), socket.getLocalSocketAddress());   
 		 	socket.send(packet);

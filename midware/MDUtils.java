@@ -22,15 +22,15 @@ public class MDUtils implements java.io.Serializable
 	// Using just one address w/ different ports
 	public InetAddress getMCAddress() throws Exception
 	{
-		return InetAddress.getByName("228.5.6.7");
+		return InetAddress.getByName("228.66.77.88");
 	}
 
 	public String getPortForRM(int rmNum)
 	{
 		Map<Integer, String> rmPortMap = Collections.synchronizedMap(new HashMap<Integer, String>());
-		rmPortMap.put(0,"65003, 65004");
-		rmPortMap.put(1,"65005, 65006");
-		rmPortMap.put(2,"65007, 65008");
+		rmPortMap.put(0,"65003,65004");
+		rmPortMap.put(1,"65005,65006");
+		rmPortMap.put(2,"65007,65008");
 
 		// Using 3 for the communication between the actually RM
 		rmPortMap.put(3,"65001,65002");
@@ -46,13 +46,21 @@ public class MDUtils implements java.io.Serializable
 	{
 		RMInfo rmInfo = new RMInfo(packet);
 		rmList.push(rmInfo);
-		int rmNum = rmList.size() -1;
-		sendPacket(getMCInfo(rmNum), rmNum);
+		setRole(0, getnextRole());
+		sendPacket(getMCInfo(3), 0);
 	}
 
 	public synchronized int getNumRM()
 	{
 		return rmList.size();
+	}
+
+	public synchronized boolean subFarmIsFull()
+	{
+		int totalW = 0;
+		for (RMInfo rm: rmList)
+			totalW += rm.getNumWorker();
+		return totalW == 9;
 	}
 
 	public RMInfo getnextRM()
@@ -89,6 +97,7 @@ public class MDUtils implements java.io.Serializable
 
 	public void sendRolePacket(String data, String role) throws Exception
 	{
+		System.out.println("Sending " + data + " to " + role);
 		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), 
 			rmList.get(getRoleRep(role)).getAddress(), rmList.get(getRoleRep(role)).getPort());
 		DatagramSocket socket = new DatagramSocket();
@@ -104,7 +113,7 @@ public class MDUtils implements java.io.Serializable
 		socket.close();
 	}
 
-	public synchronized void setRole(String role, int rmNum)
+	public synchronized void setRole(int rmNum, String role)
 	{
 		roleMap.put(role, rmNum);
 	}
@@ -114,13 +123,14 @@ public class MDUtils implements java.io.Serializable
 		return roleMap.get(role);
 	}
 
-	public synchronized String nextRole()
+	public synchronized String getnextRole()
 	{
 		if (roleMap.get("upl") == roleMap.get("dwl"))
 			return "dwl";
 		if (roleMap.get("upl") == roleMap.get("upd"))
 			return "upl";
-		// if (roleMap.get("dwl") == roleMap.get("upd"))
+		if (roleMap.get("dwl") == roleMap.get("upd"))
+			return "dwl";
 		else
 			return "dwl";
 	}
