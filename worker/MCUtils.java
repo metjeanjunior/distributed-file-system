@@ -1,6 +1,4 @@
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.net.*;
 
 public class MCUtils 
@@ -11,11 +9,16 @@ public class MCUtils
 	private boolean isUploading = false;
 	WorkerUtils wUtils;
 
-	public MCUtils(WorkerUtils wUtils) throws Exception
+	public MCUtils(WorkerUtils wUtils, int type) throws Exception
 	{
 		this.wUtils = wUtils;
 		group = wUtils.getGroup();
-		port = wUtils.getUploadPort();
+
+		if (type == 1)
+			port = wUtils.getUploadPort();
+		else
+			port = wUtils.getUpdatePort();
+
 		socket = new MulticastSocket(port);
 		socket.joinGroup(group);
 	}
@@ -44,9 +47,9 @@ public class MCUtils
 
 		wUtils.grabFileLock(fileName);
 			PrintWriter writer = new PrintWriter("files/" + fileName, "UTF-8");
-			System.out.println("\t" + "Recieving...");
 
 			String line;
+			System.out.println("\t" + "Recieving...");
 			while ((line = readFromSocket()).compareTo("__end__") != 0)
 			{
 			    System.out.println("\t" + line);
@@ -57,6 +60,15 @@ public class MCUtils
 
 		writer.close();
 		System.out.println("Finished upload");
+		isUploading = false;
+	}
+
+	public void passRecieve() throws Exception
+	{
+		isUploading = true;
+		String line;
+		while ((line = readFromSocket()).compareTo("__end__") != 0)
+			continue;
 		isUploading = false;
 	}
 }

@@ -30,6 +30,11 @@ public class WorkerServer
 		if (wUtils.isShutDown())
 			return;
 
+		Thread uploadThread = new Thread(new UploadMCThread(wUtils));
+		uploadThread.start();
+		Thread updateThread = new Thread(new UpdateMCThread(wUtils));
+		updateThread.start();
+
 		while(true)
 		{
 			System.out.println("Worker waiting for new requests...");

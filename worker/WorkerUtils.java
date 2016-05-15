@@ -81,22 +81,22 @@ public class WorkerUtils
 		System.out.println("Connected to RM");
 	}
 
-	public synchronized void incrementVersion(String filename)
+	public synchronized void incrementVersion(String fileName)
 	{
-		if (fileVersionMap.get(filename) == null)
-			fileVersionMap.put(filename, 0);
+		if (fileVersionMap.get(fileName) == null)
+			fileVersionMap.put(fileName, 0);
 		else
-			fileVersionMap.put(filename, fileVersionMap.get(filename) + 1);
+			fileVersionMap.put(fileName, fileVersionMap.get(fileName) + 1);
 	}
 
-	public synchronized void updateFileVersion(String filename, int version)
+	public synchronized void updateFileVersion(String fileName, int version)
 	{
-		fileVersionMap.put(filename, version);
+		fileVersionMap.put(fileName, version);
 	}
 
-	public synchronized int getFileVersion(String filename)
+	public synchronized int getFileVersion(String fileName)
 	{
-		return (fileVersionMap.get(filename) == null ? -1 : fileVersionMap.get(filename));
+		return (fileVersionMap.get(fileName) == null ? -1 : fileVersionMap.get(fileName));
 	}
 
 	public synchronized boolean fileLockTaken(String fileName)
@@ -106,14 +106,14 @@ public class WorkerUtils
 		return fileLockMap.get(fileName);
 	}
 
-	public synchronized void grabFileLock(String filename)
+	public synchronized void grabFileLock(String fileName)
 	{
-		fileLockMap.put(filename, true);
+		fileLockMap.put(fileName, true);
 	}
 
-	public synchronized void returnFileLock(String filename)
+	public synchronized void returnFileLock(String fileName)
 	{
-		fileLockMap.put(filename, false);
+		fileLockMap.put(fileName, false);
 	}
 
 
@@ -225,7 +225,11 @@ public class WorkerUtils
 
 		selfUpload = true;
 
+		String fileInfo = fileName + ',' + getFileVersion(fileName);
+		sendMCUpload(fileInfo);
+
 		grabFileLock(fileName);
+
 			PrintWriter writer = new PrintWriter("files/" + fileName, "UTF-8");
 			System.out.println("\t" + "Recieving...");
 
@@ -248,6 +252,11 @@ public class WorkerUtils
 		socket.close();
 	}
 
+	public boolean selfUpload()
+	{
+		return selfUpload;
+	}
+
 	public  InetAddress getGroup()
 	{
 		return group;
@@ -263,8 +272,9 @@ public class WorkerUtils
 		return uploadPort;
 	}
 
-	public synchronized void stuff()
+	public synchronized void sendMCUpload(String data) throws Exception
 	{
-
+		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), group, uploadPort);
+		uploadSocket.send(packet);
 	}
 }
