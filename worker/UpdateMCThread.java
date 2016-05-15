@@ -22,8 +22,8 @@ public class UpdateMCThread implements Runnable
 			System.out.println("MC worker group update up");
 			try 
 			{
-				System.out.println("Incoming fileInfo: " + fileInfo);
 				fileInfo = mUtils.readFromSocket();
+				System.out.println("Incoming update fileInfo: " + fileInfo);
 				filename = fileInfo.split(",")[0];
 				fileVer = Integer.parseInt(fileInfo.split(",")[1]);
 

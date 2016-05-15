@@ -23,25 +23,27 @@ public class MCUtils
 		socket.joinGroup(group);
 	}
 
-	public boolean isUploading()
+	public synchronized boolean isUploading()
 	{
 		return isUploading;
 	}
 
-	public String readFromSocket() throws Exception
+	public synchronized String readFromSocket() throws Exception
 	{
 		String socketString = null; 
 		byte[] buf = new byte[1000];
 		DatagramPacket recv = new DatagramPacket(buf, buf.length);
+		System.out.println("Reading from MC socket...");
 		socket.receive(recv);
 		socketString = new String(recv.getData(), 0, recv.getLength());
 		System.out.println("read: " + socketString);
 		return socketString;
 	}
 
-	public void recieveFile(String fileName) throws Exception
+	public synchronized void recieveFile(String fileInfo) throws Exception
 	{
 		isUploading = true;
+		String fileName = fileInfo.split(",")[0];
 		while(wUtils.fileLockTaken(fileName))
 			continue;
 
@@ -49,7 +51,7 @@ public class MCUtils
 			PrintWriter writer = new PrintWriter("files/" + fileName, "UTF-8");
 
 			String line;
-			System.out.println("\t" + "Recieving...");
+			System.out.println("\t" + "Recieving(" +fileName + ")...");
 			while ((line = readFromSocket()).compareTo("__end__") != 0)
 			{
 			    System.out.println("\t" + line);

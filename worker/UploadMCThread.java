@@ -13,15 +13,15 @@ public class UploadMCThread implements Runnable
 
 	public void run()
 	{
-		String filename = null;
+		String fileInfo = null;
 
 		while (true) 
 		{
 			System.out.println("MC worker group upload up");
 			try 
 			{
-				filename = mUtils.readFromSocket();
-				System.out.println("Incoming file: " + filename);
+				fileInfo = mUtils.readFromSocket();
+				System.out.println("Incoming upload file: " + fileInfo);
 
 				if(wUtils.selfUpload())
 				{
@@ -29,7 +29,7 @@ public class UploadMCThread implements Runnable
 						continue;
 					continue;
 				}
-				mUtils.recieveFile(filename);
+				mUtils.recieveFile(fileInfo);
 				while (mUtils.isUploading())
 					continue;
 			} 

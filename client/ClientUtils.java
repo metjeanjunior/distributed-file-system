@@ -162,6 +162,7 @@ public class ClientUtils
 			}
 			
 		    writer.println(line);
+		    System.out.println("download doesnt work. fix!!!!!!");
 		}
 		
 		System.out.println("File download was succesfull");

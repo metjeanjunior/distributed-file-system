@@ -229,7 +229,6 @@ public class WorkerUtils
 		sendMCUpload(fileInfo);
 
 		grabFileLock(fileName);
-
 			PrintWriter writer = new PrintWriter("files/" + fileName, "UTF-8");
 			System.out.println("\t" + "Recieving...");
 
@@ -238,11 +237,9 @@ public class WorkerUtils
 			{
 			    System.out.println("\t" + line);
 			    writer.println(line);
-			    // packet = new DatagramPacket(line.getBytes(), line.length(), 
-			    // 	cAddress, cPort);
-			    socket.send(packet);
-			    uploadSocket.send(packet);
+			    sendMCUpload(line);
 			}
+			sendMCUpload("__end__");
 			incrementVersion(fileName); 
 		returnFileLock(fileName);
 
@@ -252,7 +249,7 @@ public class WorkerUtils
 		socket.close();
 	}
 
-	public boolean selfUpload()
+	public synchronized boolean selfUpload()
 	{
 		return selfUpload;
 	}
@@ -276,5 +273,7 @@ public class WorkerUtils
 	{
 		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), group, uploadPort);
 		uploadSocket.send(packet);
+		// System.out.println("Sending to " + group + ":" + uploadPort);
+		// System.out.println("\t\t\t\t\t\t"+data);
 	}
 }
