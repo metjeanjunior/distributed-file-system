@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.LinkedList;
 
+@SuppressWarnings("serial")
 public class RMUtils implements java.io.Serializable
 {
 	private DatagramSocket socket;
@@ -31,7 +32,7 @@ public class RMUtils implements java.io.Serializable
 		return shutdown;
 	}
 
-	public void setUp()
+	public void setUp() throws Exception
 	{
 		isUpdating = true;
 
@@ -48,11 +49,11 @@ public class RMUtils implements java.io.Serializable
 		System.out.println("Connected to MD");
 
 		InetAddress rmGroup = InetAddress.getByName(mcInfo.split(",")[0]);
-		int updatePort = mcInfo.split(",")[1];
+		int updatePort = Integer.parseInt(mcInfo.split(",")[1]);
 		int uploadPort = Integer.parseInt(mcInfo.split(",")[2]);
 
 		updateSocket = new MulticastSocket(updatePort);
-		updateSocketupdateSocket = new MulticastSocket(uploadPort);
+		uploadSocket = new MulticastSocket(uploadPort);
 		updateSocket.joinGroup(rmGroup);
 		updateSocket.joinGroup(rmGroup);
 		isUpdating = false;
@@ -67,12 +68,6 @@ public class RMUtils implements java.io.Serializable
 
 	public synchronized void sendGenericPacket(String data, DatagramPacket genPacket) throws Exception
 	{
-		if (data.length() == 0)
-		{
-			socket.send(packet);
-			return;
-		}
-		
 		genPacket = new DatagramPacket(data.getBytes(), data.length(), genPacket.getAddress(), genPacket.getPort());
 		socket.send(genPacket);
 	}
@@ -80,8 +75,8 @@ public class RMUtils implements java.io.Serializable
 	@SuppressWarnings("deprecation")
 	public String getDataFromPacket(DatagramPacket packet) throws Exception
 	{
-		bin = new ByteArrayInputStream(packet.getData(), 0, packet.getLength());
-		dis = new DataInputStream(bin);
+		ByteArrayInputStream bin = new ByteArrayInputStream(packet.getData(), 0, packet.getLength());
+		DataInputStream dis = new DataInputStream(bin);
 
 		return dis.readLine();
 	}
@@ -89,7 +84,7 @@ public class RMUtils implements java.io.Serializable
 	public synchronized String getPacketAndData() throws Exception
 	{
 		byte[] rbuf = new byte[1024];
-		packet = new DatagramPacket(rbuf, rbuf.length);		
+		DatagramPacket packet = new DatagramPacket(rbuf, rbuf.length);		
 		socket.receive(packet);
 
 		return getDataFromPacket(packet);
@@ -97,10 +92,10 @@ public class RMUtils implements java.io.Serializable
 
 	// Same as above but recieves from specific socket as opposed to main socket
 	// Get packet and data from an alternate socket (meaning of name)
-	public synchronized String getPacketAndDataAltSoc(DatagramSocket socket)
+	public synchronized String getPacketAndDataAltSoc(DatagramSocket socket) throws Exception
 	{
 		byte[] rbuf = new byte[1024];
-		packet = new DatagramPacket(rbuf, rbuf.length);		
+		DatagramPacket packet = new DatagramPacket(rbuf, rbuf.length);		
 		socket.receive(packet);
 
 		return getDataFromPacket(packet);
@@ -109,7 +104,7 @@ public class RMUtils implements java.io.Serializable
 	public synchronized DatagramPacket getPacket() throws Exception
 	{
 		byte[] rbuf = new byte[1024];
-		packet = new DatagramPacket(rbuf, rbuf.length);		
+		DatagramPacket packet = new DatagramPacket(rbuf, rbuf.length);		
 		socket.receive(packet);
 		return packet;
 	}
@@ -141,7 +136,7 @@ public class RMUtils implements java.io.Serializable
 		}
 
 		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), 
-			rmList.get(getRoleRep(role).getAddress(), rmList.get(getRoleRep(role)).getPort());
+				workerList.get(getRoleRep(role)).getAddress(), workerList.get(getRoleRep(role)).getPort()));
 		DatagramSocket socket = new DatagramSocket();
 		socket.send(packet);
 		uploadMC(socket);
@@ -160,19 +155,16 @@ public class RMUtils implements java.io.Serializable
 
 	public synchronized String nextRole()
 	{
-		String role;
-
 		if (roleMap.get("upl") == roleMap.get("dwl"))
 			return "dwl";
 		if (roleMap.get("upl") == roleMap.get("upd"))
 			return "upl";
-		if (roleMap.get("dwl") == roleMap.get("upd"))
+		// if (roleMap.get("dwl") == roleMap.get("upd"))
+		else
 			return "dwl";
-
-		return role;
 	}
 
-	public void uploadMC(DatagramSocket socket)
+	public void uploadMC(DatagramSocket socket) throws Exception
 	{
 		System.out.println("uploading prev recieved file to other farms...");
 		String line;
