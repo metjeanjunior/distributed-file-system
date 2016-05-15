@@ -23,12 +23,12 @@ public class RMInfo
 		return packet.getAddress();
 	}
 
-	public synchronized void incrRoles
+	public synchronized void incrRoles()
 	{
 		numRoles++;
 	}
 
-	public synchronized void decrRoles
+	public synchronized void decrRoles()
 	{
 		numRoles--;
 	}
@@ -58,7 +58,7 @@ public class RMInfo
 		isUp = false;
 	}
 
-	public synchronized resurect()
+	public synchronized void resurect()
 	{
 		isUp = true;
 	}

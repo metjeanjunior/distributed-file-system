@@ -1,8 +1,18 @@
+import java.io.*;
+import java.net.*;
+import java.nio.file.*;
+
 public class ClientUtils
 {
 	private InetAddress hostAddress;
 	private int hostPort;
 	private boolean shutdown = false;
+	DatagramSocket socket;
+	
+	public ClientUtils(DatagramSocket socket)
+	{
+		this.socket = socket;
+	}
 
 	public String getRequestInfo() throws Exception
 	{
@@ -16,12 +26,10 @@ public class ClientUtils
 		String fileName = request.split(" ")[0];
 		String fileType = request.split(" ")[1];
 
-		while (!(fileType.toLowerCase.compareTo("upload") == 0) && !(fileType.toLowerCase.compareTo("download") == 0))
+		while (!(fileType.toLowerCase().compareTo("upload") == 0) && !(fileType.toLowerCase().compareTo("download") == 0))
 		 {
 			System.out.println("Type upload/download");
 			System.out.print(">>> ");
-
-			BufferedReader keyboard = new BufferedReader( new InputStreamReader( System.in ) );
 			fileType =  keyboard.readLine().toLowerCase();
 		}
 
@@ -39,6 +47,8 @@ public class ClientUtils
 			f = new File(fileName);
 
 		}
+		
+		return request;
 	}
 
 	public String getNewFileName() throws Exception
@@ -46,6 +56,7 @@ public class ClientUtils
 		System.out.println("The file you indicated does not exists.");
 		System.out.println("Would you like to change the file name?");
 
+		BufferedReader keyboard = new BufferedReader( new InputStreamReader( System.in ) );
 		String response = "";
 
 		while (!(response.compareTo("yes") == 0) && !(response.compareTo("no") == 0))
@@ -53,13 +64,12 @@ public class ClientUtils
 			System.out.println("Type yes/no");
 			System.out.print(">>> ");
 
-			BufferedReader keyboard = new BufferedReader( new InputStreamReader( System.in ) );
 			response =  keyboard.readLine().toLowerCase();
 		}
 
 		if (response.compareTo("yes") == 0)
 		{
-			System.out.println("Please type the name of the file >>>")
+			System.out.println("Please type the name of the file >>>");
 			keyboard = new BufferedReader( new InputStreamReader( System.in ) );
 			response =  keyboard.readLine();
 			return response;
@@ -81,7 +91,7 @@ public class ClientUtils
 	{
 		String data = new String(packet.getData());
 
-		if (data.compareTo("__quit__"))
+		if (data.compareTo("__quit__") == 0)
 		{
 			System.out.println("Servers are currently not up :( Sorry");
 			shutdown = true;
@@ -96,19 +106,18 @@ public class ClientUtils
 
 	public void sendLine(String data) throws Exception
 	{
-		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), getHostAddress(), getHostPort());
+		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), hostAddress, hostPort);
 		socket.send(packet);
 	}
 
 	public void uploadFile(String fileName) throws Exception
 	{
 		System.out.println("uploading to " + hostAddress + " with port " + hostPort + "...");
-		Charset charset = Charset.forName("US-ASCII");
 
 		String fileInfo = "__filename__," +fileName;
 		sendLine(fileInfo);
 
-		BufferedReader reader = Files.newBufferedReader(Paths.get(fileName), charset);
+		BufferedReader reader = Files.newBufferedReader(Paths.get(fileName));
 	    String line = null;
 
 	    while ((line = reader.readLine()) != null) 
@@ -124,7 +133,6 @@ public class ClientUtils
 	public void downloadFile(String fileName) throws Exception
 	{
 		System.out.println("Waiting for file from Server...");
-		Charset charset = Charset.forName("US-ASCII");
 		String line = null;
 
 		PrintWriter writer = new PrintWriter(fileName, "UTF-8");
@@ -146,6 +154,24 @@ public class ClientUtils
 		}
 		
 		System.out.println("File download was succesfull");
+	}
+
+	@SuppressWarnings("deprecation")
+	public String getDataFromPacket(DatagramPacket packet) throws Exception
+	{
+		ByteArrayInputStream bin = new ByteArrayInputStream(packet.getData(), 0, packet.getLength());
+		DataInputStream dis = new DataInputStream(bin);
+
+		return dis.readLine();
+	}
+
+	public synchronized String getPacketAndData() throws Exception
+	{
+		byte[] rbuf = new byte[1024];
+		DatagramPacket packet = new DatagramPacket(rbuf, rbuf.length);		
+		socket.receive(packet);
+
+		return getDataFromPacket(packet);
 	}
 
 	public boolean isShutDown()

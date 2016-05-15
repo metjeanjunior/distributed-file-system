@@ -176,7 +176,7 @@ public class RMUtils implements java.io.Serializable
 	{
 		System.out.println("uploading prev recieved file to other farms...");
 		String line;
-		while ((line = getPacketAndDataAltSoc(socket)).compareTo("__end__") !=0)
+		while ((line = getPacketAndDataAltSoc(socket)).compareTo("__end__") != 0)
 		{
 		    System.out.println(line);
 		 	DatagramPacket packet = new DatagramPacket(line.getBytes(), line.length(), 

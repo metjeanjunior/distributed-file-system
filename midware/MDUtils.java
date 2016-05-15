@@ -1,26 +1,26 @@
-import java.io.*;
 import java.net.*;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.LinkedList;
-import java.awt.List;
 
 
+@SuppressWarnings("serial")
 public class MDUtils implements java.io.Serializable
 {
+	DatagramSocket socket;
 	private LinkedList<RMInfo> rmList = new LinkedList<RMInfo>();
 	Map<String, Integer> roleMap = Collections.synchronizedMap(new HashMap<String, Integer>());
 	// private LinkedList<WorkerInfo> workerList = new LinkedList<WorkerInfo>();
 
-	public MdServerUtils(DatagramSocket socket)
+	public MDUtils(DatagramSocket socket)
 	{
 		this.socket = socket;
 		initRoles();
 	}
 
 	// Using just one address w/ different ports
-	public InetAddress getMCAddress()
+	public InetAddress getMCAddress() throws Exception
 	{
 		return InetAddress.getByName("228.5.6.7");
 	}
@@ -37,12 +37,12 @@ public class MDUtils implements java.io.Serializable
 		return rmPortMap.get(rmNum);
 	}
 
-	public String getMCInfo(int rmNum)
+	public String getMCInfo(int rmNum) throws Exception
 	{
 		return getMCAddress() + "," + getPortForRM(rmNum);
 	}
 
-	public synchronized void pushRM(DatagramPacket packet)
+	public synchronized void pushRM(DatagramPacket packet) throws Exception
 	{
 		RMInfo rmInfo = new RMInfo(packet);
 		rmList.push(rmInfo);
@@ -78,7 +78,7 @@ public class MDUtils implements java.io.Serializable
 		roleMap.put("dwl", 0);
 	}
 
-	public void sendPacket(String data, int rmNum)
+	public void sendPacket(String data, int rmNum) throws Exception
 	{
 		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), 
 			rmList.get(rmNum).getAddress(), rmList.get(rmNum).getPort());
@@ -87,7 +87,7 @@ public class MDUtils implements java.io.Serializable
 		socket.close();
 	}
 
-	public void sendRolePacket(String data, String role)
+	public void sendRolePacket(String data, String role) throws Exception
 	{
 		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), 
 			rmList.get(getRoleRep(role)).getAddress(), rmList.get(getRoleRep(role)).getPort());
@@ -96,9 +96,9 @@ public class MDUtils implements java.io.Serializable
 		socket.close();
 	}
 
-	public void sendGenericPacket(String data, InetAddress address, int port)
+	public void sendGenericPacket(String data, InetAddress address, int port) throws Exception
 	{
-		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), address, port)
+		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), address, port);
 		DatagramSocket socket = new DatagramSocket();
 		socket.send(packet);
 		socket.close();
@@ -116,15 +116,12 @@ public class MDUtils implements java.io.Serializable
 
 	public synchronized String nextRole()
 	{
-		String role;
-
 		if (roleMap.get("upl") == roleMap.get("dwl"))
 			return "dwl";
 		if (roleMap.get("upl") == roleMap.get("upd"))
 			return "upl";
-		if (roleMap.get("dwl") == roleMap.get("upd"))
+		// if (roleMap.get("dwl") == roleMap.get("upd"))
+		else
 			return "dwl";
-
-		return role;
 	}
 }

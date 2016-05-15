@@ -85,6 +85,39 @@ public class WorkerUtils
 		fileLockMap.put(filename, false);
 	}
 
+
+	public synchronized void sendPacket(String data, InetAddress address, int port) throws Exception
+	{
+		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), address, port);
+		socket.send(packet);
+	}
+
+	@SuppressWarnings("deprecation")
+	public String getDataFromPacket(DatagramPacket packet) throws Exception
+	{
+		ByteArrayInputStream bin = new ByteArrayInputStream(packet.getData(), 0, packet.getLength());
+		DataInputStream dis = new DataInputStream(bin);
+
+		return dis.readLine();
+	}
+
+	public synchronized String getPacketAndData() throws Exception
+	{
+		byte[] rbuf = new byte[1024];
+		packet = new DatagramPacket(rbuf, rbuf.length);		
+		socket.receive(packet);
+
+		return getDataFromPacket(packet);
+	}
+
+	public synchronized DatagramPacket getPacket() throws Exception
+	{
+		byte[] rbuf = new byte[1024];
+		packet = new DatagramPacket(rbuf, rbuf.length);		
+		socket.receive(packet);
+		return packet;
+	}
+
 	public synchronized void sendFile(String fileName, InetAddress address, int port) throws Exception
 	{
 		while(fileLockTaken(fileName))
@@ -125,13 +158,15 @@ public class WorkerUtils
 		InetAddress cAddress = InetAddress.getByName(uploadInfo.split(",")[2]);
 		
 		int cPort = Integer.parseInt(uploadInfo.split(",")[3]);
+
+		// Sent to host so they can know what address to send file to. content is meaningless
 		socket.send(''.getBytes(), ''.getLength(), cAddress, cPort);
 
 		while(fileLockTaken(fileName))
 			continue;
 
 		grabFileLock(fileName);
-			PrintWriter writer = new PrintWriter("files/" + fileName, "UTF-8")
+			PrintWriter writer = new PrintWriter("files/" + fileName, "UTF-8");
 			System.out.println("Recieving...");
 
 			while ((line = getPacketAndData()).compareTo("__end__") !=0)
@@ -139,7 +174,7 @@ public class WorkerUtils
 			    System.out.println(line);
 			    writer.println(line);
 			    packet = new DatagramPacket(line.getBytes(), line.length(), 
-			    	packet.getAddress(), packet.getPort());
+			    	cAddress, cPort);
 			    socket.send(packet);
 			}
 			incrementVersion(fileName); 
@@ -149,61 +184,7 @@ public class WorkerUtils
 		System.out.println("File received succesfully");
 	}
 
-	public synchronized void sendPacket(String data, InetAddress address, int port) throws Exception
-	{
-		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), address, port);
-		socket.send(packet);
-	}
-
-	@SuppressWarnings("deprecation")
-	public String getDataFromPacket(DatagramPacket packet) throws Exception
-	{
-		ByteArrayInputStream bin = new ByteArrayInputStream(packet.getData(), 0, packet.getLength());
-		DataInputStream dis = new DataInputStream(bin);
-
-		return dis.readLine();
-	}
-
-	public synchronized String getPacketAndData() throws Exception
-	{
-		byte[] rbuf = new byte[1024];
-		packet = new DatagramPacket(rbuf, rbuf.length);		
-		socket.receive(packet);
-
-		return getDataFromPacket(packet);
-	}
-
-	public synchronized DatagramPacket getPacket() throws Exception
-	{
-		byte[] rbuf = new byte[1024];
-		packet = new DatagramPacket(rbuf, rbuf.length);		
-		socket.receive(packet);
-		return packet;
-	}
-
-	public String getDownloader()
-	{
-
-	}
-
-	public void sendToDownloader()
-	{
-		
-	}
-
-	// Returns the server that facilitates the upload request from the client
-	public String getUploadder()
-	{
-
-	}
-
-	public void sendToUploader()
-	{
-
-	}
-
-	// Returns the server that facilitates the update of the directory
-	public String getUpdater()
+	public synchronized void 
 	{
 
 	}
