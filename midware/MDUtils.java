@@ -34,6 +34,9 @@ public class MDUtils implements java.io.Serializable
 
 		// Using 3 for the communication between the actually RM
 		rmPortMap.put(3,"65001,65002");
+
+		if (rmNum == 4)
+			return rmPortMap.get(3) + ',' + rmPortMap.get(rmList.size() - 1);
 		return rmPortMap.get(rmNum);
 	}
 
@@ -47,7 +50,7 @@ public class MDUtils implements java.io.Serializable
 		RMInfo rmInfo = new RMInfo(packet);
 		rmList.push(rmInfo);
 		setRole(0, getnextRole());
-		sendPacket(getMCInfo(3), 0);
+		sendPacket(getMCInfo(4), 0);
 	}
 
 	public synchronized int getNumRM()

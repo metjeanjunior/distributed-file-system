@@ -8,13 +8,25 @@ import java.nio.file.*;
 public class WorkerUtils 
 {
 	DatagramSocket socket;
+
+	// used to prevent overwriting during mc update
+	private boolean selfUpload = false;
 	private boolean isUpdating = true;
 	private boolean shutdown = false;
-	private boolean debub = true;
+	private boolean debug = true;
+
 	private InetAddress rmAddress;
 	private int rmPort;
+
 	Map<String, Integer> fileVersionMap = Collections.synchronizedMap(new HashMap<String, Integer>());
 	Map<String, Boolean> fileLockMap = Collections.synchronizedMap(new HashMap<String, Boolean>());
+
+	MulticastSocket updateSocket; 
+	MulticastSocket uploadSocket;
+
+	InetAddress group;
+	int updatePort;
+	int uploadPort;
 
 	public WorkerUtils(DatagramSocket socket)	
 	{
@@ -44,11 +56,26 @@ public class WorkerUtils
 			System.out.println("Connection to farm was rejected. Try again later.");
 			return;
 		}
-
+		
 		rmAddress = InetAddress.getByName(rmInfo.split(",")[0].substring(1));
 		rmPort = Integer.parseInt(rmInfo.split(",")[1]);
 
 		sendPacket("__server__", rmAddress, rmPort);
+		String mcInfo = getPacketAndData();
+		
+		if (debug)
+			System.out.println("Setting up with:" + mcInfo);
+
+		group = InetAddress.getByName(mcInfo.split(",")[0].substring(1));
+		updatePort = Integer.parseInt(mcInfo.split(",")[1]);
+		uploadPort = Integer.parseInt(mcInfo.split(",")[2]);
+
+		updateSocket = new MulticastSocket(updatePort);
+		uploadSocket = new MulticastSocket(uploadPort);
+
+		// System.out.println("joining mc on group: " + group);
+		updateSocket.joinGroup(group);
+		uploadSocket.joinGroup(group);
 
 		isUpdating = false;
 		System.out.println("Connected to RM");
@@ -111,7 +138,7 @@ public class WorkerUtils
 		DatagramPacket packet = new DatagramPacket(rbuf, rbuf.length);		
 		socket.receive(packet);
 
-		if (debub)
+		if (debug)
 			System.out.println("\t" + "Recieving from: " + packet.getPort());
 		return getDataFromPacket(packet);
 	}
@@ -196,6 +223,8 @@ public class WorkerUtils
 		while(fileLockTaken(fileName))
 			continue;
 
+		selfUpload = true;
+
 		grabFileLock(fileName);
 			PrintWriter writer = new PrintWriter("files/" + fileName, "UTF-8");
 			System.out.println("\t" + "Recieving...");
@@ -205,16 +234,33 @@ public class WorkerUtils
 			{
 			    System.out.println("\t" + line);
 			    writer.println(line);
-			    packet = new DatagramPacket(line.getBytes(), line.length(), 
-			    	cAddress, cPort);
+			    // packet = new DatagramPacket(line.getBytes(), line.length(), 
+			    // 	cAddress, cPort);
 			    socket.send(packet);
+			    uploadSocket.send(packet);
 			}
 			incrementVersion(fileName); 
 		returnFileLock(fileName);
 
 		writer.close();
+		selfUpload = true;
 		System.out.println("\t" + "File received succesfully");
 		socket.close();
+	}
+
+	public  InetAddress getGroup()
+	{
+		return group;
+	}
+
+	public  int getUpdatePort()
+	{
+		return updatePort;
+	}
+
+	public  int getUploadPort()
+	{
+		return uploadPort;
 	}
 
 	public synchronized void stuff()

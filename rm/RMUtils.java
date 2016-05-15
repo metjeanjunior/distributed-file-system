@@ -16,6 +16,12 @@ public class RMUtils implements java.io.Serializable
 
 	MulticastSocket updateSocket; 
 	MulticastSocket uploadSocket;
+	MulticastSocket wUpdateSocket; 
+	MulticastSocket wUploadSocket;
+	
+	String group;
+	int wUpdatePort; 
+	int wUploadPort;
 	private boolean debug = true; 
 	
 	public RMUtils(DatagramSocket socket)
@@ -52,15 +58,25 @@ public class RMUtils implements java.io.Serializable
 		if (debug)
 			System.out.println("Setting up with:" + mcInfo);
 
-		InetAddress rmGroup = InetAddress.getByName(mcInfo.split(",")[0].substring(1));
+		group = mcInfo.split(",")[0];
+		InetAddress groupInet = InetAddress.getByName(group.substring(1));
 		int updatePort = Integer.parseInt(mcInfo.split(",")[1]);
 		int uploadPort = Integer.parseInt(mcInfo.split(",")[2]);
+		wUpdatePort = Integer.parseInt(mcInfo.split(",")[3]);
+		wUploadPort = Integer.parseInt(mcInfo.split(",")[4]);
 
 		updateSocket = new MulticastSocket(updatePort);
 		uploadSocket = new MulticastSocket(uploadPort);
-		updateSocket.joinGroup(rmGroup);
-		uploadSocket.joinGroup(rmGroup);
 
+		wUpdateSocket = new MulticastSocket(wUpdatePort);
+		wUploadSocket = new MulticastSocket(wUploadPort);
+
+		updateSocket.joinGroup(groupInet);
+		uploadSocket.joinGroup(groupInet);
+
+		wUpdateSocket.joinGroup(groupInet);
+		wUploadSocket.joinGroup(groupInet);
+		
 		initRoles();
 
 		if (debug)
@@ -118,14 +134,19 @@ public class RMUtils implements java.io.Serializable
 		return packet;
 	}
 
-	public synchronized void pushWorker(DatagramPacket packet)
+	public synchronized void pushWorker(DatagramPacket packet) throws Exception
 	{
 		WorkerInfo workerInfo = new WorkerInfo(packet);
 		workerList.push(workerInfo);
 		setRole(0, getnextRole());
+		sendPacket(getWMCInfo(), 0);
 		System.out.println("\t" + "Just added a new worker to subfarm.");
-		// primary = primary == null ? workerInfo : primary;
-		// primaryNum = primaryNum == -1 ? workerList.size()-1 :primaryNum;
+		
+	}
+
+	public String getWMCInfo()
+	{
+		return group + ',' + wUpdatePort + ',' + wUploadPort;
 	}
 
 	public void initRoles()
