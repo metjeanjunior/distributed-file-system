@@ -1,6 +1,8 @@
+import java.net.*;
+
 public class MDServer
 {
-	public static void main(String[] args) 
+	public static void main(String[] args) throws Exception 
 	{
 		// DatagramSocket socket = new DatagramSocket(Integer.parseInt(args[0]));
 
@@ -9,7 +11,7 @@ public class MDServer
 
 		byte[] rbuf = new byte[1024];
 
-		MdServerUtils mdUtils = new MdServerUtils(socket);
+		MDUtils mdUtils = new MDUtils(socket);
 		System.out.println("Server is listening for new connection at port # " + socket.getLocalPort() 
 			+ " from IP " + socket.getLocalSocketAddress());
 
