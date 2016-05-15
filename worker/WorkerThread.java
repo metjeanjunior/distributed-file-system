@@ -4,30 +4,38 @@ import java.net.*;
 public class WorkerThread implements Runnable
 {
 	WorkerUtils wUtils;
-	Datagrampacket packet;
+	DatagramPacket packet;
 	boolean debug = true;
 
-	public WorkerThread(WorkerUtils wUtils, Datagrampacket packet)	
+	public WorkerThread(WorkerUtils wUtils, DatagramPacket packet)	
 	{
 		this.wUtils = wUtils;
 		this.packet = packet;
 	}
 
-	public void run() throws
+	public void run()
 	{
 		System.out.println(Thread.currentThread().getName() + " started w/ id " + Thread.currentThread().getId());
 
-		String data = wUtils.getDataFromPacket(packet);
-
-		if(debug)
+		try 
 		{
-			System.out.println("Incoming connection from" packet.getAddress() + ":" + packet.getPort());
-			System.out.println("\t with the following info: " + data);
+			String data = wUtils.getDataFromPacket(packet);
+
+			if(debug)
+			{
+				System.out.println("Incoming connection from" + packet.getAddress() + ":" + packet.getPort());
+				System.out.println("\t with the following info: " + data);
+			}
+
+			if (data.split(",")[0].compareTo("upload") == 0)
+				wUtils.recieveFile(packet);
+			else
+				wUtils.sendFile(packet);
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
 		}
 
-		if (data.split(",")[0].compareTo("upload") == 0)
-			wUtils.recieveFile(packet);
-		else
-			wUtils.sendFile(packet);
 	}
 }

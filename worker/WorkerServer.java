@@ -2,12 +2,11 @@ import java.io.*;
 import java.net.*;
 public class WorkerServer 
 {
-	public static void main(String[] args) 
+	public static void main(String[] args) throws Exception
 	{
-		DatagramSocket socket = new DatagramSocket();	
-		DatagramPacket packet;
+		DatagramSocket socket = new DatagramSocket();
 
-		WorkerUtils WorkerUtils = new WorkerUtils(socket);
+		WorkerUtils wUtils = new WorkerUtils(socket);
 
 		int port = Integer.parseInt(args[1]);		
 		InetAddress address = InetAddress.getByName(args[0]);
@@ -22,18 +21,18 @@ public class WorkerServer
 		socket.send(packet);		
 		wUtils.setUp();
 
-		while(rUtils.isUpdating())
+		while(wUtils.isUpdating())
 			continue;
-		if (rUtils.isShutDown())
+		if (wUtils.isShutDown())
 			return;
 
 		while(true)
 		{
 			packet = new DatagramPacket(rbuf, rbuf.length);	
 			socket.receive(packet);
-			System.out.println("Just recieved..." + rUtils.getDataFromPacket(packet));
+			System.out.println("Just recieved..." + wUtils.getDataFromPacket(packet));
 
-			Thread thread = new Thread(new WorkerThread(rUtils, packet));
+			Thread thread = new Thread(new WorkerThread(wUtils, packet));
 			thread.start();
 		}
 	}	
