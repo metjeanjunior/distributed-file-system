@@ -169,7 +169,7 @@ public class RMUtils implements java.io.Serializable
 		return workerList.get(workerNum).getAddress();
 	}
 
-	public int getWorkerPort(int workerNum)
+	public InetAddress getWorkerPort(int workerNum)
 	{
 		return workerList.get(workerNum).getPort();
 	}

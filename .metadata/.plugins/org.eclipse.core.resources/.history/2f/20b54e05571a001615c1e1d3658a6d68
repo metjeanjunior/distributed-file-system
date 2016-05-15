@@ -3,7 +3,7 @@ import java.net.*;
 
 public class RMServer 
 {
-	public static void main(String[] args) throws Exception 
+	public static void main(String[] args) 
 	{
 		DatagramSocket socket = new DatagramSocket();	
 		DatagramPacket packet;
@@ -25,7 +25,7 @@ public class RMServer
 
 		while(rUtils.isUpdating())
 			continue;
-		if(rUtils.isShutDown())
+		if(rUtils.isShutDown)
 			return;
 
 		while(true)

@@ -126,7 +126,7 @@ public class RMUtils implements java.io.Serializable
 
 	// On steriods as it also manages updating RMs thru new socket
 	// We cant be wasteful :)
-	public void sendRolePacket(String data, String role) throws Exception
+	public void sendRolePacket(String data, String role)
 	{
 		int pass = 0;
 		if(role.compareTo("upl+") == 0)
@@ -162,16 +162,6 @@ public class RMUtils implements java.io.Serializable
 		// if (roleMap.get("dwl") == roleMap.get("upd"))
 		else
 			return "dwl";
-	}
-
-	public InetAddress getWorkerAddress(int workerNum)
-	{
-		return workerList.get(workerNum).getAddress();
-	}
-
-	public int getWorkerPort(int workerNum)
-	{
-		return workerList.get(workerNum).getPort();
 	}
 
 	public void uploadMC(DatagramSocket socket) throws Exception
