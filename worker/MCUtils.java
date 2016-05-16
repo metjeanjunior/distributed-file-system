@@ -53,7 +53,10 @@ public class MCUtils
 			continue;
 
 		wUtils.grabFileLock(fileName);
-			PrintWriter writer = new PrintWriter("files/" + radn + fileName, "UTF-8");
+			// PrintWriter writer = new PrintWriter("files/" + fileName, "UTF-8");
+			// PrintWriter writer = new PrintWriter("files/" + radn + fileName, "UTF-8");
+			PrintWriter writer = new PrintWriter(wUtils.getDirName() + fileName, "UTF-8");
+			System.out.println("saving in " + wUtils.getDirName() + fileName);
 
 			String line;
 			System.out.println("\t" + "Recieving(" +fileName + ")...");

@@ -51,6 +51,10 @@ public class MDUtils implements java.io.Serializable
 		rmList.push(rmInfo);
 		setRole(0, getnextRole());
 		sendPacket(getMCInfo(4), 0);
+		if (rmList.size() == 1)
+			sendPacket("__pass__", 0);
+		else
+			sendPacket(rmList.get(getRoleRep("upd")).getInfo(), 0);
 	}
 
 	public synchronized int getNumRM()
@@ -82,6 +86,30 @@ public class MDUtils implements java.io.Serializable
 		return lowRM;
 	}
 
+	public RMInfo getRM(int rmNum)
+	{
+		return rmList.get(rmNum);
+	}
+
+	public RMInfo getRMFromAddress(InetAddress address)
+	{
+		RMInfo res = null;
+
+		for (RMInfo rm: rmList)
+			if (address == rm.getAddress())
+				return rm;
+		return res;
+	}
+
+	public int getRMNum(InetAddress address)
+	{
+		int x = 0;
+		for (x=0; x< rmList.size(); x++)
+			if (rmList.get(x).getAddress() == address)
+				return x;
+		return x;
+	}
+
 	public void initRoles()
 	{
 		roleMap.put("upl", 0);
@@ -98,9 +126,70 @@ public class MDUtils implements java.io.Serializable
 		socket.close();
 	}
 
+	public boolean exists(InetAddress address)
+	{
+		for (RMInfo rm: rmList)
+			if (address == rm.getAddress())
+				return true;
+		return false;
+	}
+
+	public boolean isAlive(int rmNum) throws Exception
+	{
+		DatagramSocket pingSocket = new DatagramSocket();
+		DatagramPacket pingPacket = new DatagramPacket("__ping__".getBytes(), "__ping__".length(),
+			rmList.get(rmNum).getAddress(), rmList.get(rmNum).getPort());
+		System.out.println("Pinging " + rmNum);
+		pingSocket.send(pingPacket);
+		byte[] rbuf = new byte[1024];
+		pingPacket = new DatagramPacket(rbuf, rbuf.length);		
+		pingSocket.setSoTimeout(10000);
+		// pingSocket.receive(pingPacket);
+
+		try {
+				pingSocket.receive(pingPacket);
+			} catch (SocketTimeoutException  e) {
+				System.out.println("reached setSoTimeout");
+				pingSocket.close();
+				return false;
+			}
+		System.out.println("he's alive!!");
+		pingSocket.close();
+		return true;
+	}
+
+	public synchronized void addOldRM(InetAddress address) throws Exception
+	{
+		RMInfo rm = getRMFromAddress(address);
+		rm.resurect();
+		String role = getnextRole();
+		int num = getRMNum(address);
+		setRole(num, role);
+		sendPacket(getMCInfo(4), num);
+		sendPacket(rmList.get(getRoleRep("upd")).getInfo(), num);
+		System.out.println("old host added back");
+	}
+
+	public int getAlive() throws Exception
+	{
+		// for (RMInfo rm: rmList)
+		int x = 0;
+		for (x=0; x< rmList.size(); x++)
+			if(isAlive(x))
+				return x;
+		return x;
+	}
+
 	public void sendRolePacket(String data, String role) throws Exception
 	{
 		System.out.println("Sending " + data + " to " + role);
+
+		if (!isAlive(getRoleRep(role)))
+		{
+			rmList.get(getRoleRep(role)).kill();
+			setRole(getAlive(), role);
+		}
+
 		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), 
 			rmList.get(getRoleRep(role)).getAddress(), rmList.get(getRoleRep(role)).getPort());
 		DatagramSocket socket = new DatagramSocket();

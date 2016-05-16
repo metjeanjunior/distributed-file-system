@@ -37,10 +37,17 @@ public class MDThread implements Runnable
 
 				if (mdUtils.getNumRM() == 3)
 				{
-					packet = new DatagramPacket("__quit__".getBytes(), "__quit__".length(), packet.getAddress(), packet.getPort());
-					socket.send(packet);
-					System.out.println("Connection from previous RM rejected (we're full)!");
-					return;
+					if (mdUtils.exists(packet.getAddress()))
+					{
+						mdUtils.addOldRM(packet.getAddress());
+					}
+					else
+					{
+						packet = new DatagramPacket("__quit__".getBytes(), "__quit__".length(), packet.getAddress(), packet.getPort());
+						socket.send(packet);
+						System.out.println("Connection from previous RM rejected (we're full)!");
+						return;
+					}
 				}
 
 				mdUtils.pushRM(packet);
@@ -51,7 +58,7 @@ public class MDThread implements Runnable
 			else if (data.compareTo("__w__") == 0)
 			{
 				if (debug)
-					System.out.println("A Worker just connected");
+					System.out.println("A Worker from " + packet.getAddress() + ":" + packet.getPort() + " just connected");
 				if (mdUtils.getNumRM() == 0 || mdUtils.subFarmIsFull())
 				{
 					packet = new DatagramPacket("__quit__".getBytes(), "__quit__".length(), packet.getAddress(), packet.getPort());

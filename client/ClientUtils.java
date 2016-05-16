@@ -143,14 +143,13 @@ public class ClientUtils
 
 	public void downloadFile(String fileName) throws Exception
 	{
-		System.out.println("Waiting for file from Server...");
+		System.out.println("Waiting for file from Server..." + fileName);
 		String line = null;
 
 		PrintWriter writer = new PrintWriter("files/" +fileName, "UTF-8");
 
 		while ((line = getPacketAndData()).compareTo("__end__") !=0)
 		{
-			// System.out.println(line);
 			line += "";
 			if (line.compareTo("__dne__") ==0)
 			{
@@ -161,10 +160,11 @@ public class ClientUtils
 			    return;
 			}
 			
+			System.out.println(line);
 		    writer.println(line);
-		    System.out.println("download doesnt work. fix!!!!!!");
+		    // System.out.println("download doesnt work. fix!!!!!!");
 		}
-		
+		writer.close();
 		System.out.println("File download was succesfull");
 	}
 

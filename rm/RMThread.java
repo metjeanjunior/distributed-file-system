@@ -18,7 +18,21 @@ public class RMThread implements Runnable
 		{
 			String data = rUtils.getDataFromPacket(packet);
 
-			if (data.compareTo("__server__") == 0)
+			if (data.compareTo("__ping__") == 0)
+			{
+				DatagramSocket pingSocket = new DatagramSocket();
+				DatagramPacket pingPacket = new DatagramPacket("__ping__".getBytes(), "__ping__".length(),
+					packet.getAddress(), packet.getPort());
+				pingSocket.send(pingPacket);
+				System.out.println("Serviced ping request");
+				pingSocket.close();
+			}
+			else if (data.compareTo("__update__") == 0)
+			{
+				System.out.println("update request came in");
+				rUtils.serveUpd(packet);
+			}
+			else if (data.compareTo("__server__") == 0)
 			{
 				rUtils.pushWorker(packet);
 			}

@@ -1,0 +1,5281 @@
+{
+  "laureates": [
+    {
+      "id": "1",
+      "firstname": "Wilhelm Conrad",
+      "surname": "Röntgen",
+      "born": "1845-03-27",
+      "died": "1923-02-10",
+      "bornCountry": "Prussia (now Germany)",
+      "bornCountryCode": "DE",
+      "bornCity": "Lennep (now Remscheid)",
+      "diedCountry": "Germany",
+      "diedCountryCode": "DE",
+      "diedCity": "Munich",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1901",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"in recognition of the extraordinary services he has rendered by the discovery of the remarkable rays subsequently named after him\"",
+          "affiliations": [
+            {
+              "name": "Munich University",
+              "city": "Munich",
+              "country": "Germany"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "firstname": "Hendrik Antoon",
+      "surname": "Lorentz",
+      "born": "1853-07-18",
+      "died": "1928-02-04",
+      "bornCountry": "the Netherlands",
+      "bornCountryCode": "NL",
+      "bornCity": "Arnhem",
+      "diedCountry": "the Netherlands",
+      "diedCountryCode": "NL",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1902",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"in recognition of the extraordinary service they rendered by their researches into the influence of magnetism upon radiation phenomena\"",
+          "affiliations": [
+            {
+              "name": "Leiden University",
+              "city": "Leiden",
+              "country": "the Netherlands"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "firstname": "Pieter",
+      "surname": "Zeeman",
+      "born": "1865-05-25",
+      "died": "1943-10-09",
+      "bornCountry": "the Netherlands",
+      "bornCountryCode": "NL",
+      "bornCity": "Zonnemaire",
+      "diedCountry": "the Netherlands",
+      "diedCountryCode": "NL",
+      "diedCity": "Amsterdam",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1902",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"in recognition of the extraordinary service they rendered by their researches into the influence of magnetism upon radiation phenomena\"",
+          "affiliations": [
+            {
+              "name": "Amsterdam University",
+              "city": "Amsterdam",
+              "country": "the Netherlands"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "firstname": "Antoine Henri",
+      "surname": "Becquerel",
+      "born": "1852-12-15",
+      "died": "1908-08-25",
+      "bornCountry": "France",
+      "bornCountryCode": "FR",
+      "bornCity": "Paris",
+      "diedCountry": "France",
+      "diedCountryCode": "FR",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1903",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"in recognition of the extraordinary services he has rendered by his discovery of spontaneous radioactivity\"",
+          "affiliations": [
+            {
+              "name": "École Polytechnique",
+              "city": "Paris",
+              "country": "France"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "firstname": "Pierre",
+      "surname": "Curie",
+      "born": "1859-05-15",
+      "died": "1906-04-19",
+      "bornCountry": "France",
+      "bornCountryCode": "FR",
+      "bornCity": "Paris",
+      "diedCountry": "France",
+      "diedCountryCode": "FR",
+      "diedCity": "Paris",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1903",
+          "category": "physics",
+          "share": "4",
+          "motivation": "\"in recognition of the extraordinary services they have rendered by their joint researches on the radiation phenomena discovered by Professor Henri Becquerel\"",
+          "affiliations": [
+            {
+              "name": "École municipale de physique et de chimie industrielles (Municipal School of Industrial Physics and Chemistry)",
+              "city": "Paris",
+              "country": "France"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "firstname": "Marie",
+      "surname": "Curie, née Sklodowska",
+      "born": "1867-11-07",
+      "died": "1934-07-04",
+      "bornCountry": "Russian Empire (now Poland)",
+      "bornCountryCode": "PL",
+      "bornCity": "Warsaw",
+      "diedCountry": "France",
+      "diedCountryCode": "FR",
+      "diedCity": "Sallanches",
+      "gender": "female",
+      "prizes": [
+        {
+          "year": "1903",
+          "category": "physics",
+          "share": "4",
+          "motivation": "\"in recognition of the extraordinary services they have rendered by their joint researches on the radiation phenomena discovered by Professor Henri Becquerel\"",
+          "affiliations": [
+            [
+
+
+            ]
+          ]
+        },
+        {
+          "year": "1911",
+          "category": "chemistry",
+          "share": "1",
+          "motivation": "\"in recognition of her services to the advancement of chemistry by the discovery of the elements radium and polonium, by the isolation of radium and the study of the nature and compounds of this remarkable element\"",
+          "affiliations": [
+            {
+              "name": "Sorbonne University",
+              "city": "Paris",
+              "country": "France"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "firstname": "Lord Rayleigh",
+      "surname": "(John William Strutt)",
+      "born": "1842-11-12",
+      "died": "1919-06-30",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+      "bornCity": "Langford Grove, Maldon, Essex",
+      "diedCountry": "United Kingdom",
+      "diedCountryCode": "UK",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1904",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his investigations of the densities of the most important gases and for his discovery of argon in connection with these studies\"",
+          "affiliations": [
+            {
+              "name": "Royal Institution of Great Britain",
+              "city": "London",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "firstname": "Philipp Eduard Anton",
+      "surname": "von Lenard",
+      "born": "1862-06-07",
+      "died": "1947-05-20",
+      "bornCountry": "Hungary (now Slovakia)",
+      "bornCountryCode": "SK",
+      "bornCity": "Pressburg (now Bratislava)",
+      "diedCountry": "Germany",
+      "diedCountryCode": "DE",
+      "diedCity": "Messelhausen",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1905",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his work on cathode rays\"",
+          "affiliations": [
+            {
+              "name": "Kiel University",
+              "city": "Kiel",
+              "country": "Germany"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "firstname": "Joseph John",
+      "surname": "Thomson",
+      "born": "1856-12-18",
+      "died": "1940-08-30",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+      "bornCity": "Cheetham Hill, near Manchester",
+      "diedCountry": "United Kingdom",
+      "diedCountryCode": "UK",
+      "diedCity": "Cambridge",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1906",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"in recognition of the great merits of his theoretical and experimental investigations on the conduction of electricity by gases\"",
+          "affiliations": [
+            {
+              "name": "University of Cambridge",
+              "city": "Cambridge",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "firstname": "Albert Abraham",
+      "surname": "Michelson",
+      "born": "1852-12-19",
+      "died": "1931-05-09",
+      "bornCountry": "Prussia (now Poland)",
+      "bornCountryCode": "PL",
+      "bornCity": "Strelno (now Strzelno)",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Pasadena, CA",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1907",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his optical precision instruments and the spectroscopic and metrological investigations carried out with their aid\"",
+          "affiliations": [
+            {
+              "name": "University of Chicago",
+              "city": "Chicago, IL",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "firstname": "Gabriel",
+      "surname": "Lippmann",
+      "born": "1845-08-16",
+      "died": "1921-07-13",
+      "bornCountry": "Luxembourg",
+      "bornCountryCode": "LU",
+      "bornCity": "Hollerich",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1908",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his method of reproducing colours photographically based on the phenomenon of interference\"",
+          "affiliations": [
+            {
+              "name": "Sorbonne University",
+              "city": "Paris",
+              "country": "France"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "firstname": "Guglielmo",
+      "surname": "Marconi",
+      "born": "1874-04-25",
+      "died": "1937-07-20",
+      "bornCountry": "Italy",
+      "bornCountryCode": "IT",
+      "bornCity": "Bologna",
+      "diedCountry": "Italy",
+      "diedCountryCode": "IT",
+      "diedCity": "Rome",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1909",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"in recognition of their contributions to the development of wireless telegraphy\"",
+          "affiliations": [
+            {
+              "name": "Marconi Wireless Telegraph Co. Ltd.",
+              "city": "London",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "firstname": "Karl Ferdinand",
+      "surname": "Braun",
+      "born": "1850-06-06",
+      "died": "1918-04-20",
+      "bornCountry": "Hesse-Kassel (now Germany)",
+      "bornCountryCode": "DE",
+      "bornCity": "Fulda",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Brooklyn, NY",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1909",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"in recognition of their contributions to the development of wireless telegraphy\"",
+          "affiliations": [
+            {
+              "name": "Strasbourg University",
+              "city": "Strasbourg",
+              "country": "Alsace, then Germany"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "firstname": "Johannes Diderik",
+      "surname": "van der Waals",
+      "born": "1837-11-23",
+      "died": "1923-03-08",
+      "bornCountry": "the Netherlands",
+      "bornCountryCode": "NL",
+      "bornCity": "Leiden",
+      "diedCountry": "the Netherlands",
+      "diedCountryCode": "NL",
+      "diedCity": "Amsterdam",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1910",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his work on the equation of state for gases and liquids\"",
+          "affiliations": [
+            {
+              "name": "Amsterdam University",
+              "city": "Amsterdam",
+              "country": "the Netherlands"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "firstname": "Wilhelm",
+      "surname": "Wien",
+      "born": "1864-01-13",
+      "died": "1928-08-30",
+      "bornCountry": "Prussia (now Russia)",
+      "bornCountryCode": "RU",
+      "bornCity": "Gaffken (now Parusnoye)",
+      "diedCountry": "Germany",
+      "diedCountryCode": "DE",
+      "diedCity": "Munich",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1911",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his discoveries regarding the laws governing the radiation of heat\"",
+          "affiliations": [
+            {
+              "name": "Würzburg University",
+              "city": "Würzburg",
+              "country": "Germany"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "firstname": "Nils Gustaf",
+      "surname": "Dalén",
+      "born": "1869-11-30",
+      "died": "1937-12-09",
+      "bornCountry": "Sweden",
+      "bornCountryCode": "SE",
+      "bornCity": "Stenstorp",
+      "diedCountry": "Sweden",
+      "diedCountryCode": "SE",
+      "diedCity": "Stockholm",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1912",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his invention of automatic regulators for use in conjunction with gas accumulators for illuminating lighthouses and buoys\"",
+          "affiliations": [
+            {
+              "name": "Swedish Gas-Accumulator Co.",
+              "city": "Lidingö-Stockholm",
+              "country": "Sweden"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "firstname": "Heike",
+      "surname": "Kamerlingh Onnes",
+      "born": "1853-09-21",
+      "died": "1926-02-21",
+      "bornCountry": "the Netherlands",
+      "bornCountryCode": "NL",
+      "bornCity": "Groningen",
+      "diedCountry": "the Netherlands",
+      "diedCountryCode": "NL",
+      "diedCity": "Leiden",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1913",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his investigations on the properties of matter at low temperatures which led, inter alia, to the production of liquid helium\"",
+          "affiliations": [
+            {
+              "name": "Leiden University",
+              "city": "Leiden",
+              "country": "the Netherlands"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "firstname": "Max",
+      "surname": "von Laue",
+      "born": "1879-10-09",
+      "died": "1960-04-23",
+      "bornCountry": "Germany",
+      "bornCountryCode": "DE",
+      "bornCity": "Pfaffendorf",
+      "diedCountry": "West Germany",
+      "diedCountryCode": "DE",
+      "diedCity": "Berlin",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1914",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his discovery of the diffraction of X-rays by crystals\"",
+          "affiliations": [
+            {
+              "name": "Frankfurt-on-the-Main University",
+              "city": "Frankfurt-on-the-Main",
+              "country": "Germany"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "firstname": "Sir William Henry",
+      "surname": "Bragg",
+      "born": "1862-07-02",
+      "died": "1942-03-12",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+      "bornCity": "Wigton",
+      "diedCountry": "United Kingdom",
+      "diedCountryCode": "UK",
+      "diedCity": "London",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1915",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for their services in the analysis of crystal structure by means of X-rays\"",
+          "affiliations": [
+            {
+              "name": "University College",
+              "city": "London",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "firstname": "William Lawrence",
+      "surname": "Bragg",
+      "born": "1890-03-31",
+      "died": "1971-07-01",
+      "bornCountry": "Australia",
+      "bornCountryCode": "AU",
+      "bornCity": "Adelaide",
+      "diedCountry": "United Kingdom",
+      "diedCountryCode": "UK",
+      "diedCity": "Ipswich",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1915",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for their services in the analysis of crystal structure by means of X-rays\"",
+          "affiliations": [
+            {
+              "name": "Victoria University",
+              "city": "Manchester",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "firstname": "Charles Glover",
+      "surname": "Barkla",
+      "born": "1877-06-07",
+      "died": "1944-10-23",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+      "bornCity": "Widnes",
+      "diedCountry": "Scotland",
+      "diedCountryCode": "GB",
+      "diedCity": "Edinburgh",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1917",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his discovery of the characteristic Röntgen radiation of the elements\"",
+          "affiliations": [
+            {
+              "name": "Edinburgh University",
+              "city": "Edinburgh",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "firstname": "Max Karl Ernst Ludwig",
+      "surname": "Planck",
+      "born": "1858-04-23",
+      "died": "1947-10-04",
+      "bornCountry": "Schleswig (now Germany)",
+      "bornCountryCode": "DE",
+      "bornCity": "Kiel",
+      "diedCountry": "West Germany",
+      "diedCountryCode": "DE",
+      "diedCity": "Goettingen",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1918",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"in recognition of the services he rendered to the advancement of Physics by his discovery of energy quanta\"",
+          "affiliations": [
+            {
+              "name": "Berlin University",
+              "city": "Berlin",
+              "country": "Germany"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "firstname": "Johannes",
+      "surname": "Stark",
+      "born": "1874-04-15",
+      "died": "1957-06-21",
+      "bornCountry": "Germany",
+      "bornCountryCode": "DE",
+      "bornCity": "Schickenhof",
+      "diedCountry": "West Germany",
+      "diedCountryCode": "DE",
+      "diedCity": "Traunstein",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1919",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his discovery of the Doppler effect in canal rays and the splitting of spectral lines in electric fields\"",
+          "affiliations": [
+            {
+              "name": "Greifswald University",
+              "city": "Greifswald",
+              "country": "Germany"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "firstname": "Charles Edouard",
+      "surname": "Guillaume",
+      "born": "1861-02-15",
+      "died": "1938-06-13",
+      "bornCountry": "Switzerland",
+      "bornCountryCode": "CH",
+      "bornCity": "Fleurier",
+      "diedCountry": "France",
+      "diedCountryCode": "FR",
+      "diedCity": "Sèvres",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1920",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"in recognition of the service he has rendered to precision measurements in Physics by his discovery of anomalies in nickel steel alloys\"",
+          "affiliations": [
+            {
+              "name": "Bureau International des Poids et Mesures (International Bureau of Weights and Measures)",
+              "city": "Sèvres",
+              "country": "France"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "firstname": "Albert",
+      "surname": "Einstein",
+      "born": "1879-03-14",
+      "died": "1955-04-18",
+      "bornCountry": "Germany",
+      "bornCountryCode": "DE",
+      "bornCity": "Ulm",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Princeton, NJ",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1921",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect\"",
+          "affiliations": [
+            {
+              "name": "Kaiser-Wilhelm-Institut (now Max-Planck-Institut) für Physik",
+              "city": "Berlin",
+              "country": "Germany"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "firstname": "Niels Henrik David",
+      "surname": "Bohr",
+      "born": "1885-10-07",
+      "died": "1962-11-18",
+      "bornCountry": "Denmark",
+      "bornCountryCode": "DK",
+      "bornCity": "Copenhagen",
+      "diedCountry": "Denmark",
+      "diedCountryCode": "DK",
+      "diedCity": "Copenhagen",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1922",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his services in the investigation of the structure of atoms and of the radiation emanating from them\"",
+          "affiliations": [
+            {
+              "name": "Copenhagen University",
+              "city": "Copenhagen",
+              "country": "Denmark"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "28",
+      "firstname": "Robert Andrews",
+      "surname": "Millikan",
+      "born": "1868-03-22",
+      "died": "1953-12-19",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Morrison, IL",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "San Marino, CF",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1923",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his work on the elementary charge of electricity and on the photoelectric effect\"",
+          "affiliations": [
+            {
+              "name": "California Institute of Technology (Caltech)",
+              "city": "Pasadena, CA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "29",
+      "firstname": "Karl Manne Georg",
+      "surname": "Siegbahn",
+      "born": "1886-12-03",
+      "died": "1978-09-26",
+      "bornCountry": "Sweden",
+      "bornCountryCode": "SE",
+      "bornCity": "Lund",
+      "diedCountry": "Sweden",
+      "diedCountryCode": "SE",
+      "diedCity": "Ängelholm",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1924",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his discoveries and research in the field of X-ray spectroscopy\"",
+          "affiliations": [
+            {
+              "name": "Uppsala University",
+              "city": "Uppsala",
+              "country": "Sweden"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "30",
+      "firstname": "James",
+      "surname": "Franck",
+      "born": "1882-08-26",
+      "died": "1964-05-21",
+      "bornCountry": "Germany",
+      "bornCountryCode": "DE",
+      "bornCity": "Hamburg",
+      "diedCountry": "West Germany",
+      "diedCountryCode": "DE",
+      "diedCity": "Goettingen",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1925",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for their discovery of the laws governing the impact of an electron upon an atom\"",
+          "affiliations": [
+            {
+              "name": "Goettingen University",
+              "city": "Goettingen",
+              "country": "Germany"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "31",
+      "firstname": "Gustav Ludwig",
+      "surname": "Hertz",
+      "born": "1887-07-22",
+      "died": "1975-10-30",
+      "bornCountry": "Germany",
+      "bornCountryCode": "DE",
+      "bornCity": "Hamburg",
+      "diedCountry": "East Germany",
+      "diedCountryCode": "DE",
+      "diedCity": "Berlin",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1925",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for their discovery of the laws governing the impact of an electron upon an atom\"",
+          "affiliations": [
+            {
+              "name": "Halle University",
+              "city": "Halle",
+              "country": "Germany"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "32",
+      "firstname": "Jean Baptiste",
+      "surname": "Perrin",
+      "born": "1870-09-30",
+      "died": "1942-04-17",
+      "bornCountry": "France",
+      "bornCountryCode": "FR",
+      "bornCity": "Lille",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "New York, NY",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1926",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his work on the discontinuous structure of matter, and especially for his discovery of sedimentation equilibrium\"",
+          "affiliations": [
+            {
+              "name": "Sorbonne University",
+              "city": "Paris",
+              "country": "France"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "33",
+      "firstname": "Arthur Holly",
+      "surname": "Compton",
+      "born": "1892-09-10",
+      "died": "1962-03-15",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Wooster, OH",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Berkeley, CA",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1927",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for his discovery of the effect named after him\"",
+          "affiliations": [
+            {
+              "name": "University of Chicago",
+              "city": "Chicago, IL",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "34",
+      "firstname": "Charles Thomson Rees",
+      "surname": "Wilson",
+      "born": "1869-02-14",
+      "died": "1959-11-15",
+      "bornCountry": "Scotland",
+      "bornCountryCode": "GB",
+      "bornCity": "Glencorse",
+      "diedCountry": "Scotland",
+      "diedCountryCode": "GB",
+      "diedCity": "Carlops",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1927",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for his method of making the paths of electrically charged particles visible by condensation of vapour\"",
+          "affiliations": [
+            {
+              "name": "University of Cambridge",
+              "city": "Cambridge",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "35",
+      "firstname": "Owen Willans",
+      "surname": "Richardson",
+      "born": "1879-04-26",
+      "died": "1959-02-15",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+      "bornCity": "Dewsbury",
+      "diedCountry": "United Kingdom",
+      "diedCountryCode": "UK",
+      "diedCity": "Alton",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1928",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his work on the thermionic phenomenon and especially for the discovery of the law named after him\"",
+          "affiliations": [
+            {
+              "name": "London University",
+              "city": "London",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "36",
+      "firstname": "Prince Louis-Victor Pierre Raymond",
+      "surname": "de Broglie",
+      "born": "1892-08-15",
+      "died": "1987-03-19",
+      "bornCountry": "France",
+      "bornCountryCode": "FR",
+      "bornCity": "Dieppe",
+      "diedCountry": "France",
+      "diedCountryCode": "FR",
+      "diedCity": "Paris",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1929",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his discovery of the wave nature of electrons\"",
+          "affiliations": [
+            {
+              "name": "Sorbonne University, Institut Henri Poincaré",
+              "city": "Paris",
+              "country": "France"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "37",
+      "firstname": "Sir Chandrasekhara Venkata",
+      "surname": "Raman",
+      "born": "1888-11-07",
+      "died": "1970-11-21",
+      "bornCountry": "India",
+      "bornCountryCode": "IN",
+      "bornCity": "Trichinopoly",
+      "diedCountry": "India",
+      "diedCountryCode": "IN",
+      "diedCity": "Bangalore",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1930",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his work on the scattering of light and for the discovery of the effect named after him\"",
+          "affiliations": [
+            {
+              "name": "Calcutta University",
+              "city": "Calcutta",
+              "country": "India"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "38",
+      "firstname": "Werner Karl",
+      "surname": "Heisenberg",
+      "born": "1901-12-05",
+      "died": "1976-02-01",
+      "bornCountry": "Germany",
+      "bornCountryCode": "DE",
+      "bornCity": "Würzburg",
+      "diedCountry": "West Germany",
+      "diedCountryCode": "DE",
+      "diedCity": "Munich",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1932",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for the creation of quantum mechanics, the application of which has, inter alia, led to the discovery of the allotropic forms of hydrogen\"",
+          "affiliations": [
+            {
+              "name": "Leipzig University",
+              "city": "Leipzig",
+              "country": "Germany"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "39",
+      "firstname": "Erwin",
+      "surname": "Schrödinger",
+      "born": "1887-08-12",
+      "died": "1961-01-04",
+      "bornCountry": "Austria",
+      "bornCountryCode": "AT",
+      "bornCity": "Vienna",
+      "diedCountry": "Austria",
+      "diedCountryCode": "AT",
+      "diedCity": "Vienna",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1933",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for the discovery of new productive forms of atomic theory\"",
+          "affiliations": [
+            {
+              "name": "Berlin University",
+              "city": "Berlin",
+              "country": "Germany"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "40",
+      "firstname": "Paul Adrien Maurice",
+      "surname": "Dirac",
+      "born": "1902-08-08",
+      "died": "1984-10-20",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+      "bornCity": "Bristol",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Tallahassee, FL",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1933",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for the discovery of new productive forms of atomic theory\"",
+          "affiliations": [
+            {
+              "name": "University of Cambridge",
+              "city": "Cambridge",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "41",
+      "firstname": "James",
+      "surname": "Chadwick",
+      "born": "1891-10-20",
+      "died": "1974-07-24",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+      "bornCity": "Manchester",
+      "diedCountry": "United Kingdom",
+      "diedCountryCode": "UK",
+      "diedCity": "Cambridge",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1935",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for the discovery of the neutron\"",
+          "affiliations": [
+            {
+              "name": "Liverpool University",
+              "city": "Liverpool",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "42",
+      "firstname": "Victor Franz",
+      "surname": "Hess",
+      "born": "1883-06-24",
+      "died": "1964-12-17",
+      "bornCountry": "Austria",
+      "bornCountryCode": "AT",
+      "bornCity": "Peggau",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Mount Verno, NY",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1936",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for his discovery of cosmic radiation\"",
+          "affiliations": [
+            {
+              "name": "Innsbruck University",
+              "city": "Innsbruck",
+              "country": "Austria"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "43",
+      "firstname": "Carl David",
+      "surname": "Anderson",
+      "born": "1905-09-03",
+      "died": "1991-01-11",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "New York, NY",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "San Marino, CF",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1936",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for his discovery of the positron\"",
+          "affiliations": [
+            {
+              "name": "California Institute of Technology (Caltech)",
+              "city": "Pasadena, CA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "44",
+      "firstname": "Clinton Joseph",
+      "surname": "Davisson",
+      "born": "1881-10-22",
+      "died": "1958-02-01",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Bloomington, IL",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Charlottesville, VA",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1937",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for their experimental discovery of the diffraction of electrons by crystals\"",
+          "affiliations": [
+            {
+              "name": "Bell Telephone Laboratories",
+              "city": "New York, NY",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "45",
+      "firstname": "George Paget",
+      "surname": "Thomson",
+      "born": "1892-05-03",
+      "died": "1975-09-10",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+      "bornCity": "Cambridge",
+      "diedCountry": "United Kingdom",
+      "diedCountryCode": "UK",
+      "diedCity": "Cambridge",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1937",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for their experimental discovery of the diffraction of electrons by crystals\"",
+          "affiliations": [
+            {
+              "name": "London University",
+              "city": "London",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "46",
+      "firstname": "Enrico",
+      "surname": "Fermi",
+      "born": "1901-09-29",
+      "died": "1954-11-28",
+      "bornCountry": "Italy",
+      "bornCountryCode": "IT",
+      "bornCity": "Rome",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Chicago, IL",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1938",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his demonstrations of the existence of new radioactive elements produced by neutron irradiation, and for his related discovery of nuclear reactions brought about by slow neutrons\"",
+          "affiliations": [
+            {
+              "name": "Rome University",
+              "city": "Rome",
+              "country": "Italy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "47",
+      "firstname": "Ernest Orlando",
+      "surname": "Lawrence",
+      "born": "1901-08-08",
+      "died": "1958-08-27",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Canton, SD",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Palo Alto, CF",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1939",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for the invention and development of the cyclotron and for results obtained with it, especially with regard to artificial radioactive elements\"",
+          "affiliations": [
+            {
+              "name": "University of California",
+              "city": "Berkeley, CA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "48",
+      "firstname": "Otto",
+      "surname": "Stern",
+      "born": "1888-02-17",
+      "died": "1969-08-17",
+      "bornCountry": "Germany (now Poland)",
+      "bornCountryCode": "PL",
+      "bornCity": "Sorau (now Zory)",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Berkeley, CA",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1943",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his contribution to the development of the molecular ray method and his discovery of the magnetic moment of the proton\"",
+          "affiliations": [
+            {
+              "name": "Carnegie Institute of Technology",
+              "city": "Pittsburgh, PA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "49",
+      "firstname": "Isidor Isaac",
+      "surname": "Rabi",
+      "born": "1898-07-29",
+      "died": "1988-01-11",
+      "bornCountry": "Austria-Hungary (now Poland)",
+      "bornCountryCode": "PL",
+      "bornCity": "Rymanow",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "New York, NY",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1944",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his resonance method for recording the magnetic properties of atomic nuclei\"",
+          "affiliations": [
+            {
+              "name": "Columbia University",
+              "city": "New York, NY",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "50",
+      "firstname": "Wolfgang",
+      "surname": "Pauli",
+      "born": "1900-04-25",
+      "died": "1958-12-15",
+      "bornCountry": "Austria",
+      "bornCountryCode": "AT",
+      "bornCity": "Vienna",
+      "diedCountry": "Switzerland",
+      "diedCountryCode": "CH",
+      "diedCity": "Zurich",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1945",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for the discovery of the Exclusion Principle, also called the Pauli Principle\"",
+          "affiliations": [
+            {
+              "name": "Princeton University",
+              "city": "Princeton, NJ",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "51",
+      "firstname": "Percy Williams",
+      "surname": "Bridgman",
+      "born": "1882-04-21",
+      "died": "1961-08-20",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Cambridge, MA",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Randolph, NH",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1946",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for the invention of an apparatus to produce extremely high pressures, and for the discoveries he made therewith in the field of high pressure physics\"",
+          "affiliations": [
+            {
+              "name": "Harvard University",
+              "city": "Cambridge, MA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "52",
+      "firstname": "Sir Edward Victor",
+      "surname": "Appleton",
+      "born": "1892-09-06",
+      "died": "1965-04-21",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+      "bornCity": "Bradford",
+      "diedCountry": "Scotland",
+      "diedCountryCode": "GB",
+      "diedCity": "Edinburgh",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1947",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his investigations of the physics of the upper atmosphere especially for the discovery of the so-called Appleton layer\"",
+          "affiliations": [
+            {
+              "name": "Department of Scientific and Industrial Research",
+              "city": "London",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "53",
+      "firstname": "Patrick Maynard Stuart",
+      "surname": "Blackett",
+      "born": "1897-11-18",
+      "died": "1974-07-13",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+      "bornCity": "London",
+      "diedCountry": "United Kingdom",
+      "diedCountryCode": "UK",
+      "diedCity": "London",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1948",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his development of the Wilson cloud chamber method, and his discoveries therewith in the fields of nuclear physics and cosmic radiation\"",
+          "affiliations": [
+            {
+              "name": "Victoria University",
+              "city": "Manchester",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "54",
+      "firstname": "Hideki",
+      "surname": "Yukawa",
+      "born": "1907-01-23",
+      "died": "1981-09-08",
+      "bornCountry": "Japan",
+      "bornCountryCode": "JP",
+      "bornCity": "Tokyo",
+      "diedCountry": "Japan",
+      "diedCountryCode": "JP",
+      "diedCity": "Kyoto",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1949",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his prediction of the existence of mesons on the basis of theoretical work on nuclear forces\"",
+          "affiliations": [
+            {
+              "name": "Kyoto Imperial University",
+              "city": "Kyoto",
+              "country": "Japan"
+            },
+            {
+              "name": "Columbia University",
+              "city": "New York, NY",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "55",
+      "firstname": "Cecil Frank",
+      "surname": "Powell",
+      "born": "1903-12-05",
+      "died": "1969-08-09",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+      "bornCity": "Tonbridge",
+      "diedCountry": "Italy",
+      "diedCountryCode": "IT",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1950",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his development of the photographic method of studying nuclear processes and his discoveries regarding mesons made with this method\"",
+          "affiliations": [
+            {
+              "name": "Bristol University",
+              "city": "Bristol",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "56",
+      "firstname": "Sir John Douglas",
+      "surname": "Cockcroft",
+      "born": "1897-05-27",
+      "died": "1967-09-18",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+      "bornCity": "Todmorden",
+      "diedCountry": "United Kingdom",
+      "diedCountryCode": "UK",
+      "diedCity": "Cambridge",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1951",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for their pioneer work on the transmutation of atomic nuclei by artificially accelerated atomic particles\"",
+          "affiliations": [
+            {
+              "name": "Atomic Energy Research Establishment",
+              "city": "Harwell, Berkshire",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "57",
+      "firstname": "Ernest Thomas Sinton",
+      "surname": "Walton",
+      "born": "1903-10-06",
+      "died": "1995-06-25",
+      "bornCountry": "Ireland",
+      "bornCountryCode": "IE",
+      "bornCity": "Dungarvan",
+      "diedCountry": "Northern Ireland",
+      "diedCountryCode": "IE",
+      "diedCity": "Belfast",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1951",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for their pioneer work on the transmutation of atomic nuclei by artificially accelerated atomic particles\"",
+          "affiliations": [
+            {
+              "name": "Trinity College",
+              "city": "Dublin",
+              "country": "Ireland"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "58",
+      "firstname": "Felix",
+      "surname": "Bloch",
+      "born": "1905-10-23",
+      "died": "1983-09-10",
+      "bornCountry": "Switzerland",
+      "bornCountryCode": "CH",
+      "bornCity": "Zurich",
+      "diedCountry": "Switzerland",
+      "diedCountryCode": "CH",
+      "diedCity": "Zurich",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1952",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for their development of new methods for nuclear magnetic precision measurements and discoveries in connection therewith\"",
+          "affiliations": [
+            {
+              "name": "Stanford University",
+              "city": "Stanford, CA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "59",
+      "firstname": "Edward Mills",
+      "surname": "Purcell",
+      "born": "1912-08-30",
+      "died": "1997-03-07",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Taylorville, IL",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Cambridge, MA",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1952",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for their development of new methods for nuclear magnetic precision measurements and discoveries in connection therewith\"",
+          "affiliations": [
+            {
+              "name": "Harvard University",
+              "city": "Cambridge, MA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "60",
+      "firstname": "Frits (Frederik)",
+      "surname": "Zernike",
+      "born": "1888-07-16",
+      "died": "1966-03-10",
+      "bornCountry": "the Netherlands",
+      "bornCountryCode": "NL",
+      "bornCity": "Amsterdam",
+      "diedCountry": "the Netherlands",
+      "diedCountryCode": "NL",
+      "diedCity": "Groningen",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1953",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his demonstration of the phase contrast method, especially for his invention of the phase contrast microscope\"",
+          "affiliations": [
+            {
+              "name": "Groningen University",
+              "city": "Groningen",
+              "country": "the Netherlands"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "61",
+      "firstname": "Max",
+      "surname": "Born",
+      "born": "1882-12-11",
+      "died": "1970-01-05",
+      "bornCountry": "Germany (now Poland)",
+      "bornCountryCode": "PL",
+      "bornCity": "Breslau (now Wroclaw)",
+      "diedCountry": "West Germany",
+      "diedCountryCode": "DE",
+      "diedCity": "Goettingen",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1954",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for his fundamental research in quantum mechanics, especially for his statistical interpretation of the wavefunction\"",
+          "affiliations": [
+            {
+              "name": "Edinburgh University",
+              "city": "Edinburgh",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "62",
+      "firstname": "Walther",
+      "surname": "Bothe",
+      "born": "1891-01-08",
+      "died": "1957-02-08",
+      "bornCountry": "Germany",
+      "bornCountryCode": "DE",
+      "bornCity": "Oranienburg",
+      "diedCountry": "West Germany",
+      "diedCountryCode": "DE",
+      "diedCity": "Heidelberg",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1954",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for the coincidence method and his discoveries made therewith\"",
+          "affiliations": [
+            {
+              "name": "University of Heidelberg",
+              "city": "Heidelberg",
+              "country": "Federal Republic of Germany"
+            },
+            {
+              "name": "Max-Planck-Institut für medizinische Forschung",
+              "city": "Heidelberg",
+              "country": "Federal Republic of Germany"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "63",
+      "firstname": "Willis Eugene",
+      "surname": "Lamb",
+      "born": "1913-07-12",
+      "died": "2008-05-15",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Los Angeles, CA",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Tucson, AZ",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1955",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for his discoveries concerning the fine structure of the hydrogen spectrum\"",
+          "affiliations": [
+            {
+              "name": "Stanford University",
+              "city": "Stanford, CA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "64",
+      "firstname": "Polykarp",
+      "surname": "Kusch",
+      "born": "1911-01-26",
+      "died": "1993-03-20",
+      "bornCountry": "Germany",
+      "bornCountryCode": "DE",
+      "bornCity": "Blankenburg",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Dallas, TX",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1955",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for his precision determination of the magnetic moment of the electron\"",
+          "affiliations": [
+            {
+              "name": "Columbia University",
+              "city": "New York, NY",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "65",
+      "firstname": "William Bradford",
+      "surname": "Shockley",
+      "born": "1910-02-13",
+      "died": "1989-08-12",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+      "bornCity": "London",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Palo Alto, CF",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1956",
+          "category": "physics",
+          "share": "3",
+          "motivation": "\"for their researches on semiconductors and their discovery of the transistor effect\"",
+          "affiliations": [
+            {
+              "name": "Semiconductor Laboratory of Beckman Instruments, Inc.",
+              "city": "Mountain View, CA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "66",
+      "firstname": "John",
+      "surname": "Bardeen",
+      "born": "1908-05-23",
+      "died": "1991-01-30",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Madison, WI",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Boston, MA",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1956",
+          "category": "physics",
+          "share": "3",
+          "motivation": "\"for their researches on semiconductors and their discovery of the transistor effect\"",
+          "affiliations": [
+            {
+              "name": "University of Illinois",
+              "city": "Urbana, IL",
+              "country": "USA"
+            }
+          ]
+        },
+        {
+          "year": "1972",
+          "category": "physics",
+          "share": "3",
+          "motivation": "\"for their jointly developed theory of superconductivity, usually called the BCS-theory\"",
+          "affiliations": [
+            {
+              "name": "University of Illinois",
+              "city": "Urbana, IL",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "67",
+      "firstname": "Walter Houser",
+      "surname": "Brattain",
+      "born": "1902-02-10",
+      "died": "1987-10-13",
+      "bornCountry": "China",
+      "bornCountryCode": "CN",
+      "bornCity": "Amoy",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Seattle, WA",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1956",
+          "category": "physics",
+          "share": "3",
+          "motivation": "\"for their researches on semiconductors and their discovery of the transistor effect\"",
+          "affiliations": [
+            {
+              "name": "Bell Telephone Laboratories",
+              "city": "Murray Hill, NJ",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68",
+      "firstname": "Chen Ning",
+      "surname": "Yang",
+      "born": "1922-09-22",
+      "died": "0000-00-00",
+      "bornCountry": "China",
+      "bornCountryCode": "CN",
+      "bornCity": "Hofei, Anhwei",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1957",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for their penetrating investigation of the so-called parity laws which has led to important discoveries regarding the elementary particles\"",
+          "affiliations": [
+            {
+              "name": "Institute for Advanced Study",
+              "city": "Princeton, NJ",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "69",
+      "firstname": "Tsung-Dao (T.D.)",
+      "surname": "Lee",
+      "born": "1926-11-24",
+      "died": "0000-00-00",
+      "bornCountry": "China",
+      "bornCountryCode": "CN",
+      "bornCity": "Shanghai",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1957",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for their penetrating investigation of the so-called parity laws which has led to important discoveries regarding the elementary particles\"",
+          "affiliations": [
+            {
+              "name": "Columbia University",
+              "city": "New York, NY",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "70",
+      "firstname": "Pavel Alekseyevich",
+      "surname": "Cherenkov",
+      "born": "1904-07-28",
+      "died": "1990-01-06",
+      "bornCountry": "Russia",
+      "bornCountryCode": "RU",
+      "bornCity": "Novaya Chigla",
+      "diedCountry": "USSR",
+      "diedCountryCode": "RU",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1958",
+          "category": "physics",
+          "share": "3",
+          "motivation": "\"for the discovery and the interpretation of the Cherenkov effect\"",
+          "affiliations": [
+            {
+              "name": "P.N. Lebedev Physical Institute",
+              "city": "Moscow",
+              "country": "USSR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "71",
+      "firstname": "Igor Yevgenyevich",
+      "surname": "Tamm",
+      "born": "1895-07-08",
+      "died": "1971-04-12",
+      "bornCountry": "Russia",
+      "bornCountryCode": "RU",
+      "bornCity": "Vladivostok",
+      "diedCountry": "Russia, Soviet Union",
+      "diedCountryCode": "RU",
+      "diedCity": "Moscow",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1958",
+          "category": "physics",
+          "share": "3",
+          "motivation": "\"for the discovery and the interpretation of the Cherenkov effect\"",
+          "affiliations": [
+            {
+              "name": "University of Moscow",
+              "city": "Moscow",
+              "country": "USSR"
+            },
+            {
+              "name": "P.N. Lebedev Physical Institute",
+              "city": "Moscow",
+              "country": "USSR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "72",
+      "firstname": "Emilio Gino",
+      "surname": "Segrè",
+      "born": "1905-02-01",
+      "died": "1989-04-22",
+      "bornCountry": "Italy",
+      "bornCountryCode": "IT",
+      "bornCity": "Tivoli",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Lafayette, CA",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1959",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for their discovery of the antiproton\"",
+          "affiliations": [
+            {
+              "name": "University of California",
+              "city": "Berkeley, CA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "73",
+      "firstname": "Owen",
+      "surname": "Chamberlain",
+      "born": "1920-07-10",
+      "died": "2006-02-28",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+      "bornCity": "Birmingham",
+      "diedCountry": "United Kingdom",
+      "diedCountryCode": "UK",
+      "diedCity": "London",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1959",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for their discovery of the antiproton\"",
+          "affiliations": [
+            {
+              "name": "University of California",
+              "city": "Berkeley, CA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "74",
+      "firstname": "Donald Arthur",
+      "surname": "Glaser",
+      "born": "1926-09-21",
+      "died": "2013-02-28",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Cleveland, OH",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Berkeley, CA",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1960",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for the invention of the bubble chamber\"",
+          "affiliations": [
+            {
+              "name": "University of California",
+              "city": "Berkeley, CA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "75",
+      "firstname": "Robert",
+      "surname": "Hofstadter",
+      "born": "1915-02-05",
+      "died": "1990-11-17",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "New York, NY",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Stanford, CA",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1961",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for his pioneering studies of electron scattering in atomic nuclei and for his thereby achieved discoveries concerning the structure of the nucleons\"",
+          "affiliations": [
+            {
+              "name": "Stanford University",
+              "city": "Stanford, CA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "76",
+      "firstname": "Rudolf Ludwig",
+      "surname": "Mössbauer",
+      "born": "1929-01-31",
+      "died": "2011-09-14",
+      "bornCountry": "Germany",
+      "bornCountryCode": "DE",
+      "bornCity": "Munich",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1961",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for his researches concerning the resonance absorption of gamma radiation and his discovery in this connection of the effect which bears his name\"",
+          "affiliations": [
+            {
+              "name": "Technical University",
+              "city": "Munich",
+              "country": "Federal Republic of Germany"
+            },
+            {
+              "name": "California Institute of Technology (Caltech)",
+              "city": "Pasadena, CA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "77",
+      "firstname": "Lev Davidovich",
+      "surname": "Landau",
+      "born": "1908-01-22",
+      "died": "1968-04-01",
+      "bornCountry": "Russian Empire (now Azerbaijan)",
+      "bornCountryCode": "AZ",
+      "bornCity": "Baku",
+      "diedCountry": "Russia, Soviet Union",
+      "diedCountryCode": "RU",
+      "diedCity": "Moscow",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1962",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his pioneering theories for condensed matter, especially liquid helium\"",
+          "affiliations": [
+            {
+              "name": "Academy of Sciences",
+              "city": "Moscow",
+              "country": "USSR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "78",
+      "firstname": "Eugene Paul",
+      "surname": "Wigner",
+      "born": "1902-11-17",
+      "died": "1995-01-01",
+      "bornCountry": "Austria-Hungary",
+      "bornCountryCode": "HU",
+      "bornCity": "Budapest",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Princeton, NJ",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1963",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for his contributions to the theory of the atomic nucleus and the elementary particles, particularly through the discovery and application of fundamental symmetry principles\"",
+          "affiliations": [
+            {
+              "name": "Princeton University",
+              "city": "Princeton, NJ",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "79",
+      "firstname": "Maria",
+      "surname": "Goeppert Mayer",
+      "born": "1906-06-28",
+      "died": "1972-02-20",
+      "bornCountry": "Germany (now Poland)",
+      "bornCountryCode": "PL",
+      "bornCity": "Kattowitz (now Katowice)",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "San Diego, CA",
+      "gender": "female",
+      "prizes": [
+        {
+          "year": "1963",
+          "category": "physics",
+          "share": "4",
+          "motivation": "\"for their discoveries concerning nuclear shell structure\"",
+          "affiliations": [
+            {
+              "name": "University of California",
+              "city": "La Jolla, CA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "80",
+      "firstname": "J. Hans D.",
+      "surname": "Jensen",
+      "born": "1907-06-25",
+      "died": "1973-02-11",
+      "bornCountry": "Germany",
+      "bornCountryCode": "DE",
+      "bornCity": "Hamburg",
+      "diedCountry": "West Germany",
+      "diedCountryCode": "DE",
+      "diedCity": "Heidelberg",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1963",
+          "category": "physics",
+          "share": "4",
+          "motivation": "\"for their discoveries concerning nuclear shell structure\"",
+          "affiliations": [
+            {
+              "name": "University of Heidelberg",
+              "city": "Heidelberg",
+              "country": "Federal Republic of Germany"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "81",
+      "firstname": "Charles Hard",
+      "surname": "Townes",
+      "born": "1915-07-28",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Greenville, SC",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1964",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for fundamental work in the field of quantum electronics, which has led to the construction of oscillators and amplifiers based on the maser-laser principle\"",
+          "affiliations": [
+            {
+              "name": "Massachusetts Institute of Technology (MIT)",
+              "city": "Cambridge, MA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "82",
+      "firstname": "Nicolay Gennadiyevich",
+      "surname": "Basov",
+      "born": "1922-12-14",
+      "died": "2001-07-01",
+      "bornCountry": "Russia, Soviet Union",
+      "bornCountryCode": "RU",
+      "bornCity": "Usman",
+      "diedCountry": "Russia",
+      "diedCountryCode": "RU",
+      "diedCity": "Moscow",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1964",
+          "category": "physics",
+          "share": "4",
+          "motivation": "\"for fundamental work in the field of quantum electronics, which has led to the construction of oscillators and amplifiers based on the maser-laser principle\"",
+          "affiliations": [
+            {
+              "name": "P.N. Lebedev Physical Institute",
+              "city": "Moscow",
+              "country": "USSR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "83",
+      "firstname": "Aleksandr Mikhailovich",
+      "surname": "Prokhorov",
+      "born": "1916-07-11",
+      "died": "2002-01-08",
+      "bornCountry": "Australia",
+      "bornCountryCode": "AU",
+      "bornCity": "Atherton",
+      "diedCountry": "Russia",
+      "diedCountryCode": "RU",
+      "diedCity": "Moscow",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1964",
+          "category": "physics",
+          "share": "4",
+          "motivation": "\"for fundamental work in the field of quantum electronics, which has led to the construction of oscillators and amplifiers based on the maser-laser principle\"",
+          "affiliations": [
+            {
+              "name": "P.N. Lebedev Physical Institute",
+              "city": "Moscow",
+              "country": "USSR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "84",
+      "firstname": "Sin-Itiro",
+      "surname": "Tomonaga",
+      "born": "1906-03-31",
+      "died": "1979-07-08",
+      "bornCountry": "Japan",
+      "bornCountryCode": "JP",
+      "bornCity": "Kyoto",
+      "diedCountry": "Japan",
+      "diedCountryCode": "JP",
+      "diedCity": "Tokyo",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1965",
+          "category": "physics",
+          "share": "3",
+          "motivation": "\"for their fundamental work in quantum electrodynamics, with deep-ploughing consequences for the physics of elementary particles\"",
+          "affiliations": [
+            {
+              "name": "Tokyo University of Education",
+              "city": "Tokyo",
+              "country": "Japan"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "85",
+      "firstname": "Julian",
+      "surname": "Schwinger",
+      "born": "1918-02-12",
+      "died": "1994-07-16",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "New York, NY",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Los Angeles, CA",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1965",
+          "category": "physics",
+          "share": "3",
+          "motivation": "\"for their fundamental work in quantum electrodynamics, with deep-ploughing consequences for the physics of elementary particles\"",
+          "affiliations": [
+            {
+              "name": "Harvard University",
+              "city": "Cambridge, MA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "86",
+      "firstname": "Richard P.",
+      "surname": "Feynman",
+      "born": "1918-05-11",
+      "died": "1988-02-15",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "New York, NY",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Los Angeles, CA",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1965",
+          "category": "physics",
+          "share": "3",
+          "motivation": "\"for their fundamental work in quantum electrodynamics, with deep-ploughing consequences for the physics of elementary particles\"",
+          "affiliations": [
+            {
+              "name": "California Institute of Technology (Caltech)",
+              "city": "Pasadena, CA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "87",
+      "firstname": "Alfred",
+      "surname": "Kastler",
+      "born": "1902-05-03",
+      "died": "1984-01-07",
+      "bornCountry": "Germany (now France)",
+      "bornCountryCode": "FR",
+      "bornCity": "Guebwiller",
+      "diedCountry": "France",
+      "diedCountryCode": "FR",
+      "diedCity": "Bandol",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1966",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for the discovery and development of optical methods for studying Hertzian resonances in atoms\"",
+          "affiliations": [
+            {
+              "name": "École Normale Supérieure",
+              "city": "Paris",
+              "country": "France"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "88",
+      "firstname": "Hans Albrecht",
+      "surname": "Bethe",
+      "born": "1906-07-02",
+      "died": "2005-03-06",
+      "bornCountry": "Germany (now France)",
+      "bornCountryCode": "FR",
+      "bornCity": "Strassburg (now Strasbourg)",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Ithaca, NY",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1967",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his contributions to the theory of nuclear reactions, especially his discoveries concerning the energy production in stars\"",
+          "affiliations": [
+            {
+              "name": "Cornell University",
+              "city": "Ithaca, NY",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "89",
+      "firstname": "Luis Walter",
+      "surname": "Alvarez",
+      "born": "1911-06-13",
+      "died": "1988-09-01",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "San Francisco, CA",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Berkeley, CA",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1968",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his decisive contributions to elementary particle physics, in particular the discovery of a large number of resonance states, made possible through his development of the technique of using hydrogen bubble chamber and data analysis\"",
+          "affiliations": [
+            {
+              "name": "University of California",
+              "city": "Berkeley, CA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "90",
+      "firstname": "Murray",
+      "surname": "Gell-Mann",
+      "born": "1929-09-15",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "New York, NY",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1969",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his contributions and discoveries concerning the classification of elementary particles and their interactions\"",
+          "affiliations": [
+            {
+              "name": "California Institute of Technology (Caltech)",
+              "city": "Pasadena, CA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "91",
+      "firstname": "Hannes Olof Gösta",
+      "surname": "Alfvén",
+      "born": "1908-05-30",
+      "died": "1995-04-02",
+      "bornCountry": "Sweden",
+      "bornCountryCode": "SE",
+      "bornCity": "Norrköping",
+      "diedCountry": "Sweden",
+      "diedCountryCode": "SE",
+      "diedCity": "Djursholm",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1970",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for fundamental work and discoveries in magnetohydro-\r\ndynamics with fruitful applications in different parts of plasma physics\"",
+          "affiliations": [
+            {
+              "name": "Royal Institute of Technology",
+              "city": "Stockholm",
+              "country": "Sweden"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "92",
+      "firstname": "Louis Eugène Félix",
+      "surname": "Néel",
+      "born": "1904-11-22",
+      "died": "2000-11-17",
+      "bornCountry": "France",
+      "bornCountryCode": "FR",
+      "bornCity": "Lyon",
+      "diedCountry": "France",
+      "diedCountryCode": "FR",
+      "diedCity": "Brive-Corrèze",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1970",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for fundamental work and discoveries concerning antiferromagnetism and ferrimagnetism which have led to important applications in solid state physics\"",
+          "affiliations": [
+            {
+              "name": "University of Grenoble",
+              "city": "Grenoble",
+              "country": "France"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "93",
+      "firstname": "Dennis",
+      "surname": "Gabor",
+      "born": "1900-06-05",
+      "died": "1979-02-08",
+      "bornCountry": "Hungary",
+      "bornCountryCode": "HU",
+      "bornCity": "Budapest",
+      "diedCountry": "United Kingdom",
+      "diedCountryCode": "UK",
+      "diedCity": "London",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1971",
+          "category": "physics",
+          "share": "1",
+          "motivation": "\"for his invention and development of the holographic method\"",
+          "affiliations": [
+            {
+              "name": "Imperial College",
+              "city": "London",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "95",
+      "firstname": "Leon Neil",
+      "surname": "Cooper",
+      "born": "1930-02-28",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "New York, NY",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1972",
+          "category": "physics",
+          "share": "3",
+          "motivation": "\"for their jointly developed theory of superconductivity, usually called the BCS-theory\"",
+          "affiliations": [
+            {
+              "name": "Brown University",
+              "city": "Providence, RI",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "96",
+      "firstname": "John Robert",
+      "surname": "Schrieffer",
+      "born": "1931-05-31",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Oak Park, IL",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1972",
+          "category": "physics",
+          "share": "3",
+          "motivation": "\"for their jointly developed theory of superconductivity, usually called the BCS-theory\"",
+          "affiliations": [
+            {
+              "name": "University of Pennsylvania",
+              "city": "Philadelphia, PA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "97",
+      "firstname": "Leo",
+      "surname": "Esaki",
+      "born": "1925-03-12",
+      "died": "0000-00-00",
+      "bornCountry": "Japan",
+      "bornCountryCode": "JP",
+      "bornCity": "Osaka",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1973",
+          "category": "physics",
+          "share": "4",
+          "motivation": "\"for their experimental discoveries regarding tunneling phenomena in semiconductors and superconductors, respectively\"",
+          "affiliations": [
+            {
+              "name": "IBM Thomas J. Watson Research Center",
+              "city": "Yorktown Heights, NY",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "98",
+      "firstname": "Ivar",
+      "surname": "Giaever",
+      "born": "1929-04-05",
+      "died": "0000-00-00",
+      "bornCountry": "Norway",
+      "bornCountryCode": "NO",
+      "bornCity": "Bergen",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1973",
+          "category": "physics",
+          "share": "4",
+          "motivation": "\"for their experimental discoveries regarding tunneling phenomena in semiconductors and superconductors, respectively\"",
+      "bornCountryCode": "DK",
+      "bornCity": "Copenhagen",
+          "affiliations": [
+            {
+              "name": "Niels Bohr Institute",
+              "city": "Copenhagen",
+    {
+      "id": "103",
+      "firstname": "Ben Roy",
+      "gender": "male",
+          "category": "physics",
+          "share": "3",
+          "motivation": "\"for the discovery of the connection between collective motion and particle motion in atomic nuclei and the development of the theory of the structure of the atomic nucleus based on this connection\"",
+    {
+    },
+    {
+      "id": "107",
+      "died": "0000-00-00",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1977",
+          "category": "physics",
+        }
+      ]
+    },
+    {
+      "id": "109",
+      "firstname": "John Hasbrouck",
+      "surname": "van Vleck",
+      "bornCity": "Middletown, CT",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for his basic inventions and discoveries in the area of low-temperature physics\"",
+              "country": "USA"
+            }
+      "bornCountry": "USA",
+              "city": "Cambridge, MA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "114",
+      "firstname": "Abdus",
+      "diedCity": "Oxford",
+            {
+              "name": "Imperial College",
+              "city": "London",
+    {
+      "id": "115",
+              "name": "Harvard University",
+              "city": "Cambridge, MA",
+      "born": "1931-09-29",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Chicago, IL",
+          ]
+        }
+      ]
+    },
+    {
+      "surname": "Schawlow",
+      "born": "1921-05-05",
+      "diedCountry": "USA",
+      ]
+          "year": "1981",
+              "country": "Sweden"
+      "prizes": [
+        {
+          "year": "1982",
+      "diedCountry": "USA",
+          "category": "physics",
+      "id": "123",
+      "surname": "Fowler",
+      "born": "1911-08-09",
+      "diedCountry": "USA",
+      "prizes": [
+        {
+          "year": "1983",
+          "category": "physics",
+              "city": "Pasadena, CA",
+    {
+      "id": "124",
+      "firstname": "Carlo",
+    {
+      "id": "125",
+      "surname": "van der Meer",
+      "bornCountry": "the Netherlands",
+      "bornCountryCode": "NL",
+      "bornCity": "the Hague",
+      "diedCountry": "Switzerland",
+      "diedCountryCode": "CH",
+          "motivation": "\"for their decisive contributions to the large project, which led to the discovery of the field particles W and Z, communicators of weak interaction\"",
+              "city": "Princeton, NJ",
+      "bornCountryCode": "CA",
+      "diedCountryCode": "CA",
+      "gender": "male",
+          "share": "2",
+          "motivation": "\"for the development of neutron spectroscopy\"",
+      "firstname": "Clifford G.",
+      "surname": "Shull",
+      "born": "1915-09-23",
+      "diedCity": "Medford, MA",
+      "died": "0000-00-00",
+      "bornCountry": "China",
+        {
+          "year": "1998",
+            {
+              "name": "Princeton University",
+      "prizes": [
+        {
+          "year": "1999",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for elucidating the quantum structure of electroweak interactions in physics\"",
+            {
+              "name": "Utrecht University",
+              "city": "Utrecht",
+              "country": "the Netherlands"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "159",
+      "firstname": "Martinus J.G.",
+      "surname": "Veltman",
+      "born": "1931-06-27",
+      "prizes": [
+        {
+          "year": "1999",
+          "category": "physics",
+      "bornCountry": "the Netherlands",
+      "bornCountryCode": "NL",
+      "prizes": [
+          "share": "1",
+          ]
+      "diedCountryCode": "DE",
+          "affiliations": [
+            {
+              "name": "Berlin University",
+    {
+      "id": "162",
+      "firstname": "Svante August",
+      "surname": "Arrhenius",
+      "born": "1859-02-19",
+      "died": "1927-10-02",
+      "bornCountry": "Sweden",
+      "diedCity": "Stockholm",
+        {
+          "year": "1903",
+          "motivation": "\"in recognition of the extraordinary services he has rendered to the advancement of chemistry by his electrolytic theory of dissociation\"",
+              "country": "Germany"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "165",
+      "firstname": "Henri",
+      "surname": "Moissan",
+      "born": "1852-09-28",
+          "affiliations": [
+            {
+              "name": "Nancy University",
+              "city": "Nancy",
+              "country": "France"
+          ]
+          "category": "chemistry",
+          "share": "2",
+          "motivation": "\"for his method of hydrogenating organic compounds in the presence of finely disintegrated metals whereby the progress of organic chemistry has been greatly advanced in recent years\"",
+              "country": "USA"
+            {
+      "bornCountryCode": "PL",
+      "prizes": [
+        {
+          "category": "chemistry",
+      "died": "1956-09-22",
+      "bornCity": "Eastbourne",
+      "diedCountry": "United Kingdom",
+            {
+      "died": "1945-11-20",
+              "name": "University of Cambridge",
+      "bornCity": "Laibach (now Ljubljana)",
+              "country": "Austria"
+    {
+      "id": "182",
+      "firstname": "Richard Adolf",
+      "surname": "Zsigmondy",
+      "bornCountry": "Germany",
+              "name": "Munich University",
+              "city": "Munich",
+              "country": "Germany"
+      "bornCity": "Berlin",
+        }
+      ]
+    },
+    {
+      "id": "186",
+          "category": "chemistry",
+          "motivation": "\"for their investigations on the fermentation of sugar and fermentative enzymes\"",
+      "bornCountryCode": "DE",
+      "bornCity": "Augsburg",
+      "prizes": [
+        {
+          "year": "1929",
+        {
+          "year": "1930",
+          "category": "chemistry",
+          "affiliations": [
+            {
+              "name": "University of Heidelberg",
+            {
+              "name": "I.G. Farbenindustrie A.G.",
+        }
+      "gender": "male",
+      "prizes": [
+              "name": "University of Heidelberg",
+              "city": "Heidelberg",
+              "country": "Germany"
+            },
+            {
+              "name": "I.G. Farbenindustrie A.G.",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+    },
+    {
+      "id": "192",
+      "surname": "Urey",
+      "born": "1893-04-29",
+          "category": "chemistry",
+              "country": "France"
+        }
+      ]
+    },
+      "died": "1956-03-17",
+        }
+      ]
+    },
+    {
+          "motivation": "\"for his contributions to our knowledge of molecular structure through his investigations on dipole moments and on the diffraction of X-rays and electrons in gases\"",
+    },
+    {
+      "id": "196",
+      "firstname": "Walter Norman",
+      "born": "1883-03-19",
+      "bornCountry": "United Kingdom",
+          "share": "2",
+          "motivation": "\"for his investigations on carbohydrates and vitamin C\"",
+          "affiliations": [
+            {
+              "name": "Birmingham University",
+      "diedCountryCode": "US",
+      "diedCity": "El Cerrito, CA",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1951",
+          "category": "chemistry",
+      "bornCountryCode": "US",
+              "country": "USA"
+        }
+      ]
+      "diedCountry": "United Kingdom",
+        {
+          "year": "1952",
+          "category": "chemistry",
+          "share": "2",
+          "year": "1952",
+    {
+      "id": "216",
+      "firstname": "Hermann",
+      "surname": "Staudinger",
+      "born": "1881-03-23",
+      "bornCountry": "Germany",
+      "prizes": [
+        {
+              "name": "Staatliches Institut für makromolekulare Chemie (State Research Institute for Macromolecular Chemistry), Freiburg",
+    {
+      "id": "217",
+      "firstname": "Linus Carl",
+      "surname": "Pauling",
+      "born": "1901-02-28",
+      "died": "1994-08-19",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Portland, OR",
+      "diedCountryCode": "US",
+      "prizes": [
+          "share": "2",
+          "motivation": "\"for their researches into the mechanism of chemical reactions\"",
+            {
+              "city": "Moscow",
+          ]
+        }
+      ]
+    {
+      "id": "221",
+      "firstname": "Lord (Alexander R.)",
+      "surname": "Todd",
+      "gender": "male",
+      "prizes": [
+      "died": "1967-03-27",
+              "country": "Czechoslovakia"
+    {
+      "id": "225",
+      "firstname": "Melvin",
+      "surname": "Calvin",
+      "born": "1911-04-08",
+      "died": "1997-01-08",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "St. Paul, MN",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+        {
+          "year": "1961",
+          "category": "chemistry",
+          "share": "1",
+      "id": "226",
+      "firstname": "Max Ferdinand",
+      "diedCity": "Cambridge",
+    {
+      "id": "227",
+      "firstname": "John Cowdery",
+            {
+              "name": "MRC Laboratory of Molecular Biology",
+      "gender": "male",
+      "prizes": [
+            }
+          ]
+        {
+          "year": "1964",
+      "prizes": [
+        {
+          "year": "1965",
+              "city": "Chicago, IL",
+        {
+          "year": "1967",
+      ]
+      "id": "235",
+      "diedCountryCode": "UK",
+    },
+      "prizes": [
+        {
+          "year": "1970",
+      "bornCity": "Hamburg",
+          "motivation": "\"for his contributions to the knowledge of electronic structure and geometry of molecules, particularly free radicals\"",
+              "country": "Canada"
+      "diedCity": "Randallstown, MD",
+      "gender": "male",
+      "prizes": [
+    {
+      "id": "242",
+      "firstname": "Stanford",
+      "surname": "Moore",
+      "born": "1911-06-25",
+      "prizes": [
+              "country": "Federal Republic of Germany"
+            }
+          "affiliations": [
+              "city": "London",
+              "country": "United Kingdom"
+          ]
+      "firstname": "Vladimir",
+      "surname": "Prelog",
+      "born": "1906-07-23",
+        {
+      ]
+    },
+    {
+      "id": "249",
+            }
+          ]
+              "country": "USA"
+          "year": "1979",
+      "firstname": "Georg",
+              "country": "Federal Republic of Germany"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "254",
+      "firstname": "Paul",
+      "surname": "Berg",
+      "gender": "male",
+              "name": "Stanford University",
+              "city": "Stanford, CA",
+              "country": "USA"
+      "id": "255",
+              "name": "Harvard University, Biological Laboratories",
+      "diedCountryCode": "US",
+      "diedCity": "Stanford, CA",
+            {
+      "bornCity": "Fort Worth, TX",
+          "share": "1",
+      "bornCountry": "USA",
+      "bornCity": "New York, NY",
+          "category": "chemistry",
+          "category": "chemistry",
+            }
+          ]
+          "affiliations": [
+            {
+          "motivation": "\"for their contributions concerning the dynamics of chemical elementary processes\"",
+            {
+              "name": "University of California",
+              "city": "Berkeley, CA",
+              "country": "USA"
+      "surname": "Polanyi",
+      "born": "1929-01-23",
+      "died": "0000-00-00",
+              "city": "Toronto",
+      "firstname": "Donald J.",
+      "died": "0000-00-00",
+      "bornCountryCode": "FR",
+              "country": "France"
+          ]
+      "prizes": [
+        {
+    },
+    {
+      "id": "270",
+      "firstname": "Johann",
+      "bornCity": "Zusamaltheim",
+          "motivation": "\"for the determination of the three-dimensional structure of a photosynthetic reaction centre\"",
+      "died": "0000-00-00",
+          "share": "3",
+          "motivation": "\"for the determination of the three-dimensional structure of a photosynthetic reaction centre\"",
+          "affiliations": [
+            {
+              "name": "Max-Planck-Institut für Biophysik",
+              "city": "Frankfurt-on-the-Main",
+              "country": "Federal Republic of Germany"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "273",
+            }
+          ]
+      "id": "274",
+      "firstname": "Thomas R.",
+              "name": "University of Colorado",
+              "city": "Boulder, CO",
+          ]
+        }
+      ]
+    },
+      "died": "0000-00-00",
+          "share": "1",
+          "motivation": "\"for his development of the theory and methodology of organic synthesis\"",
+              "country": "USA"
+      "surname": "Mullis",
+          "share": "2",
+          "motivation": "\"for his invention of the polymerase chain reaction (PCR) method\"",
+      ]
+    },
+    {
+      "id": "279",
+      "firstname": "Michael",
+      "bornCountryCode": "UK",
+            {
+              "name": "University of British Columbia",
+        }
+      ]
+    },
+    {
+      "id": "280",
+    {
+      "id": "281",
+          "category": "chemistry",
+    },
+    {
+      "id": "284",
+      "firstname": "Robert F.",
+      "surname": "Curl Jr.",
+      "bornCountry": "USA",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1996",
+            {
+              "city": "Houston, TX",
+              "country": "USA"
+      ]
+    },
+    {
+      "id": "285",
+      "surname": "Kroto",
+    },
+          "year": "1996",
+          "category": "chemistry",
+          "share": "3",
+          "motivation": "\"for their discovery of fullerenes\"",
+          ]
+        }
+      ]
+    },
+    {
+      "id": "287",
+      "firstname": "Paul D.",
+      "surname": "Boyer",
+      "bornCountry": "USA",
+      ]
+    },
+    {
+      "id": "288",
+      "firstname": "John E.",
+          "motivation": "\"for their elucidation of the enzymatic mechanism underlying the synthesis of adenosine triphosphate (ATP)\"",
+              "country": "USA"
+            }
+      "bornCity": "Burnham-on-Sea",
+              "country": "USA"
+            }
+          ]
+      "surname": "Ross",
+      "prizes": [
+        {
+          "year": "1902",
+          "category": "medicine",
+      "bornCountryCode": "FO",
+      "prizes": [
+        {
+          "share": "1",
+          "motivation": "\"in recognition of his work on the physiology of digestion, through which knowledge on vital aspects of the subject has been transformed and enlarged\"",
+          ]
+        }
+      ]
+    },
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1906",
+    },
+    {
+      "id": "299",
+      "firstname": "Santiago",
+        }
+      ]
+    {
+          "category": "medicine",
+          ]
+        }
+      ]
+    },
+    {
+      "id": "301",
+      "firstname": "Ilya Ilyich",
+      "surname": "Mechnikov",
+      "died": "1916-07-16",
+      "bornCity": "Kharkov (now Kharkiv)",
+      "diedCountry": "France",
+      "prizes": [
+              "country": "France"
+      ]
+    },
+    {
+      "diedCountryCode": "DE",
+      "surname": "Kocher",
+    },
+    {
+      "id": "304",
+      "surname": "Kossel",
+          "share": "1",
+    {
+      "id": "306",
+      "firstname": "Alexis",
+      "surname": "Carrel",
+      "born": "1873-06-28",
+          "category": "medicine",
+            {
+              "name": "Sorbonne University",
+      "died": "1961-04-06",
+      "bornCountry": "Belgium",
+      "id": "310",
+    {
+      "bornCountryCode": "UK",
+          "year": "1922",
+          "category": "medicine",
+              "country": "United Kingdom"
+          "affiliations": [
+            {
+      "firstname": "Frederick Grant",
+          "affiliations": [
+        }
+      ]
+    },
+    {
+      "id": "318",
+      "firstname": "Charles Jules Henri",
+      "prizes": [
+        {
+          "year": "1928",
+          "category": "medicine",
+      "firstname": "Christiaan",
+          "affiliations": [
+              "country": "the Netherlands"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "320",
+      "firstname": "Sir Frederick Gowland",
+      "surname": "Hopkins",
+      "born": "1861-06-20",
+      "died": "1947-05-16",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+      "bornCity": "Eastbourne",
+      "diedCountry": "United Kingdom",
+      "diedCity": "Cambridge",
+      "prizes": [
+          "category": "medicine",
+    {
+      "id": "321",
+      "died": "1943-06-26",
+      "bornCountry": "Austrian Empire (now Austria)",
+          "year": "1930",
+      "id": "322",
+      "firstname": "Otto Heinrich",
+      "diedCountry": "West Germany",
+      "diedCountryCode": "DE",
+      "prizes": [
+          "motivation": "\"for their discoveries regarding the functions of neurons\"",
+      "bornCity": "Lexington, KY",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Pasadena, CA",
+          ]
+        }
+    },
+    {
+      "id": "326",
+              "name": "University of Oxford",
+          "year": "1946",
+              "country": "USA"
+    },
+    {
+      "firstname": "Gerty Theresa",
+      "diedCountry": "USA",
+              "name": "Washington University",
+              "city": "St. Louis, MO",
+          "share": "2",
+            {
+              "name": "Instituto de Biologia y Medicina Experimental (Institute for Biology and Experimental Medicine)",
+      "born": "1899-01-12",
+      "bornCity": "Olten",
+      "diedCountry": "Switzerland",
+          ]
+      "died": "1973-08-12",
+            }
+          ]
+      "firstname": "Antonio Caetano de Abreu Freire Egas",
+          "affiliations": [
+            {
+              "name": "University of Lisbon",
+    {
+      "id": "351",
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "352",
+      "firstname": "Max",
+      "surname": "Theiler",
+          ]
+          "share": "1",
+          "share": "2",
+          "affiliations": [
+            {
+              "name": "Harvard Medical School",
+              "city": "Boston, MA",
+              "city": "Boston, MA",
+          ]
+        }
+      ]
+    },
+    {
+      "id": "358",
+      "firstname": "Frederick Chapman",
+      "firstname": "Axel Hugo Theodor",
+          "share": "1",
+              "country": "Sweden"
+      "died": "1988-02-19",
+      "diedCountry": "West Germany",
+      "firstname": "Dickinson W.",
+      "gender": "male",
+              "name": "Columbia University",
+              "city": "New York, NY",
+              "country": "USA"
+            }
+          ]
+        }
+      "bornCity": "Neuchâtel",
+      "diedCity": "Rome",
+              "country": "Italy"
+    {
+      "id": "364",
+      "firstname": "George Wells",
+      "surname": "Beadle",
+          "affiliations": [
+      "bornCity": "Boulder, CO",
+      "diedCountry": "USA",
+      "prizes": [
+        {
+      "born": "1925-05-23",
+              "name": "University of Wisconsin",
+      "diedCountry": "Spain",
+          "motivation": "\"for their discovery of the mechanisms in the biological synthesis of ribonucleic acid and deoxyribonucleic acid\"",
+              "country": "USA"
+      ]
+    },
+    {
+      "id": "372",
+      "firstname": "Francis Harry Compton",
+      "surname": "Crick",
+      "born": "1916-06-08",
+      "died": "2004-07-28",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+      "bornCity": "Northampton",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Chicago, IL",
+          "share": "3",
+          "motivation": "\"for their discoveries concerning the molecular structure of nucleic acids and its significance for information transfer in living material\"",
+      "bornCountry": "France",
+      "bornCountryCode": "FR",
+      "bornCity": "Ainay-le-Château",
+      "diedCountryCode": "FR",
+            {
+          ]
+        }
+      ]
+    },
+    {
+      "id": "383",
+      "firstname": "Peyton",
+          "motivation": "\"for his discovery of tumour-inducing viruses\"",
+      ]
+    },
+    {
+      "id": "386",
+            {
+              "name": "Rockefeller University",
+              "city": "New York, NY",
+            {
+              "city": "Madison, WI",
+              "country": "USA"
+            }
+    },
+    {
+      "id": "390",
+      "firstname": "Marshall W.",
+      "diedCountryCode": "US",
+      "bornCity": "Owosso, MI",
+          "year": "1969",
+              "name": "Carnegie Institution of Washington",
+        {
+          "year": "1969",
+    {
+      "id": "394",
+      "diedCountryCode": "UK",
+      "diedCountryCode": "US",
+      "died": "0000-00-00",
+      "bornCountryCode": "US",
+              "name": "Rockefeller University",
+              "city": "New York, NY",
+            }
+          ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401",
+      "firstname": "Konrad",
+      "surname": "Lorenz",
+      "born": "1903-11-07",
+      "died": "1989-02-27",
+      "bornCountry": "Austria",
+      "died": "1988-12-21",
+      "bornCountry": "the Netherlands",
+          "share": "3",
+          "motivation": "\"for their discoveries concerning the structural and functional organization of the cell\"",
+              "country": "USA"
+        }
+      ]
+    },
+      "id": "409",
+      "firstname": "Baruch S.",
+              "name": "The Institute for Cancer Research",
+              "city": "Philadelphia, PA",
+              "country": "USA"
+            }
+      "gender": "male",
+      "prizes": [
+            {
+              "name": "National Institutes of Health",
+      "died": "0000-00-00",
+      "bornCountry": "France",
+      "bornCountryCode": "FR",
+      "bornCity": "Dijon",
+      "gender": "male",
+      "bornCountry": "Poland (now Lithuania)",
+      "born": "1921-07-19",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "New York, NY",
+      "bornCountry": "Switzerland",
+      "prizes": [
+    },
+    {
+      "id": "416",
+      "firstname": "Hamilton O.",
+      "surname": "Smith",
+      "born": "1931-08-23",
+      "died": "0000-00-00",
+          "motivation": "\"for the discovery of restriction enzymes and their application to problems of molecular genetics\"",
+          "affiliations": [
+            {
+              "name": "Tufts University",
+          "year": "1979",
+          "category": "medicine",
+      "born": "1920-10-29",
+      "bornCountry": "Venezuela",
+      "bornCountryCode": "VE",
+      "diedCountryCode": "US",
+          "category": "medicine",
+          "share": "3",
+          "affiliations": [
+              "city": "Paris",
+              "country": "France"
+              "name": "Jackson Laboratory",
+      "bornCity": "Hartford, CT",
+      "firstname": "David H.",
+              "country": "USA"
+        }
+      ]
+    },
+    {
+      "id": "424",
+      "firstname": "Torsten N.",
+          ]
+        }
+      ]
+    },
+    {
+      "id": "425",
+      "firstname": "Sune K.",
+      "surname": "Bergström",
+      "born": "1916-01-10",
+      "bornCity": "Stockholm",
+      "id": "426",
+      "id": "427",
+      "firstname": "John R.",
+      "born": "1927-03-29",
+      "died": "2004-11-19",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+              "city": "Beckenham",
+              "country": "United Kingdom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "gender": "female",
+              "country": "USA"
+              "country": "Switzerland"
+      ]
+    },
+      "surname": "Köhler",
+      "died": "1995-03-01",
+      "bornCountry": "Germany",
+      "bornCountryCode": "DE",
+      "bornCity": "Munich",
+            {
+              "name": "Basel Institute for Immunology",
+    },
+    {
+      "id": "431",
+      "born": "1927-10-08",
+      "died": "2002-03-24",
+      "bornCountry": "USA",
+      "prizes": [
+        {
+      ]
+    },
+    {
+      "id": "433",
+      "firstname": "Joseph L.",
+      "surname": "Goldstein",
+      "born": "1940-04-18",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "born": "1922-11-17",
+              "city": "Nashville, TN",
+              "country": "USA"
+          ]
+        }
+      "surname": "Levi-Montalcini",
+      "born": "1909-04-22",
+      "id": "436",
+      "bornCountry": "Scotland",
+      "firstname": "Gertrude B.",
+      "diedCountry": "USA",
+            }
+          ]
+        }
+      ]
+          "motivation": "\"for their discoveries of important principles for drug treatment\"",
+          ]
+        }
+      ]
+    },
+    {
+      "id": "440",
+      "firstname": "J. Michael",
+          "year": "1989",
+          "share": "2",
+          "motivation": "\"for their discovery of the cellular origin of retroviral oncogenes\"",
+      "firstname": "Harold E.",
+      "surname": "Varmus",
+      "born": "1939-12-18",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Oceanside, NY",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1989",
+      "bornCountryCode": "US",
+      "bornCity": "Mart, TX",
+      "diedCountry": "USA",
+      "id": "444",
+      "bornCountryCode": "DE",
+          "motivation": "\"for their discoveries concerning the function of single ion channels in cells\"",
+        {
+          "year": "1991",
+          "category": "medicine",
+              "name": "Max-Planck-Institut für medizinische Forschung",
+      "prizes": [
+        {
+          "year": "1992",
+          "category": "medicine",
+          "share": "2",
+          "motivation": "\"for their discoveries concerning reversible protein phosphorylation as a biological regulatory mechanism\"",
+          "affiliations": [
+            {
+              "name": "University of Washington",
+              "name": "New England Biolabs",
+              "city": "Beverly, MA",
+      "id": "449",
+      "firstname": "Phillip A.",
+          "year": "1993",
+      "bornCountry": "USA",
+          "share": "2",
+          ]
+        }
+      ]
+    },
+    {
+      "id": "451",
+      "firstname": "Martin",
+      "diedCity": "Chapel Hill, NC",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1994",
+          "category": "medicine",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "died": "0000-00-00",
+      "prizes": [
+        {
+      "surname": "Wieschaus",
+      "born": "1947-06-08",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1995",
+          "category": "medicine",
+          "share": "3",
+          "motivation": "\"for their discoveries concerning the genetic control of early embryonic development\"",
+      "gender": "male",
+              "name": "University of Zurich, Institute of Experimental Immunology",
+      "bornCountry": "USA",
+              "name": "University of California School of Medicine",
+    },
+    {
+      "id": "458",
+      "firstname": "Robert F.",
+      "surname": "Furchgott",
+      "born": "1916-06-04",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Seattle, WA",
+        {
+          "year": "1998",
+          "category": "medicine",
+          "motivation": "\"for their discoveries concerning nitric oxide as a signalling molecule in the cardiovascular system\"",
+        }
+      ]
+    },
+    {
+      "id": "460",
+      "firstname": "Ferid",
+      "surname": "Murad",
+      "born": "1936-09-14",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Whiting, IN",
+      "gender": "male",
+      "prizes": [
+          "share": "3",
+            {
+        }
+      "firstname": "Günter",
+      "gender": "male",
+          "category": "medicine",
+            {
+              "name": "Howard Hughes Medical Institute"
+      "surname": "Dunant",
+      "born": "1828-05-08",
+      "died": "1910-10-30",
+      "bornCountry": "Switzerland",
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "463",
+      "firstname": "Frédéric",
+      "surname": "Passy",
+      "born": "1822-05-20",
+      "died": "1912-06-12",
+      "bornCity": "Geneva",
+      "diedCountry": "Switzerland",
+      "diedCountryCode": "CH",
+      "diedCity": "Bern",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1902",
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "465",
+      "firstname": "Charles Albert",
+    },
+      "died": "1908-07-22",
+      "diedCity": "London",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1903",
+      "prizes": [
+        {
+        {
+          "year": "1905",
+          "category": "peace",
+          "share": "1",
+      "diedCity": "Oyster Bay, NY",
+          "category": "peace",
+            [
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "471",
+      "surname": "Moneta",
+          "category": "peace",
+          "share": "2",
+
+
+            ]
+          ]
+      "id": "472",
+      "firstname": "Louis",
+      "surname": "Renault",
+      "born": "1843-05-21",
+      "died": "1918-02-08",
+      "bornCountry": "France",
+          "year": "1907",
+          "category": "peace",
+            }
+          ]
+        }
+      ]
+    },
+      "firstname": "Klas Pontus",
+          "year": "1908",
+          ]
+      ]
+    },
+    {
+      "id": "474",
+      "bornCountry": "Denmark",
+      "bornCountryCode": "DK",
+      "bornCity": "Næstved",
+      "diedCountryCode": "DK",
+        {
+          "year": "1908",
+          "affiliations": [
+            [
+
+
+            ]
+          ]
+        }
+    },
+    {
+      "id": "475",
+      "firstname": "Auguste Marie François",
+      "surname": "Beernaert",
+      "gender": "male",
+            [
+          ]
+        }
+      ]
+    },
+    {
+      "id": "476",
+      "firstname": "Paul Henri Benjamin Balluet",
+      "surname": "d'Estournelles de Constant, Baron de Constant de Rebecque",
+      "born": "1852-11-22",
+      "died": "1924-05-15",
+      "bornCountry": "France",
+      "bornCountryCode": "FR",
+      "bornCity": "La Flèche",
+      "diedCountry": "France",
+      "diedCountryCode": "FR",
+      "diedCity": "Paris",
+      "surname": "Asser",
+      "bornCountry": "the Netherlands",
+      "bornCountryCode": "NL",
+      "bornCity": "Amsterdam",
+      "diedCity": "the Hague",
+          ]
+        }
+      ]
+    },
+    {
+      "id": "479",
+      "firstname": "Alfred Hermann",
+      "surname": "Fried",
+        {
+          "year": "1911",
+          ]
+        }
+    },
+    {
+      "id": "480",
+      "firstname": "Elihu",
+      "surname": "Root",
+      "diedCity": "New York, NY",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1912",
+          "category": "peace",
+          "share": "1",
+          "affiliations": [
+            [
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "481",
+      "firstname": "Henri",
+      "surname": "La Fontaine",
+      "born": "1854-04-22",
+      "died": "1943-05-14",
+      "bornCountry": "Belgium",
+          "share": "1",
+          "year": "1917",
+          "year": "1944",
+          "category": "peace",
+          "share": "1",
+          "affiliations": [
+            [
+          ]
+        },
+        {
+          "year": "1963",
+          "category": "peace",
+      ]
+    },
+      "surname": "Wilson",
+      "born": "1856-12-28",
+      "died": "1924-02-03",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "died": "1925-09-29",
+      "bornCountry": "France",
+      "bornCountryCode": "FR",
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "485",
+      "firstname": "Karl Hjalmar",
+      "surname": "Branting",
+      "born": "1860-11-23",
+      "died": "1925-02-24",
+      "bornCountry": "Sweden",
+      "bornCountryCode": "SE",
+      "bornCity": "Stockholm",
+      "diedCountry": "Sweden",
+      "diedCity": "Stockholm",
+            [
+      ]
+    {
+      "id": "486",
+      "diedCity": "Oslo",
+        {
+          "year": "1921",
+
+
+            ]
+    },
+    {
+      "id": "488",
+      "diedCity": "London",
+          "year": "1925",
+          "affiliations": [
+            [
+      "born": "1862-03-28",
+      "died": "1932-03-07",
+      "bornCountry": "France",
+      "bornCountryCode": "FR",
+      "diedCountryCode": "FR",
+            [
+      ]
+    },
+    {
+      "id": "491",
+      "firstname": "Gustav",
+      "surname": "Stresemann",
+      "born": "1878-05-10",
+      "died": "1929-10-03",
+      "bornCountry": "Germany",
+      "bornCountryCode": "DE",
+      "bornCity": "Berlin",
+      "diedCountryCode": "DE",
+            [
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "492",
+      "firstname": "Ferdinand",
+          "affiliations": [
+            [
+
+
+            ]
+          ]
+        }
+      ]
+    },
+      "died": "1941-03-04",
+      "bornCountry": "Germany",
+          "category": "peace",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+          ]
+    {
+      "id": "546",
+      "bornCountry": "South Africa",
+      "prizes": [
+        {
+          "year": "1984",
+          "category": "peace",
+          "share": "1",
+          "affiliations": [
+            [
+
+
+            ]
+          ]
+        }
+      "firstname": "International Physicians for the Prevention of Nuclear War",
+      ]
+    },
+    {
+      "id": "549",
+          "year": "1987",
+          "category": "peace",
+          "share": "1",
+          "motivation": "\"for his work for peace in Central America, efforts which led to the accord signed in Guatemala on August 7 this year\"",
+      "firstname": "United Nations Peacekeeping Forces",
+
+
+            ]
+          ]
+        }
+      ]
+          "share": "1",
+      ]
+      "bornCountryCode": "MM",
+          "motivation": "\"for their efforts to create peace in the Middle East\"",
+          ]
+      "bornCountry": "Russian Empire (now Poland)",
+        {
+          "year": "1995",
+          "category": "peace",
+      ]
+    },
+    {
+      "id": "561",
+      "firstname": "Pugwash Conferences on Science and World Affairs",
+      "died": "0000-00-00",
+          "year": "1996",
+          ]
+        }
+    },
+    {
+      "id": "564",
+      "born": "0000-00-00",
+      "gender": "org",
+      "prizes": [
+        {
+          "year": "1997",
+          "category": "peace",
+          "share": "2",
+          "motivation": "\"for their work for the banning and clearing of anti-personnel mines\"",
+          ]
+      ]
+    },
+    {
+      "id": "565",
+      "firstname": "Jody",
+      "surname": "Williams",
+      "born": "1950-10-09",
+      "died": "0000-00-00",
+      "firstname": "John",
+      "bornCity": "Londonderry",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1998",
+          "share": "2",
+          "motivation": "\"for their efforts to find a peaceful solution to the conflict in Northern Ireland\"",
+      "bornCountryCode": "IE",
+            ]
+          ]
+        }
+      ]
+    },
+      "born": "0000-00-00",
+      "died": "0000-00-00",
+            ]
+          ]
+        }
+      "id": "569",
+      "firstname": "Sully",
+      "surname": "Prudhomme",
+      "born": "1839-03-16",
+      "died": "1907-09-07",
+      "bornCountry": "France",
+          "category": "literature",
+          "affiliations": [
+            [
+
+
+            ]
+          ]
+        }
+      "id": "571",
+      "firstname": "Christian Matthias Theodor",
+          "motivation": "\"the greatest living master of the art of historical writing, with special reference to his monumental work, <I>A history of Rome</I>\"",
+      "surname": "Bjørnson",
+      "diedCountry": "France",
+            ]
+    {
+      "id": "573",
+      "firstname": "Frédéric",
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "574",
+      "firstname": "José",
+      "born": "1832-04-19",
+      "died": "1916-09-04",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1904",
+          "category": "literature",
+          "share": "2",
+          "motivation": "\"in recognition of the numerous and brilliant compositions which, in an individual and original manner, have revived the great traditions of the Spanish drama\"",
+      "born": "1846-05-05",
+      "bornCountry": "Poland",
+          "motivation": "\"because of his outstanding merits as an epic writer\"",
+      ]
+    },
+    {
+        {
+          "year": "1906",
+          "category": "literature",
+          "share": "1",
+        }
+      ]
+    },
+    {
+      "id": "577",
+      "firstname": "Rudyard",
+      "diedCountry": "United Kingdom",
+      "prizes": [
+        {
+          "year": "1907",
+    {
+      "died": "1926-09-14",
+          "category": "literature",
+          "share": "1",
+          "motivation": "\"in appreciation of his many-sided literary activities, and especially of his dramatic works, which are distinguished by a wealth of imagination and by a poetic fancy, which reveals, sometimes in the guise of a fairy tale, a deep inspiration, while in a mysterious way they appeal to the readers' own feelings and stimulate their imaginations\"",
+      "prizes": [
+        {
+          "year": "1913",
+          "category": "literature",
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "584",
+      "firstname": "Romain",
+      "born": "1866-01-29",
+      "died": "1944-12-30",
+      "bornCountry": "France",
+      "bornCountryCode": "FR",
+      "bornCity": "Clamecy",
+      "diedCountry": "France",
+      "diedCity": "Vézelay",
+          "year": "1915",
+          "category": "literature",
+      ]
+    },
+    {
+      "id": "585",
+      "firstname": "Carl Gustaf Verner",
+      "surname": "von Heidenstam",
+      "born": "1859-07-06",
+      "died": "1940-05-20",
+      "bornCountry": "Sweden",
+      "diedCountryCode": "SE",
+            [
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "586",
+      "firstname": "Karl Adolph",
+      "surname": "Gjellerup",
+            [
+
+
+            ]
+          ]
+        }
+      ]
+      "surname": "Pontoppidan",
+      "born": "1857-07-24",
+      "died": "1943-08-21",
+      "bornCountry": "Denmark",
+      "bornCountryCode": "DK",
+          "motivation": "\"for his authentic descriptions of present-day life in Denmark\"",
+          "affiliations": [
+        }
+      ]
+    },
+    {
+      "id": "588",
+      "bornCity": "Liestal",
+      "gender": "male",
+      "prizes": [
+          "motivation": "\"in special appreciation of his epic, <I>Olympian Spring</I>\"",
+            [
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "590",
+      "firstname": "Anatole",
+      "bornCity": "Paris",
+      "diedCountry": "France",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1921",
+          "motivation": "\"in recognition of his brilliant literary achievements, characterized as they are by a nobility of style, a profound human sympathy, grace, and a true Gallic temperament\"",
+      "diedCountry": "Spain",
+      "diedCountryCode": "ES",
+      "diedCity": "Madrid",
+      "gender": "male",
+        {
+          "year": "1922",
+          "affiliations": [
+            [
+
+
+            ]
+      "born": "1865-06-13",
+      "died": "1939-01-28",
+      "bornCountry": "Ireland",
+      "diedCountryCode": "FR",
+          "year": "1923",
+          "category": "literature",
+          "share": "1",
+          "affiliations": [
+      "id": "594",
+      "firstname": "Wladyslaw Stanislaw",
+      "surname": "Reymont",
+      "born": "1867-05-07",
+      "died": "1925-12-05",
+      "bornCountryCode": "PL",
+      "diedCity": "Ayot St. Lawrence",
+      "gender": "male",
+      "diedCity": "Rome",
+      "gender": "female",
+          "affiliations": [
+            [
+
+
+            ]
+          ]
+        }
+          "motivation": "\"principally for her powerful descriptions of Northern life during the Middle Ages\"",
+      "gender": "male",
+          ]
+        }
+    },
+    {
+      "id": "606",
+      "firstname": "Ivan Alekseyevich",
+      "died": "1953-11-08",
+      "bornCity": "Voronezh",
+      "prizes": [
+        {
+          "year": "1933",
+          "motivation": "\"for the strict artistry with which he has carried on the classical Russian traditions in prose writing\"",
+      "diedCountry": "Italy",
+      "diedCountryCode": "IT",
+      "diedCity": "Rome",
+      "gender": "male",
+      "prizes": [
+        {
+          "motivation": "\"for his bold and ingenious revival of dramatic and scenic art\"",
+      "diedCity": "Boston, MA",
+          "motivation": "\"for the power, honesty and deep-felt emotions of his dramatic works, which embody an original concept of tragedy\"",
+        }
+      ]
+    },
+    {
+      "id": "610",
+      "bornCity": "Hillsboro, WV",
+      "prizes": [
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "613",
+      "firstname": "Frans Eemil",
+      "surname": "Sillanpää",
+      "born": "1888-09-16",
+      "died": "1964-06-03",
+      "bornCountry": "Russian Empire (now Finland)",
+      "bornCountryCode": "FI",
+      "diedCountryCode": "FI",
+      "diedCity": "Helsinki",
+      "gender": "male",
+          "year": "1939",
+          "category": "literature",
+      "firstname": "Johannes Vilhelm",
+      "bornCountryCode": "DK",
+      "gender": "male",
+        }
+      "died": "1957-01-10",
+      "bornCountryCode": "CL",
+          "category": "literature",
+          "share": "1",
+          "motivation": "\"for her lyric poetry which, inspired by powerful emotions, has made her name a symbol of the idealistic aspirations of the entire Latin American world\"",
+        {
+          "year": "1947",
+      ]
+    },
+    {
+      "id": "619",
+      "bornCountry": "USA",
+      "diedCountryCode": "UK",
+      "bornCity": "New Albany, MS",
+      "diedCountry": "USA",
+      "diedCountryCode": "US",
+      "diedCity": "Byhalia, MS",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1949",
+          "share": "1",
+      "bornCountry": "United Kingdom",
+      "bornCountryCode": "UK",
+      "bornCity": "Trelleck",
+      "diedCountry": "United Kingdom",
+        }
+      ]
+      "diedCountryCode": "SE",
+      "died": "1970-09-01",
+          "affiliations": [
+      "surname": "Churchill",
+      "born": "1874-11-30",
+      "died": "1965-01-24",
+      "bornCountry": "United Kingdom",
+          "motivation": "\"for his mastery of historical and biographical description as well as for brilliant oratory in defending exalted human values\"",
+      "bornCountryCode": "US",
+      "prizes": [
+        {
+          "year": "1954",
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "626",
+      "firstname": "Halldór Kiljan",
+      "surname": "Laxness",
+      "born": "1902-04-23",
+      "died": "1998-02-08",
+      "bornCountry": "Iceland",
+      "bornCountryCode": "IS",
+          "share": "1",
+          "motivation": "\"for his vivid epic power which has renewed the great narrative art of Iceland\"",
+      "diedCountryCode": "PR",
+          "category": "literature",
+          "share": "1",
+          "motivation": "\"for his lyrical poetry, which in Spanish language constitutes an example of high spirit and artistical purity\"",
+      "bornCountryCode": "DZ",
+      "diedCity": "Sens",
+      "gender": "male",
+          "year": "1957",
+          "category": "literature",
+      "bornCountry": "Russia",
+      "id": "630",
+      "firstname": "Salvatore",
+      "surname": "Quasimodo",
+      "diedCountry": "Italy",
+      "diedCountryCode": "IT",
+          "category": "literature",
+          "motivation": "\"for his lyrical poetry, which with classical fire expresses the tragic experience of life in our own times\"",
+      "bornCity": "Saint-Léger-les-Feuilles",
+      "gender": "male",
+      "prizes": [
+          "share": "1",
+          "motivation": "\"for the soaring flight and the evocative imagery of his poetry which in a visionary fashion reflects the conditions of our time\"",
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "633",
+      "firstname": "Ivo",
+      "surname": "Andric",
+      "died": "1975-03-13",
+      "diedCountryCode": "RS",
+      "died": "1968-12-20",
+      "bornCountry": "USA",
+          "year": "1962",
+          "category": "literature",
+          "share": "1",
+          "motivation": "\"for his realistic and imaginative writings, combining as they do sympathetic humour and keen social perception\"",
+            [
+
+
+            ]
+          ]
+      "firstname": "Jean-Paul",
+      "bornCity": "Paris",
+      "diedCountry": "France",
+      "diedCountryCode": "FR",
+      "diedCity": "Paris",
+      "gender": "male",
+      "prizes": [
+        {
+      "firstname": "Mikhail Aleksandrovich",
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "639",
+      "firstname": "Shmuel Yosef",
+      "bornCountryCode": "UA",
+      "prizes": [
+        {
+          "category": "literature",
+      "born": "1891-12-10",
+      "bornCountryCode": "DE",
+      "diedCountry": "Sweden",
+      "diedCountryCode": "SE",
+      "diedCity": "Stockholm",
+          "affiliations": [
+            [
+    {
+      "id": "641",
+      "firstname": "Miguel Angel",
+      "id": "654",
+      "firstname": "Isaac Bashevis",
+      "bornCity": "Leoncin",
+          "affiliations": [
+            [
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "655",
+      "firstname": "Odysseus",
+      "surname": "Elytis",
+      "diedCountryCode": "GR",
+      "firstname": "Czeslaw",
+          "affiliations": [
+      "died": "1994-08-14",
+      "bornCountry": "Bulgaria",
+      "bornCountryCode": "BG",
+      "diedCountryCode": "CH",
+      "bornCity": "Abeokuta",
+          ]
+        }
+      ]
+    },
+    {
+      "id": "664",
+      "bornCity": "Leningrad (now Saint Petersburg)",
+      "diedCountry": "USA",
+          "affiliations": [
+    },
+    {
+      "id": "665",
+      "firstname": "Naguib",
+          "affiliations": [
+      "diedCountry": "Spain",
+      "prizes": [
+          "affiliations": [
+      "id": "668",
+          "affiliations": [
+      "bornCountry": "Saint Lucia",
+          ]
+        }
+      ]
+    },
+    {
+      "id": "670",
+      "firstname": "Toni",
+      "prizes": [
+        {
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "671",
+      "firstname": "Kenzaburo",
+      "surname": "Oe",
+      "born": "1935-01-31",
+      "bornCity": "Uchiko",
+      "surname": "Szymborska",
+      "bornCountry": "Italy",
+      "bornCountryCode": "IT",
+      "bornCity": "Leggiuno-Sangiano",
+          "share": "1",
+            [
+
+
+            ]
+      ]
+    },
+    {
+      "id": "675",
+          "motivation": "\"who with parables sustained by imagination, compassion and irony continually enables us once again to apprehend an elusory reality\"",
+          "year": "1999",
+          "affiliations": [
+      ]
+    },
+      "born": "1895-03-03",
+      "bornCountryCode": "NO",
+      "bornCity": "Oslo",
+      "diedCountry": "Norway",
+      "diedCountryCode": "NO",
+      "born": "1903-04-12",
+      "born": "1915-05-15",
+      "died": "2009-12-13",
+      "bornCountryCode": "US",
+          "year": "1970",
+          "year": "1972",
+          "category": "economics",
+          "share": "2",
+          "motivation": "\"for their pioneering contributions to general economic equilibrium theory and welfare theory\"",
+              "name": "Academy of Sciences",
+          ]
+      "diedCountry": "USA",
+      "diedCountry": "USA",
+      "id": "689",
+      "firstname": "Bertil",
+          "category": "economics",
+              "country": "Sweden"
+      "gender": "male",
+      "prizes": [
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "691",
+    },
+    {
+      "id": "692",
+      "died": "1998-02-26",
+      ]
+    },
+    {
+      "id": "693",
+      ]
+    },
+    {
+      "id": "694",
+      "firstname": "Lawrence R.",
+      "surname": "Klein",
+      "born": "1920-09-14",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Omaha, NE",
+        {
+      "firstname": "James",
+      "id": "696",
+      "died": "1991-12-01",
+        }
+      ]
+    },
+      "bornCountryCode": "FR",
+      "diedCountryCode": "FR",
+      "diedCity": "Paris",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1983",
+          "category": "economics",
+          "share": "1",
+          "motivation": "\"for having incorporated new analytical methods into economic theory and for his rigorous reformulation of the theory of general equilibrium\"",
+    },
+    {
+      "id": "699",
+      "firstname": "Franco",
+          "category": "economics",
+              "city": "Cambridge, MA",
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "700",
+      "firstname": "James M.",
+      "surname": "Buchanan Jr.",
+      "born": "1919-10-03",
+      "died": "2013-01-09",
+      "bornCountry": "USA",
+          "share": "1",
+          "motivation": "\"for his development of the contractual and constitutional bases for the theory of economic and political decision-making\"",
+      "surname": "Markowitz",
+      "born": "1927-08-24",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCity": "Boston, MA",
+      "surname": "Coase",
+      "born": "1910-12-29",
+      "bornCountryCode": "UK",
+      "bornCity": "Willesden",
+      "gender": "male",
+              "city": "Chicago, IL",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "709",
+      "firstname": "Robert W.",
+      "bornCountry": "USA",
+          "affiliations": [
+            {
+              "name": "University of Chicago",
+        }
+      ]
+            {
+              "name": "Washington University",
+      "prizes": [
+        {
+          "year": "1994",
+          "category": "economics",
+          "share": "3",
+          "motivation": "\"for their pioneering analysis of equilibria in the theory of non-cooperative games\"",
+          "affiliations": [
+            {
+              "name": "University of California",
+              "city": "Berkeley, CA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "712",
+      "firstname": "John F.",
+      "surname": "Nash Jr.",
+      "born": "1928-06-13",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Bluefield, WV",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1994",
+          "category": "economics",
+          "share": "3",
+          "motivation": "\"for their pioneering analysis of equilibria in the theory of non-cooperative games\"",
+          "affiliations": [
+            {
+              "name": "Princeton University",
+              "city": "Princeton, NJ",
+      "bornCountry": "Germany (now Poland)",
+      "bornCountryCode": "PL",
+      "bornCity": "Breslau (now Wroclaw)",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "1994",
+          "category": "economics",
+          "share": "3",
+          "motivation": "\"for their pioneering analysis of equilibria in the theory of non-cooperative games\"",
+        }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "717",
+      "firstname": "Robert C.",
+      "surname": "Merton",
+      "died": "0000-00-00",
+      "bornCity": "New York, NY",
+      ]
+    },
+    {
+      "id": "724",
+      "firstname": "Eric R.",
+      "surname": "Kandel",
+      "born": "1929-11-07",
+      "died": "0000-00-00",
+      "bornCountry": "Austria",
+      "bornCountryCode": "AT",
+      "bornCity": "Vienna",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "2000",
+          "category": "medicine",
+          "share": "3",
+          "motivation": "\"for their discoveries concerning signal transduction in the nervous system\"",
+          "affiliations": [
+          "overallMotivation": "\"for basic work on information and communication technology\"",
+          "share": "4",
+              "name": "A.F. Ioffe Physico-Technical Institute",
+      "bornCountry": "Germany",
+        }
+      ]
+      "bornCountry": "USA",
+      "diedCity": "Dallas, TX",
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "730",
+      "firstname": "Alan G.",
+      "diedCity": "Drexel Hill, PA",
+              "name": "University of Pennsylvania",
+            }
+      "id": "731",
+      "firstname": "Hideki",
+              "country": "Japan"
+    {
+      "id": "732",
+      "firstname": "James J.",
+      "surname": "Hartwell",
+      "born": "1939-10-30",
+    {
+      "id": "736",
+      "firstname": "Tim",
+      "born": "1961-12-19",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Palo Alto, CF",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "2001",
+    },
+    {
+      "id": "739",
+      "bornCountry": "West Germany",
+      "bornCountryCode": "DE",
+        {
+          "year": "2001",
+          "category": "physics",
+      "surname": "Wieman",
+      "prizes": [
+            }
+          ]
+        }
+      ]
+            }
+          ]
+        }
+          ]
+        }
+      ]
+      "bornCountryCode": "JP",
+              "city": "Washington, DC",
+      "died": "2010-12-10",
+      "bornCountry": "USA",
+              "city": "Richmond, VA",
+      "id": "757",
+      "firstname": "Koichi",
+      "born": "1959-08-03",
+      "died": "0000-00-00",
+          "year": "2002",
+              "country": "Japan"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "758",
+      "firstname": "Kurt",
+      "surname": "Wüthrich",
+      "born": "1938-10-04",
+      "died": "0000-00-00",
+      "bornCountry": "Switzerland",
+      "bornCountryCode": "CH",
+      "bornCity": "Aarberg",
+      "gender": "male",
+      "prizes": [
+          "overallMotivation": "\"for the development of methods for identification and structure analyses of biological macromolecules\"",
+
+
+            ]
+          ]
+      "firstname": "John M.",
+      "surname": "Coetzee",
+      "born": "1940-02-09",
+      "died": "0000-00-00",
+      "bornCountry": "South Africa",
+      "bornCountryCode": "ZA",
+      "bornCity": "Cape Town",
+      "gender": "male",
+        {
+      "firstname": "Paul C.",
+              "city": "Urbana, IL",
+              "country": "United Kingdom"
+              "country": "USA"
+            }
+          ]
+        }
+        }
+      ]
+    },
+      "bornCountryCode": "UK",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+              "city": "Baltimore, MD",
+          ]
+        }
+      ]
+    },
+      "gender": "male",
+            {
+      "born": "1942-11-10",
+          "share": "2",
+          "motivation": "\"for methods of analyzing economic time series with common trends (cointegration)\"",
+              "city": "New York, NY",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+              "city": "Seattle, WA",
+              "country": "USA"
+            }
+          ]
+    },
+    {
+      "id": "776",
+      "firstname": "David J.",
+      "surname": "Gross",
+      "born": "1941-02-19",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Washington, DC",
+        }
+      ]
+    },
+    {
+      "id": "778",
+      "firstname": "Frank",
+        {
+          "year": "2004",
+      "bornCountryCode": "IL",
+              "name": "Technion - Israel Institute of Technology",
+              "country": "USA"
+            }
+      ]
+    },
+    {
+      "id": "782",
+      "firstname": "Elfriede",
+      "surname": "Jelinek",
+      "born": "1946-10-20",
+      "died": "0000-00-00",
+      "bornCountry": "Austria",
+      "bornCountryCode": "AT",
+      "bornCity": "Mürzzuschlag",
+      "gender": "female",
+          "year": "2004",
+          "category": "literature",
+      "born": "1940-12-26",
+          "year": "2004",
+          "category": "economics",
+          "share": "2",
+          "motivation": "\"for their contributions to dynamic macroeconomics: the time consistency of economic policy and the driving forces behind business cycles\"",
+              "country": "USA"
+              "name": "Federal Reserve Bank of Minneapolis",
+              "city": "Minneapolis, MN",
+          "motivation": "\"for their discovery of the bacterium <i>Helicobacter pylori</i> and its role in gastritis and peptic ulcer disease\"",
+              "name": "Harvard University",
+      "bornCountryCode": "US",
+      "born": "1941-10-30",
+      ]
+    },
+            }
+          ]
+        }
+      "died": "0000-00-00",
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "796",
+      "died": "0000-00-00",
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "799",
+      "firstname": "Robert J.",
+      "surname": "Aumann",
+      "born": "1930-06-08",
+      "died": "0000-00-00",
+      "bornCountry": "Germany",
+      "bornCountryCode": "DE",
+      "bornCity": "Frankfurt-on-the-Main",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "2005",
+          "category": "economics",
+          "share": "2",
+          "motivation": "\"for having enhanced our understanding of conflict and cooperation through game-theory analysis\"",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Oakland, CA",
+          "share": "2",
+          "motivation": "\"for having enhanced our understanding of conflict and cooperation through game-theory analysis\"",
+          "affiliations": [
+            {
+      "diedCountryCode": "UK",
+      "diedCity": "London",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "2005",
+          "category": "literature",
+          "share": "1",
+          "motivation": "\"who in his plays uncovers the precipice under everyday prattle and forces entry into oppression's closed rooms\"",
+          "affiliations": [
+            [
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "802",
+      "firstname": "Andrew Z.",
+      "surname": "Fire",
+      "born": "1959-04-27",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Stanford, CA",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "2006",
+          "category": "medicine",
+          "share": "2",
+          "motivation": "\"for their discovery of RNA interference - gene silencing by double-stranded RNA\"",
+          "affiliations": [
+            {
+              "name": "Stanford University School of Medicine",
+              "city": "Stanford, CA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "803",
+      "firstname": "Craig C.",
+      "surname": "Mello",
+      "born": "1960-10-19",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "New Haven, CT",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "2006",
+          "category": "medicine",
+          "share": "2",
+          "motivation": "\"for their discovery of RNA interference - gene silencing by double-stranded RNA\"",
+          "affiliations": [
+              "name": "University of Massachusetts Medical School",
+              "city": "Worcester, MA",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "804",
+      "firstname": "John C.",
+      "surname": "Mather",
+      "born": "1946-08-07",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Roanoke, VA",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "2006",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for their discovery of the blackbody form and anisotropy of the cosmic microwave background radiation\"",
+          "affiliations": [
+            {
+              "name": "NASA Goddard Space Flight Center",
+              "city": "Greenbelt, MD",
+              "country": "USA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "805",
+      "firstname": "George F.",
+      "surname": "Smoot",
+      "born": "1945-02-20",
+      "died": "0000-00-00",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+      "bornCity": "Yukon, FL",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "2006",
+          "category": "physics",
+          "share": "2",
+          "motivation": "\"for their discovery of the blackbody form and anisotropy of the cosmic microwave background radiation\"",
+        {
+          "year": "2006",
+          "category": "chemistry",
+          "share": "1",
+          "motivation": "\"for his studies of the molecular basis of eukaryotic transcription\"",
+              "city": "Stanford, CA",
+              "country": "USA"
+            }
+          ]
+      "id": "807",
+      "firstname": "Edmund S.",
+      "bornCountry": "USA",
+      "bornCountryCode": "US",
+        {
+          "year": "2006",
+          "category": "economics",
+          "share": "1",
+          "motivation": "\"for his analysis of intertemporal tradeoffs in macroeconomic policy\"",
+          "year": "2006",
+          "category": "peace",
+          "share": "2",
+          "motivation": "\"for their efforts to create economic and social development from below\"",
+          "affiliations": [
+            [
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "810",
+      "firstname": "Grameen Bank",
+      "born": "0000-00-00",
+      "died": "0000-00-00",
+      "gender": "org",
+      "prizes": [
+        {
+          "year": "2006",
+          "category": "peace",
+          "share": "2",
+            [
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "811",
+      "bornCity": "Verona",
+      "gender": "male",
+      "prizes": [
+        {
+          "year": "2007",
+          "category": "medicine",
+          "share": "3",
+          "motivation": "&quot;for their discoveries of principles for introducing specific gene modifications in mice by the use of embryonic stem cells&quot;",
+          ]
+        }
+      ]
+    },
+    {
+      "id": "812",
+      "firstname": "Sir Martin J.",
+      "firstname": "Oliver",
+      "surname": "Smithies",
+      "bornCity": "Carcassonne",
+            },
+            {
+              "name": "Unit&eacute; Mixte de Physique CNRS/THALES",
+          ]
+        }
+      ]
+    },
+    {
+      "id": "816",
+      "surname": "Ertl",
+      "firstname": "Doris",
+      "surname": "Lessing",
+      "born": "1919-10-22",
+      "gender": "female",
+          "share": "1",
+          "motivation": "&quot;that epicist of the female experience, who with scepticism, fire and visionary power has subjected a divided civilisation to scrutiny&quot;",
+
+
+            ]
+        }
+      ]
+    },
+    {
+      "id": "818",
+      "firstname": "Intergovernmental Panel on Climate Change (IPCC)",
+      "born": "0000-00-00",
+      "died": "0000-00-00",
+      "gender": "org",
+        {
+          "year": "2007",
+            [
+
+
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "820",
+      "

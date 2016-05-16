@@ -13,24 +13,32 @@ public class UplWMCThread implements Runnable
 
 	public void run()
 	{
+		System.out.println("UplWMC thread started");
 		String fileInfo = null;
 
-			try 
+		try 
+		{
+			while (true) 
 			{
-				while (true) 
-				{
-					fileInfo = mUtils.readFromWSocket();
-					System.out.println("Incoming worker upload file: " + fileInfo);
+				fileInfo = mUtils.readFromWSocket();
+				System.out.println("Incoming worker upload file: " + fileInfo);
 
+				// mUtils.flagSeflUpload();
+				// rUtils.flagSeflUpload();
+
+				// if (rUtils.selfUploading())
+				// 	mUtils.passWRecieve();
+				// else
 					mUtils.recieveWFile(fileInfo);
-					while (mUtils.isUploading())
-							continue;
-				}
-			} 
-			catch (Exception e) 
-			{
-				e.printStackTrace();
+
+				while (mUtils.isUploading())
+						continue;
 			}
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
 
 		System.out.println("\t Upload thread finished");
 	}

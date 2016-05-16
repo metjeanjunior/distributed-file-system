@@ -14,12 +14,13 @@ public class MCUtils
 	MulticastSocket wSocket;
 
 	private boolean isUploading = false;
+	private boolean selfUploading = false;
 
 	public MCUtils(RMUtils rUtils, int type) throws Exception 
 	{
 		this.rUtils = rUtils;
 
-		String rMCInfo = rUtils.getWMCInfo();
+		String rMCInfo = rUtils.getRMMCInfo();
 		String wMCInfo = rUtils.getRMMCInfo();
 
 		group = InetAddress.getByName(rMCInfo.split(",")[0].substring(1));
@@ -42,6 +43,16 @@ public class MCUtils
 		wSocket.joinGroup(group);
 	}
 
+	public synchronized boolean selfUploading()
+	{
+		return selfUploading;
+	}
+
+	public synchronized void flagSeflUpload()
+	{
+		selfUploading = true;
+	}
+
 	public synchronized boolean isUploading()
 	{
 		return isUploading;
@@ -54,7 +65,7 @@ public class MCUtils
 		DatagramPacket recv = new DatagramPacket(buf, buf.length);
 		rSocket.receive(recv);
 		socketString = new String(recv.getData(), 0, recv.getLength());
-		System.out.println("read: " + socketString);
+		System.out.println("read(rmR): " + socketString);
 		return socketString;
 	}
 
@@ -65,31 +76,68 @@ public class MCUtils
 		DatagramPacket recv = new DatagramPacket(buf, buf.length);
 		wSocket.receive(recv);
 		socketString = new String(recv.getData(), 0, recv.getLength());
-		System.out.println("read: " + socketString);
+		System.out.println("read(rmW): " + socketString);
 		return socketString;
 	}
 
 	public synchronized void recieveRFile(String fileInfo) throws Exception
 	{
 		isUploading = true;
-		sendToWMCUpl(fileInfo);
 
-		String line;
-		while ((line = readFromWSocket()).compareTo("__end__") != 0)
-			sendToWMCUpl(line);
-		sendToWMCUpl("__end__");
-		isUploading = false;
+		// if(selfUploading)
+		// 	passRRecieve();
+//		else
+		{
+			sendToWMCUpl(fileInfo + "bbbb");
+
+			String line;
+			while ((line = readFromWSocket()).compareTo("__end__") != 0)
+				sendToWMCUpl(line);
+			sendToWMCUpl("__end__");
+
+			selfUploading = false;
+			isUploading = false;
+		}
+
 	}
 
 	public synchronized void recieveWFile(String fileInfo) throws Exception
 	{
 		isUploading = true;
-		sendToRMCUpl(fileInfo);
 
+		// if (selfUploading)
+		// 	passWRecieve();
+//		else
+		{
+			sendToRMCUpl(fileInfo + "aaaaa");
+
+			String line;
+			while ((line = readFromWSocket()).compareTo("__end__") != 0)
+				sendToRMCUpl(line);
+			sendToRMCUpl("__end__");
+
+			selfUploading = false;
+			isUploading = false;
+		}
+	}
+
+	public void passRRecieve() throws Exception
+	{
+		isUploading = true;
+		String line;
+		while ((line = readFromRSocket()).compareTo("__end__") != 0)
+			continue;
+		selfUploading = false;
+		isUploading = false;
+	}
+
+	public void passWRecieve() throws Exception
+	{
+		isUploading = true;
 		String line;
 		while ((line = readFromWSocket()).compareTo("__end__") != 0)
-			sendToRMCUpl(line);
-		sendToRMCUpl("__end__");
+			continue;
+		selfUploading = false;
 		isUploading = false;
 	}
 

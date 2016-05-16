@@ -38,6 +38,11 @@ public class WorkerUtils
 		return isUpdating;
 	}
 
+	public String getDirName()
+	{
+		return socket.getLocalPort() + "/";
+	}
+
 	public boolean isShutDown()
 	{
 		return shutdown;
@@ -183,7 +188,9 @@ public class WorkerUtils
 		grabFileLock(fileName);
 			System.out.println("\t" + "sending file to client...");
 
-			File f = new File("files/" + fileName);
+			// File f = new File("files/" + fileName);
+			File f = new File(getDirName() + fileName);
+
 			if (!f.exists()) 
 			{
 				sendPacket("__dne__", cAddress, cPort);
@@ -194,11 +201,16 @@ public class WorkerUtils
 				return;
 			}
 
-			BufferedReader reader = Files.newBufferedReader(Paths.get("files/" + fileName));
+			// BufferedReader reader = Files.newBufferedReader(Paths.get("files/" + fileName));
+			BufferedReader reader = Files.newBufferedReader(Paths.get(getDirName() + fileName));
+
 		    String line = null;
 		    
-		    while ((line = reader.readLine()) != null) 
+		    while ((line = reader.readLine()) != null)
+		    {
+		    	System.out.println(line);
 		    	sendPacket(line, cAddress, cPort);
+		    }
 		    sendPacket("__end__", cAddress, cPort);
 		returnFileLock(fileName);
 	    
@@ -232,13 +244,22 @@ public class WorkerUtils
 		sendMCUpload(fileInfo);
 
 		grabFileLock(fileName);
-			PrintWriter writer = new PrintWriter("files/" + fileName, "UTF-8");
+			// PrintWriter writer = new PrintWriter("files/" + fileName, "UTF-8");
+			PrintWriter writer = new PrintWriter(getDirName() + fileName, "UTF-8");
+			System.out.println("saving in " + getDirName() + fileName);
+
 			System.out.println("\t" + "Recieving...");
 
 			String line;
-			while ((line = getPacketAndDataAltSoc(socket)).compareTo("__end__") != 0)
+			while (true)
 			{
 			    // System.out.println("\t" + line);
+				line = getPacketAndDataAltSoc(socket);
+
+				if (line == null)
+					line = "\n";
+				if (line.compareTo("__end__") == 0)
+					break;
 			    writer.println(line);
 			    sendMCUpload(line);
 			    sendPacket(line, rmAddress, rmPort);
@@ -280,5 +301,38 @@ public class WorkerUtils
 		uploadSocket.send(packet);
 		// System.out.println("Sending to " + group + ":" + uploadPort);
 		// System.out.println("\t\t\t\t\t\t"+data);
+	}
+
+	public synchronized void update(DatagramPacket packet) throws Exception
+	{
+		InetAddress address = packet.getAddress();
+		int port = packet.getPort();
+		DatagramSocket socket = new DatagramSocket();
+
+		File directory = new File(socket.getLocalPort() + "");
+		File[] fList = directory.listFiles();
+
+		for (File file : fList)
+		{
+			String fileName = file.getName();
+			packet = new DatagramPacket(fileName.getBytes(), fileName.length(), address, port);
+        	socket.send(packet);
+
+        	BufferedReader reader = Files.newBufferedReader(Paths.get(getDirName() + fileName));
+
+		    String line = null;
+		    
+		    while ((line = reader.readLine()) != null)
+	    	{ 
+				packet = new DatagramPacket(line.getBytes(), line.length(), address, port);
+	        	socket.send(packet);
+		    }
+			packet = new DatagramPacket("__end__".getBytes(), "__end__".length(), address, port);
+        	socket.send(packet);
+		}
+		packet = new DatagramPacket("__done__".getBytes(), "__done__".length(), address, port);
+    	socket.send(packet);
+
+		socket.close();
 	}
 }

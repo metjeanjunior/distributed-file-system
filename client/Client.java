@@ -22,8 +22,8 @@ public class Client
 //		InetAddress address = InetAddress.getByName(args[0]);
 
 //		For testing on a local machine
-		int port = 4576;		
-		InetAddress address = InetAddress.getByName("localhost");
+		 int port = 4576;		
+		 InetAddress address = InetAddress.getByName("localhost");
 
 		byte rbuf[] = new byte[1024];
 

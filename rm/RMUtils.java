@@ -13,6 +13,8 @@ public class RMUtils implements java.io.Serializable
 	Map<String, Integer> roleMap = Collections.synchronizedMap(new HashMap<String, Integer>());
 	private boolean isUpdating = true;
 	private boolean shutdown = false;
+	private boolean selfUploading = false;
+	boolean upd = false;
 
 	MulticastSocket updateSocket; 
 	MulticastSocket uploadSocket;
@@ -81,9 +83,100 @@ public class RMUtils implements java.io.Serializable
 		
 		initRoles();
 
+		String updateInfo = getPacketAndData();
+
+		if (updateInfo.compareTo("__pass__") == 0)
+			;
+		else
+		{
+			System.out.println("About to update");
+			update(updateInfo);
+		}
+
 		if (debug)
 			System.out.println("Done setting up");
 		isUpdating = false;
+	}
+
+	@SuppressWarnings("deprecation")
+	public void update(String updateInfo) throws Exception
+	{
+		System.out.println("updating...");
+		DatagramSocket updateS = new DatagramSocket();
+		InetAddress address = InetAddress.getByName(updateInfo.split(":")[0].substring(1));
+		int port = Integer.parseInt(updateInfo.split(":")[1]);
+
+		DatagramPacket packet  = new DatagramPacket("__update__".getBytes(), "__update__".length(), 
+			address, port);
+		updateS.send(packet);
+		// updateS.receive(packet);
+    	// System.out.println(String(packet.getData(), packet.getLength()));
+	    String tell = getPacketAndDataAltSoc(updateS);
+	    System.out.println("tell.." + tell);
+	    if (tell.compareTo("__quit__") == 0)
+	    	return;
+		address = packet.getAddress();
+		port = packet.getPort();
+
+		String line;
+		while ((line = getPacketAndDataAltSoc(updateS)).compareTo("__done__") != 0)
+		{
+			sendToWMC(line);
+			while ((line = getPacketAndDataAltSoc(socket)).compareTo("__end__") != 0)
+				sendToWMC(line);
+			sendToWMC("__end__");
+		}
+		sendToWMC("__done__");
+
+		updateS.close();
+	}
+
+	private char[] String(byte[] data, int length) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public synchronized void serveUpd(DatagramPacket packet) throws Exception
+	{
+		DatagramSocket socket = new DatagramSocket();
+		InetAddress address = packet.getAddress();
+		int port = packet.getPort();
+    
+    if(upd)
+      packet  = new DatagramPacket("__update__".getBytes(), "__update__".length(), 
+        address, port);
+    else
+    {
+      packet  = new DatagramPacket("__quit__".getBytes(), "__quit__".length(), 
+        address, port);
+      return;
+    }
+		socket.send(packet);
+
+		int roleRep = getRoleRep("upd");
+		InetAddress wAddress = workerList.get(roleRep).getAddress();
+		int wPort = workerList.get(roleRep).getPort();
+		packet = new DatagramPacket("__update__".getBytes(), "__update__".length(),
+			wAddress, wPort);
+		socket.send(packet);
+
+		String line;
+		while ((line = getPacketAndDataAltSoc(socket)).compareTo("__done__") != 0)
+		{
+			packet = new DatagramPacket(line.getBytes(), line.length(), address, port);
+			socket.send(packet);
+			while ((line = getPacketAndDataAltSoc(socket)).compareTo("__end__") != 0)
+			{
+				packet = new DatagramPacket(line.getBytes(), line.length(), address, port);
+				socket.send(packet);
+			}
+			packet = new DatagramPacket("__end__".getBytes(), "__end__".length(), address, port);
+			socket.send(packet);
+		}
+		packet = new DatagramPacket("__done__".getBytes(), "__done__".length(), address, port);
+		socket.send(packet);
+
+		socket.close();
 	}
 
 	public synchronized  void sendPacket(String data, int workerNum) throws Exception
@@ -174,6 +267,8 @@ public class RMUtils implements java.io.Serializable
 		{
 			pass = 1;
 			role = "upl";
+      upd = true;
+			selfUploading = true;
 		}
 
 		System.out.println("\t" + "Sending " + data + " to " + role);
@@ -247,10 +342,25 @@ public class RMUtils implements java.io.Serializable
 		 	uploadSocket.send(packet);
 		}
 		socket.close();
+		selfUploading = false;
 	}
 
-	public void updateMC(DatagramPacket socket)
+	public synchronized void sendToWMC(String data) throws Exception
 	{
-		
+		InetAddress address = InetAddress.getByName(group.substring(1));
+		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), address, wUploadPort);
+		uploadSocket.send(packet);
+		System.out.println("Sending to " + group + ":" + wUploadPort);
+		System.out.println("\t\t\t\t\t\t"+data);
+	}
+
+	public boolean selfUploading()
+	{
+		return selfUploading;
+	}
+
+	public synchronized void flagSeflUpload()
+	{
+		selfUploading = true;
 	}
 }

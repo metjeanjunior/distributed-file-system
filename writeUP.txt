@@ -1,0 +1,97 @@
+Here is what I attempted to do:
+
+I assigned a role to each RM and Worker:
+	One RM and one Worker would service all the uploads
+	One RM and one Worker would service all the downloads
+	One RM and one Worker would service all the directory updates
+
+	These roles are dynamically allocated. Therefore, If and RM goes down,
+	the MD would assign the role to the most appropriate RM that is 
+	currently up at that time.
+
+The Middleware would redirect the request to the appropriate RM
+	The RM in turn would send the request to the appropriate Worker
+	The worker in turn would get send a blank packet back to the Client
+	From there the transaction would take place.
+	N.B. The MD always pings the RM to ensure that the it is alive before servicing
+
+The workers are equally balanced between the server up at the time:
+	if there are 2 RMs upd and 4 Workers,
+		The repartition is almost certainly as follow:
+			2 Worker for each RM
+
+State Checking:
+	Whenever the MD connects to an RM it checks to make sure that it is alive
+	A ping message is sent and a timeout of 10s is set.
+	If nothing is recieved after 10s, the RM is assumed to be dead.
+	At this point, the role of said RM is assigned to the most appropriate RM alive
+
+When the first RM comes comes to life nothing happens.
+	All the other are sent a request to update their directory by the MD
+		The MD sends them the info of the Update RM
+		From there the two RM link up and the proccess begins:
+			The update RM gets the files from the Update Worker
+			The RM then proceeds to transmit these files to the secondary RM
+			The Secondary RM then sends the files to his Update Worker.
+			The Worker then blasts out the file to the rest of the farm using MC
+				This is serviced by a thread
+
+All the Servers have a setUp method:
+	this methods prevents any operation from happening 
+		until everything has been propertly set up.
+
+For Version Control: 
+	I used the HashMaps
+		*	One for fileLocks to prevent writing over a file that is being updated
+		*	Another for the file versions.
+	The HashMaps are updated as needed to ensure that the current data is up to date
+
+When a previously killed RM comes back to life:
+	the identity of the RM is verifed thru thier IP address
+	If there is a match in the list of previously connected RM
+		the directory of the RM is updated
+		the RM is marked as alive
+		The most appropriate role is assigned to the RM
+
+	My initial algorith was as follow:
+		Whenever a new RM comes alive, he makes a request in the Update MC
+			From there the RM responsible for the update blasts out his files
+				in the following format: filename,fileversion
+			If the new RM has the same, it would reply next 
+				The main RM would then send the next file in its directory and so on.
+			Otherwise, it replys get
+				In which case the main RM proceeds to send over that file.
+		Since the other are all up to date,
+			they would have ignored those request 
+				as they have the same version as the main RM.
+
+What Works and does not:
+	Almost everything described above works when only one RM is connected.
+	Things go south, once the second RM connects
+		The reason is that there is no Worker immidiatly availabe 
+			as such, it blocks forever even when a Worker does evetually connect
+
+	An Upload works beautifully, The File is also shared accross the Farm,
+		However, an attempted hop to the next farm will fail
+		This is mainly because I confused myself with entertwining 2 MC groups on the RM side
+			As a result, we are either stuck in an infinite loop 
+				or nothing at all is sent.
+
+	The download also works as expected;
+
+I attempted to be as detailed as possible
+	However, I could have accidentally missed something
+	I'll be happy to answer any questions.
+	What I learned from this project is that
+		I should make bigger and better use of Git.
+		I found myself repeatedly having things that worked 
+			only to modify them to the point of no return.
+		A detailed design does not meah much if
+			the building is not done incrementally
+				I would build and build only to realize that 
+				what I was building would not work exactly the way intened
+					But then again, it was at the point of no return :(
+		In very large files,
+			It's easy to lose track of the functions that you have implemented
+				As such, I might have a few duplicates here and there
+					or functions that are very simily in the purposes that they serve.

@@ -5,6 +5,8 @@ public class WorkerServer
 	public static void main(String[] args) throws Exception
 	{
 		DatagramSocket socket = new DatagramSocket();
+		File dir = new File(socket.getLocalPort() + "");
+		dir.mkdir();
 
 		WorkerUtils wUtils = new WorkerUtils(socket);
 
@@ -12,8 +14,8 @@ public class WorkerServer
 //		InetAddress address = InetAddress.getByName(args[0]);
 
 //		For testing on a local machine
-		int port = 4576;		
-		InetAddress address = InetAddress.getByName("localhost");
+		 int port = 4576;		
+		 InetAddress address = InetAddress.getByName("localhost");
 
 		byte[] sbuf = new byte[1024];
 		byte[] rbuf = new byte[1024];

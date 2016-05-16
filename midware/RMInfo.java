@@ -23,6 +23,11 @@ public class RMInfo
 		return packet.getAddress();
 	}
 
+	public String getInfo()
+	{
+		return getAddress() + ":" + getPort();
+	}
+
 	public synchronized void incrRoles()
 	{
 		numRoles++;
