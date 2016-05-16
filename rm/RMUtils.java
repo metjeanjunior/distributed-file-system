@@ -20,6 +20,8 @@ public class RMUtils implements java.io.Serializable
 	MulticastSocket wUploadSocket;
 	
 	String group;
+	int updatePort;
+	int uploadPort;
 	int wUpdatePort; 
 	int wUploadPort;
 	private boolean debug = true; 
@@ -60,8 +62,8 @@ public class RMUtils implements java.io.Serializable
 
 		group = mcInfo.split(",")[0];
 		InetAddress groupInet = InetAddress.getByName(group.substring(1));
-		int updatePort = Integer.parseInt(mcInfo.split(",")[1]);
-		int uploadPort = Integer.parseInt(mcInfo.split(",")[2]);
+		updatePort = Integer.parseInt(mcInfo.split(",")[1]);
+		uploadPort = Integer.parseInt(mcInfo.split(",")[2]);
 		wUpdatePort = Integer.parseInt(mcInfo.split(",")[3]);
 		wUploadPort = Integer.parseInt(mcInfo.split(",")[4]);
 
@@ -144,6 +146,11 @@ public class RMUtils implements java.io.Serializable
 		
 	}
 
+	public String getRMMCInfo()
+	{
+		return group + ',' + updatePort + ',' + uploadPort;	
+	}
+
 	public String getWMCInfo()
 	{
 		return group + ',' + wUpdatePort + ',' + wUploadPort;
@@ -161,6 +168,8 @@ public class RMUtils implements java.io.Serializable
 	public void sendRolePacket(String data, String role) throws Exception
 	{
 		int pass = 0;
+
+		// Used to mark that upl is for file (overloaded)
 		if(role.compareTo("upl+") == 0)
 		{
 			pass = 1;
@@ -168,7 +177,6 @@ public class RMUtils implements java.io.Serializable
 		}
 
 		System.out.println("\t" + "Sending " + data + " to " + role);
-		System.out.println("\t" + "Find why we have upl+ in Utils");
 
 		InetAddress address = workerList.get(getRoleRep(role)).getAddress();
 		int port = workerList.get(getRoleRep(role)).getPort();
@@ -178,8 +186,10 @@ public class RMUtils implements java.io.Serializable
 				address, port);
 		DatagramSocket socket = new DatagramSocket();
 		socket.send(packet);
-		// uploadMC(socket);
-		socket.close();
+
+		if (pass == 1)
+			uploadMC(socket);
+		// socket.close();
 	}
 
 	public synchronized void setRole(int rmNum, String role)
@@ -229,13 +239,14 @@ public class RMUtils implements java.io.Serializable
 	{
 		System.out.println("\t" + "uploading prev recieved file to other farms...");
 		String line;
+		InetAddress address = InetAddress.getByName(group.substring(1));
 		while ((line = getPacketAndDataAltSoc(socket)).compareTo("__end__") != 0)
 		{
 		    System.out.println("\t" + line);
-		 	DatagramPacket packet = new DatagramPacket(line.getBytes(), line.length(), 
-		 		socket.getLocalPort(), socket.getLocalSocketAddress());   
-		 	socket.send(packet);
+		 	DatagramPacket packet = new DatagramPacket(line.getBytes(), line.length(), address, uploadPort);
+		 	uploadSocket.send(packet);
 		}
+		socket.close();
 	}
 
 	public void updateMC(DatagramPacket socket)

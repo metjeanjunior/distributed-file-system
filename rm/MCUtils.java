@@ -9,17 +9,18 @@ public class MCUtils
 	private InetAddress group;
 	private int port;
 	private boolean isUploading = false;
-	WorkerUtils wUtils;
+	RMUtils rUtils;
 
-	public MCUtils(WorkerUtils wUtils, int type) throws Exception
+	public MCUtils(RMUtils rUtils, int type) throws Exception
 	{
-		this.wUtils = wUtils;
-		group = wUtils.getGroup();
+		this.rUtils = rUtils;
+		String mcInfo = rUtils.getRMMCInfo();
+		group = InetAddress.getByName(mcInfo.split(",")[0].substring(1));
 
 		if (type == 1)
-			port = wUtils.getUploadPort();
+			port = Integer.parseInt(mcInfo.split(",")[1]);
 		else
-			port = wUtils.getUpdatePort();
+			port = Integer.parseInt(mcInfo.split(",")[2]);
 
 		socket = new MulticastSocket(port);
 		socket.joinGroup(group);
@@ -44,30 +45,7 @@ public class MCUtils
 
 	public synchronized void recieveFile(String fileInfo) throws Exception
 	{
-		isUploading = true;
-		String fileName = fileInfo.split(",")[0];
-		DateFormat dateFormat = new SimpleDateFormat("ss");
-		Date date = new Date();
-		String radn = dateFormat.format(date);
-		while(wUtils.fileLockTaken(fileName))
-			continue;
-
-		wUtils.grabFileLock(fileName);
-			PrintWriter writer = new PrintWriter("files/" + radn + fileName, "UTF-8");
-
-			String line;
-			System.out.println("\t" + "Recieving(" +fileName + ")...");
-			while ((line = readFromSocket()).compareTo("__end__") != 0)
-			{
-			    System.out.println("\t" + line);
-			    writer.println(line);
-			}
-			wUtils.incrementVersion(fileName); 
-		wUtils.returnFileLock(fileName);
-
-		writer.close();
-		System.out.println("Finished upload");
-		isUploading = false;
+		
 	}
 
 	public void passRecieve() throws Exception

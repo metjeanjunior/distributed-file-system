@@ -3,12 +3,12 @@ import java.net.*;
 public class UploadMCThread implements Runnable
 {
 	MCUtils mUtils;
-	WorkerUtils wUtils;
+	RMUtils rUtils;
 	
-	public UploadMCThread(WorkerUtils wUtils) throws Exception
+	public UploadMCThread(RMUtils rUtils) throws Exception
 	{
-		mUtils = new MCUtils(wUtils, 1);
-		this.wUtils = wUtils;
+		mUtils = new MCUtils(rUtils, 1);
+		this.rUtils = rUtils;
 	}
 
 	public void run()
@@ -17,18 +17,13 @@ public class UploadMCThread implements Runnable
 
 		while (true) 
 		{
-			System.out.println("MC worker group upload up");
+			System.out.println("MC RM group upload up");
 			try 
 			{
 				fileInfo = mUtils.readFromSocket();
 				System.out.println("Incoming upload file: " + fileInfo);
 
-				// if(wUtils.selfUpload())
-				// {
-				// 	while (wUtils.selfUpload())
-				// 		continue;
-				// 	continue;
-				// }
+				
 				mUtils.recieveFile(fileInfo);
 				while (mUtils.isUploading())
 					continue;

@@ -3,3 +3,6 @@
 /RMUtils.class
 /UpdateDirThread.class
 /WorkerInfo.class
+/MCUtils.class
+/UpdateMCThread.class
+/UploadMCThread.class

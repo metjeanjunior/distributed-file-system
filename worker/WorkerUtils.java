@@ -216,6 +216,9 @@ public class WorkerUtils
 		InetAddress cAddress = InetAddress.getByName(uploadInfo.split(",")[2].substring(1));
 		int cPort = Integer.parseInt(uploadInfo.split(",")[3]);
 
+		InetAddress rmAddress = packet.getAddress();
+		int rmPort = packet.getPort();
+
 		// Sent to client so they can know what address to send file to. content is meaningless
 		packet = new DatagramPacket("".getBytes(), "".length(), cAddress, cPort);
 		socket.send(packet);
@@ -235,11 +238,13 @@ public class WorkerUtils
 			String line;
 			while ((line = getPacketAndDataAltSoc(socket)).compareTo("__end__") != 0)
 			{
-			    System.out.println("\t" + line);
+			    // System.out.println("\t" + line);
 			    writer.println(line);
 			    sendMCUpload(line);
+			    sendPacket(line, rmAddress, rmPort);
 			}
 			sendMCUpload("__end__");
+			sendPacket("__end__", rmAddress, rmPort);
 			incrementVersion(fileName); 
 		returnFileLock(fileName);
 
