@@ -31,6 +31,11 @@ public class RMServer
 		if(rUtils.isShutDown())
 			return;
 
+		Thread uploadRThread = new Thread(new UplMCThread(rUtils));
+		uploadRThread.start();
+		Thread uploadWThread = new Thread(new UplWMCThread(rUtils));
+		uploadWThread.start();
+
 		while(true)
 		{
 			System.out.println("RM waiting new requests...");

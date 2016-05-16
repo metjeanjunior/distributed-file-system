@@ -1,0 +1,37 @@
+import java.net.*;
+
+public class UplWMCThread implements Runnable
+{
+	RMUtils rUtils;
+	MCUtils mUtils;
+
+	public UplWMCThread(RMUtils rUtils) throws Exception 
+	{
+		this.rUtils = rUtils;
+		mUtils = new MCUtils(rUtils, 1);
+	}
+
+	public void run()
+	{
+		String fileInfo = null;
+
+			try 
+			{
+				while (true) 
+				{
+					fileInfo = mUtils.readFromWSocket();
+					System.out.println("Incoming worker upload file: " + fileInfo);
+
+					mUtils.recieveWFile(fileInfo);
+					while (mUtils.isUploading())
+							continue;
+				}
+			} 
+			catch (Exception e) 
+			{
+				e.printStackTrace();
+			}
+
+		System.out.println("\t Upload thread finished");
+	}
+}

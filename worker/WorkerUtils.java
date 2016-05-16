@@ -67,8 +67,8 @@ public class WorkerUtils
 			System.out.println("Setting up with:" + mcInfo);
 
 		group = InetAddress.getByName(mcInfo.split(",")[0].substring(1));
-		updatePort = Integer.parseInt(mcInfo.split(",")[1]);
-		uploadPort = Integer.parseInt(mcInfo.split(",")[2]);
+		uploadPort = Integer.parseInt(mcInfo.split(",")[1]);
+		updatePort = Integer.parseInt(mcInfo.split(",")[2]);
 
 		updateSocket = new MulticastSocket(updatePort);
 		uploadSocket = new MulticastSocket(uploadPort);
@@ -244,7 +244,7 @@ public class WorkerUtils
 			    sendPacket(line, rmAddress, rmPort);
 			}
 			sendMCUpload("__end__");
-			sendPacket("__end__", rmAddress, rmPort);
+			sendPacket("__end__", rmAddress, rmPort); 
 			incrementVersion(fileName); 
 		returnFileLock(fileName);
 
