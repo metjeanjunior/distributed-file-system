@@ -26,4 +26,12 @@ public class WorkerInfo
 	{
 		return getAddress() + ":" + getPort();
 	}
+
+	public void flagRM() throws Exception
+	{
+		DatagramSocket socket = new DatagramSocket();
+		DatagramPacket packet = new DatagramPacket("__flagRM__".getBytes(), "__flagRM__".length(), rm.getAddress(), rm.getPort());
+		socket.send(packet);
+		socket.close();
+	}
 }
