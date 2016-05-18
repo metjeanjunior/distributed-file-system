@@ -76,6 +76,7 @@ public class MCUtils
 	public void passRecieve() throws Exception
 	{
 		isUploading = true;
+		System.out.println("passing a file recieve");
 		String line;
 		while ((line = readFromSocket()).compareTo("__end__") != 0)
 			continue;

@@ -24,17 +24,20 @@ public class UpdateMCThread implements Runnable
 			{
 				fileInfo = mUtils.readFromSocket();
 				System.out.println("Incoming update fileInfo: " + fileInfo);
+				if (fileInfo.compareTo("__done__") == 0)
+					continue;
 				filename = fileInfo.split(",")[0];
 				fileVer = Integer.parseInt(fileInfo.split(",")[1]);
 
 				if(wUtils.selfUpload())
 				{ 
+					System.out.println("self Upload passed");
 					while (wUtils.selfUpload())
 						continue;
 					continue;
 				}
 
-				if(wUtils.getFileVersion(filename) == fileVer)
+				if(wUtils.getFileVersion(filename) == fileVer && fileVer != -1)
 					mUtils.passRecieve();
 				else
 					mUtils.recieveFile(filename);

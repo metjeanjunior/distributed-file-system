@@ -11,7 +11,7 @@ public class MDUtils implements java.io.Serializable
 	DatagramSocket socket;
 	private LinkedList<RMInfo> rmList = new LinkedList<RMInfo>();
 	Map<String, Integer> roleMap = Collections.synchronizedMap(new HashMap<String, Integer>());
-	// private LinkedList<WorkerInfo> workerList = new LinkedList<WorkerInfo>();
+	private LinkedList<WorkerInfo> workerList = new LinkedList<WorkerInfo>();
 
 	public MDUtils(DatagramSocket socket)
 	{
@@ -47,14 +47,29 @@ public class MDUtils implements java.io.Serializable
 
 	public synchronized void pushRM(DatagramPacket packet) throws Exception
 	{
+		System.out.println("Adding RM to List");
+		if (exists(packet.getAddress()))
+		{
+			System.out.println("Adding old RM");
+			addOldRM(packet.getAddress());
+		}
+
 		RMInfo rmInfo = new RMInfo(packet);
 		rmList.push(rmInfo);
 		setRole(0, getnextRole());
 		sendPacket(getMCInfo(4), 0);
 		if (rmList.size() == 1)
+		{
+			sendPacket(getMCInfo(4), 0);
 			sendPacket("__pass__", 0);
+		}
 		else
-			sendPacket(rmList.get(getRoleRep("upd")).getInfo(), 0);
+			sendPacket(rmList.get(rmList.size() - 1).getInfo(), 0);
+	}
+
+	public void pushWorker(DatagramPacket packet, RMInfo rm)
+	{
+		WorkerInfo worker = new WorkerInfo(packet, rm);
 	}
 
 	public synchronized int getNumRM()
@@ -166,7 +181,7 @@ public class MDUtils implements java.io.Serializable
 		int num = getRMNum(address);
 		setRole(num, role);
 		sendPacket(getMCInfo(4), num);
-		sendPacket(rmList.get(getRoleRep("upd")).getInfo(), num);
+		sendPacket(rmList.get(rmList.size() - 1).getInfo(), num);
 		System.out.println("old host added back");
 	}
 

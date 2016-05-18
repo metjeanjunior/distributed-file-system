@@ -148,9 +148,14 @@ public class ClientUtils
 
 		PrintWriter writer = new PrintWriter("files/" +fileName, "UTF-8");
 
-		while ((line = getPacketAndData()).compareTo("__end__") !=0)
+		while (true)
 		{
-			line += "";
+			line = getPacketAndData();
+			if (line == null)
+					line = "\n";
+			if (line.compareTo("__end__") == 0)
+				break;
+				
 			if (line.compareTo("__dne__") ==0)
 			{
 			    System.out.println("The file you indicated is not hosted in on our servers");

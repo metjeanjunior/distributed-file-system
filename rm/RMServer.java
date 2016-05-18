@@ -33,12 +33,12 @@ public class RMServer
 
 		Thread uploadRThread = new Thread(new UplMCThread(rUtils));
 		uploadRThread.start();
-		Thread uploadWThread = new Thread(new UplWMCThread(rUtils));
-		uploadWThread.start();
+		// Thread uploadWThread = new Thread(new UplWMCThread(rUtils));
+		// uploadWThread.start();
 
 		while(true)
 		{
-			System.out.println("RM waiting new requests...");
+			System.out.println("RM waiting new requests at " + socket.getLocalSocketAddress() + "...");
 			packet = new DatagramPacket(rbuf, rbuf.length);	
 			socket.receive(packet);
 			System.out.println("\tJust recieved..." + rUtils.getDataFromPacket(packet));

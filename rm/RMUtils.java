@@ -15,6 +15,7 @@ public class RMUtils implements java.io.Serializable
 	private boolean shutdown = false;
 	private boolean selfUploading = false;
 	boolean upd = false;
+	boolean workerFull = false;
 
 	MulticastSocket updateSocket; 
 	MulticastSocket uploadSocket;
@@ -46,8 +47,18 @@ public class RMUtils implements java.io.Serializable
 	public void setUp() throws Exception
 	{
 		isUpdating = true;
-
+		System.out.println("Connected to MD. Setting up...");
 		String mcInfo = getPacketAndData();
+			System.out.println("Setting up with:" + mcInfo);
+
+		String updateInfo = getPacketAndData();
+			System.out.println("\t" + updateInfo);
+
+		if (debug)
+		{
+			System.out.println("Setting up with:" + mcInfo);
+			System.out.println("\t" + updateInfo);
+		}
 
 		if (mcInfo.compareTo("__quit__") == 0)
 		{
@@ -58,9 +69,6 @@ public class RMUtils implements java.io.Serializable
 		}
 
 		System.out.println("Connected to MD");
-
-		if (debug)
-			System.out.println("Setting up with:" + mcInfo);
 
 		group = mcInfo.split(",")[0];
 		InetAddress groupInet = InetAddress.getByName(group.substring(1));
@@ -83,12 +91,18 @@ public class RMUtils implements java.io.Serializable
 		
 		initRoles();
 
-		String updateInfo = getPacketAndData();
+		// String updateInfo = getPacketAndData();
 
-		if (updateInfo.compareTo("__pass__") == 0)
-			;
-		else
+		if (updateInfo.compareTo("__pass__") != 0)
 		{
+			System.out.println("waiting for workers to connect");
+			while (!workerFull)
+			{
+				byte[] rbuf = new byte[1024];
+				DatagramPacket packet = new DatagramPacket(rbuf, rbuf.length);
+				socket.receive(packet);
+				pushWorker(packet);
+			}
 			System.out.println("About to update");
 			update(updateInfo);
 		}
@@ -112,28 +126,32 @@ public class RMUtils implements java.io.Serializable
 		// updateS.receive(packet);
     	// System.out.println(String(packet.getData(), packet.getLength()));
 	    String tell = getPacketAndDataAltSoc(updateS);
-	    System.out.println("tell.." + tell);
+	    System.out.println("told... " + tell);
 	    if (tell.compareTo("__quit__") == 0)
+	    {
+	    	System.out.println("The directory is currently empty");
 	    	return;
+	    }
 		address = packet.getAddress();
 		port = packet.getPort();
 
 		String line;
 		while ((line = getPacketAndDataAltSoc(updateS)).compareTo("__done__") != 0)
 		{
-			sendToWMC(line);
-			while ((line = getPacketAndDataAltSoc(socket)).compareTo("__end__") != 0)
+			System.out.println("Sending file: " + line);
+			// -1 because worker expects a file version
+			sendToWMC(line+",-1");
+			while ((line = getPacketAndDataAltSoc(updateS)).compareTo("__end__") != 0)
+			{
+				System.out.println("Sending line: " + line);
 				sendToWMC(line);
+			}
 			sendToWMC("__end__");
 		}
 		sendToWMC("__done__");
 
+		System.out.println("finished updating directory");
 		updateS.close();
-	}
-
-	private char[] String(byte[] data, int length) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public synchronized void serveUpd(DatagramPacket packet) throws Exception
@@ -142,17 +160,19 @@ public class RMUtils implements java.io.Serializable
 		InetAddress address = packet.getAddress();
 		int port = packet.getPort();
     
-    if(upd)
-      packet  = new DatagramPacket("__update__".getBytes(), "__update__".length(), 
-        address, port);
-    else
-    {
-      packet  = new DatagramPacket("__quit__".getBytes(), "__quit__".length(), 
-        address, port);
-      return;
-    }
+	    if(!upd)
+	    {
+		    packet  = new DatagramPacket("__quit__".getBytes(), "__quit__".length(), 
+		    	address, port);
+		    System.out.println("Update rejected as no files up");
+			socket.send(packet);
+	    	return;
+	    }
+
+		packet  = new DatagramPacket("__update__".getBytes(), "__update__".length(), address, port);
 		socket.send(packet);
 
+		System.out.println("Connected to upd worker");
 		int roleRep = getRoleRep("upd");
 		InetAddress wAddress = workerList.get(roleRep).getAddress();
 		int wPort = workerList.get(roleRep).getPort();
@@ -164,9 +184,18 @@ public class RMUtils implements java.io.Serializable
 		while ((line = getPacketAndDataAltSoc(socket)).compareTo("__done__") != 0)
 		{
 			packet = new DatagramPacket(line.getBytes(), line.length(), address, port);
+			System.out.println("Sending file: " + line);
 			socket.send(packet);
-			while ((line = getPacketAndDataAltSoc(socket)).compareTo("__end__") != 0)
+			while (true)
 			{
+				line = getPacketAndDataAltSoc(socket);
+
+				if (line == null)
+					line = "\n";
+				if (line.compareTo("__end__") == 0)
+					break;
+
+				System.out.println("Sending line: " + line);
 				packet = new DatagramPacket(line.getBytes(), line.length(), address, port);
 				socket.send(packet);
 			}
@@ -176,11 +205,13 @@ public class RMUtils implements java.io.Serializable
 		packet = new DatagramPacket("__done__".getBytes(), "__done__".length(), address, port);
 		socket.send(packet);
 
+		System.out.println("Finished servicing update");
 		socket.close();
 	}
 
 	public synchronized  void sendPacket(String data, int workerNum) throws Exception
 	{
+		DatagramSocket socket = new DatagramSocket();
 		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), 
 			getWorkerAddress(workerNum), getWorkerPort(workerNum));
 		socket.send(packet);
@@ -235,8 +266,8 @@ public class RMUtils implements java.io.Serializable
 		workerList.push(workerInfo);
 		setRole(0, getnextRole());
 		sendPacket(getWMCInfo(), 0);
+		workerFull = true;	
 		System.out.println("\t" + "Just added a new worker to subfarm.");
-		
 	}
 
 	public String getRMMCInfo()
@@ -267,7 +298,7 @@ public class RMUtils implements java.io.Serializable
 		{
 			pass = 1;
 			role = "upl";
-      upd = true;
+		    upd = true;
 			selfUploading = true;
 		}
 
@@ -335,23 +366,36 @@ public class RMUtils implements java.io.Serializable
 		System.out.println("\t" + "uploading prev recieved file to other farms...");
 		String line;
 		InetAddress address = InetAddress.getByName(group.substring(1));
+		selfUploading = true;
+		upd = true;
 		while ((line = getPacketAndDataAltSoc(socket)).compareTo("__end__") != 0)
-		{
-		    System.out.println("\t" + line);
-		 	DatagramPacket packet = new DatagramPacket(line.getBytes(), line.length(), address, uploadPort);
-		 	uploadSocket.send(packet);
-		}
+		 	sendToRMC(line);
+		sendToRMC("__end__");
 		socket.close();
 		selfUploading = false;
 	}
+
+	public synchronized void sendToRMC(String data) throws Exception
+	{
+		InetAddress address = InetAddress.getByName(group.substring(1));
+		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), address, uploadPort);
+		uploadSocket.send(packet);
+		System.out.println("Sending to " + group + ":" + uploadPort);
+		System.out.println("\t"+data);
+	}	
 
 	public synchronized void sendToWMC(String data) throws Exception
 	{
 		InetAddress address = InetAddress.getByName(group.substring(1));
 		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), address, wUploadPort);
-		uploadSocket.send(packet);
+		wUploadSocket.send(packet);
 		System.out.println("Sending to " + group + ":" + wUploadPort);
-		System.out.println("\t\t\t\t\t\t"+data);
+		System.out.println("\t"+data);
+	}
+
+	public synchronized void recieveRFile()
+	{
+
 	}
 
 	public boolean selfUploading()

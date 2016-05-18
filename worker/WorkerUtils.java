@@ -242,6 +242,7 @@ public class WorkerUtils
 
 		String fileInfo = fileName + ',' + getFileVersion(fileName);
 		sendMCUpload(fileInfo);
+		sendPacket(fileInfo, rmAddress, rmPort);
 
 		grabFileLock(fileName);
 			// PrintWriter writer = new PrintWriter("files/" + fileName, "UTF-8");
@@ -270,7 +271,7 @@ public class WorkerUtils
 		returnFileLock(fileName);
 
 		writer.close();
-		selfUpload = true;
+		selfUpload = false;
 		System.out.println("\t" + "File received succesfully");
 		socket.close();
 	}
@@ -309,12 +310,15 @@ public class WorkerUtils
 		int port = packet.getPort();
 		DatagramSocket socket = new DatagramSocket();
 
-		File directory = new File(socket.getLocalPort() + "");
+		File directory = new File(getDirName());
 		File[] fList = directory.listFiles();
+		System.out.println("About to upadte " + fList.length + " files from " + getDirName());
+		// System.out.println("About to upadte " + fList.length + " files from " + directory);
 
 		for (File file : fList)
 		{
 			String fileName = file.getName();
+			System.out.println("Sending " + fileName);
 			packet = new DatagramPacket(fileName.getBytes(), fileName.length(), address, port);
         	socket.send(packet);
 
@@ -324,11 +328,13 @@ public class WorkerUtils
 		    
 		    while ((line = reader.readLine()) != null)
 	    	{ 
+	    		System.out.println("Sending: " + line);
 				packet = new DatagramPacket(line.getBytes(), line.length(), address, port);
 	        	socket.send(packet);
 		    }
 			packet = new DatagramPacket("__end__".getBytes(), "__end__".length(), address, port);
         	socket.send(packet);
+        	System.out.println("\tfinished sending prev file.");
 		}
 		packet = new DatagramPacket("__done__".getBytes(), "__done__".length(), address, port);
     	socket.send(packet);

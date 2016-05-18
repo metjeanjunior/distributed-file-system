@@ -53,7 +53,7 @@ public class MDThread implements Runnable
 				mdUtils.pushRM(packet);
 
 				if (debug)
-					System.out.println("Added host at" + packet.getAddress());
+					System.out.println("Added host at" + packet.getAddress() + ":" + packet.getPort());
 			}
 			else if (data.compareTo("__w__") == 0)
 			{
@@ -71,6 +71,7 @@ public class MDThread implements Runnable
 				String rmInfo = rm.getAddress() + "," + rm.getPort();
 				mdUtils.sendGenericPacket(rmInfo, packet.getAddress(), packet.getPort());
 				rm.incrNumWorkers();
+				mdUtils.pushWorker(packet, rm);
 				System.out.println("Worker was connected to " + rmInfo);
 			}
 			else

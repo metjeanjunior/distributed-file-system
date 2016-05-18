@@ -21,11 +21,11 @@ public class MCUtils
 		this.rUtils = rUtils;
 
 		String rMCInfo = rUtils.getRMMCInfo();
-		String wMCInfo = rUtils.getRMMCInfo();
+		String wMCInfo = rUtils.getWMCInfo();
 
 		group = InetAddress.getByName(rMCInfo.split(",")[0].substring(1));
 
-		if (type == 1)
+		if (type == 2)
 		{
 			rPort = Integer.parseInt(rMCInfo.split(",")[1]);
 			wPort = Integer.parseInt(wMCInfo.split(",")[1]);
@@ -84,41 +84,39 @@ public class MCUtils
 	{
 		isUploading = true;
 
-		// if(selfUploading)
-		// 	passRRecieve();
-//		else
+		System.out.println("Sending file to Worker MC");
+
+		if(rUtils.selfUploading())
+			passRRecieve();
+		else
 		{
-			sendToWMCUpl(fileInfo + "bbbb");
+			sendToWMCUpl(fileInfo);
 
 			String line;
-			while ((line = readFromWSocket()).compareTo("__end__") != 0)
+			while ((line = readFromRSocket()).compareTo("__end__") != 0)
 				sendToWMCUpl(line);
 			sendToWMCUpl("__end__");
 
 			selfUploading = false;
 			isUploading = false;
 		}
-
 	}
 
 	public synchronized void recieveWFile(String fileInfo) throws Exception
 	{
 		isUploading = true;
+		selfUploading = true;
 
-		// if (selfUploading)
-		// 	passWRecieve();
-//		else
-		{
-			sendToRMCUpl(fileInfo + "aaaaa");
+		sendToRMCUpl(fileInfo);
 
-			String line;
-			while ((line = readFromWSocket()).compareTo("__end__") != 0)
-				sendToRMCUpl(line);
-			sendToRMCUpl("__end__");
+		String line;
+		while ((line = readFromWSocket()).compareTo("__end__") != 0)
+			sendToRMCUpl(line);
 
-			selfUploading = false;
-			isUploading = false;
-		}
+		sendToRMCUpl("__end__");
+
+		selfUploading = false;
+		isUploading = false;
 	}
 
 	public void passRRecieve() throws Exception
@@ -149,6 +147,7 @@ public class MCUtils
 
 	public synchronized void sendToWMCUpl(String data) throws Exception
 	{
+		System.out.println("Sending to Workers MC " + group + ":" +wPort);
 		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), group, wPort);
 		wSocket.send(packet);
 	}

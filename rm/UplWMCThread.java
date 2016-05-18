@@ -23,13 +23,10 @@ public class UplWMCThread implements Runnable
 				fileInfo = mUtils.readFromWSocket();
 				System.out.println("Incoming worker upload file: " + fileInfo);
 
-				// mUtils.flagSeflUpload();
-				// rUtils.flagSeflUpload();
+				mUtils.flagSeflUpload();
+				rUtils.flagSeflUpload(); // to delte
 
-				// if (rUtils.selfUploading())
-				// 	mUtils.passWRecieve();
-				// else
-					mUtils.recieveWFile(fileInfo);
+				mUtils.recieveRFile(fileInfo);
 
 				while (mUtils.isUploading())
 						continue;

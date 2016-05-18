@@ -23,12 +23,15 @@ public class UplMCThread implements Runnable
 				fileInfo = mUtils.readFromRSocket();
 				System.out.println("Incoming RM upload file: " + fileInfo);
 
-				// mUtils.flagSeflUpload();
+				// mUtils.flagSeflUpload(); // Allows both, leave
 				// rUtils.flagSeflUpload();
 
-				// if (rUtils.selfUploading())
-				// 	mUtils.passRRecieve();
-				// else
+				if (rUtils.selfUploading())
+				{
+					System.out.println("Incoming self upload passed");
+					mUtils.passRRecieve();
+				}
+				else
 					mUtils.recieveRFile(fileInfo);
 
 				while (mUtils.isUploading())
