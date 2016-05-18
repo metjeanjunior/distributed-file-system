@@ -258,7 +258,7 @@ public class WorkerUtils
 				line = getPacketAndDataAltSoc(socket);
 
 				if (line == null)
-					line = "\n";
+					line = "";
 				if (line.compareTo("__end__") == 0)
 					break;
 			    writer.println(line);

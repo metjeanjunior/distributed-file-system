@@ -152,7 +152,7 @@ public class ClientUtils
 		{
 			line = getPacketAndData();
 			if (line == null)
-					line = "\n";
+					line = "";
 			if (line.compareTo("__end__") == 0)
 				break;
 				

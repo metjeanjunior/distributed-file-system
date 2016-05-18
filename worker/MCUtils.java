@@ -60,8 +60,13 @@ public class MCUtils
 
 			String line;
 			System.out.println("\t" + "Recieving(" +fileName + ")...");
-			while ((line = readFromSocket()).compareTo("__end__") != 0)
+			while (true)
 			{
+				line = readFromSocket();
+				if (line == null)
+						line = "";
+				if (line.compareTo("__end__") == 0)
+					break;
 			    System.out.println("\t" + line);
 			    writer.println(line);
 			}
@@ -78,8 +83,15 @@ public class MCUtils
 		isUploading = true;
 		System.out.println("passing a file recieve");
 		String line;
-		while ((line = readFromSocket()).compareTo("__end__") != 0)
+		while (true)
+		{
+			line = readFromSocket();
+			if (line == null)
+					line = "";
+			if (line.compareTo("__end__") == 0)
+				break;
 			continue;
+		}
 		isUploading = false;
 	}
 }

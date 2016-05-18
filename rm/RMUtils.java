@@ -159,8 +159,13 @@ public class RMUtils implements java.io.Serializable
 			}
 
 			sendToWMC(line);
-			while ((line = getPacketAndDataAltSoc(updateS)).compareTo("__end__") != 0)
+			while (true)
 			{
+				line = getPacketAndDataAltSoc(updateS);
+				if (line == null)
+						line = "";
+				if (line.compareTo("__end__") == 0)
+					break;
 				System.out.println("Sending line: " + line);
 				sendToWMC(line);
 			}
@@ -230,7 +235,7 @@ public class RMUtils implements java.io.Serializable
 				line = getPacketAndDataAltSoc(socket);
 
 				if (line == null)
-					line = "\n";
+					line = "";
 				if (line.compareTo("__end__") == 0)
 					break;
 
@@ -407,8 +412,15 @@ public class RMUtils implements java.io.Serializable
 		InetAddress address = InetAddress.getByName(group.substring(1));
 		selfUploading = true;
 		upd = true;
-		while ((line = getPacketAndDataAltSoc(socket)).compareTo("__end__") != 0)
+		while (true)
+		{
+			line = getPacketAndDataAltSoc(socket);
+			if (line == null)
+					line = "";
+			if (line.compareTo("__end__") == 0)
+				break;
 		 	sendToRMC(line);
+		}
 		sendToRMC("__end__");
 		socket.close();
 		selfUploading = false;

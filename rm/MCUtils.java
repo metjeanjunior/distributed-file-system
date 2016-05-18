@@ -93,8 +93,15 @@ public class MCUtils
 			sendToWMCUpl(fileInfo);
 
 			String line;
-			while ((line = readFromRSocket()).compareTo("__end__") != 0)
+			while (true)
+			{
+				line = readFromRSocket();
+				if (line == null)
+						line = "";
+				if (line.compareTo("__end__") == 0)
+					break;
 				sendToWMCUpl(line);
+			}
 			sendToWMCUpl("__end__");
 
 			selfUploading = false;
@@ -110,8 +117,15 @@ public class MCUtils
 		sendToRMCUpl(fileInfo);
 
 		String line;
-		while ((line = readFromWSocket()).compareTo("__end__") != 0)
+		while (true)
+		{
+			line = readFromWSocket();
+			if (line == null)
+					line = "";
+			if (line.compareTo("__end__") == 0)
+				break;
 			sendToRMCUpl(line);
+		}
 
 		sendToRMCUpl("__end__");
 
@@ -123,8 +137,15 @@ public class MCUtils
 	{
 		isUploading = true;
 		String line;
-		while ((line = readFromRSocket()).compareTo("__end__") != 0)
+		while (true)
+		{
+			line = readFromRSocket();
+			if (line == null)
+					line = "";
+			if (line.compareTo("__end__") == 0)
+				break;
 			continue;
+		}
 		selfUploading = false;
 		isUploading = false;
 	}
@@ -133,8 +154,15 @@ public class MCUtils
 	{
 		isUploading = true;
 		String line;
-		while ((line = readFromWSocket()).compareTo("__end__") != 0)
+		while (true)
+		{
+			line = readFromWSocket();
+			if (line == null)
+					line = "";
+			if (line.compareTo("__end__") == 0)
+				break;
 			continue;
+		}
 		selfUploading = false;
 		isUploading = false;
 	}

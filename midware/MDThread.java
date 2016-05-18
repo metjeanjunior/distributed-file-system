@@ -50,7 +50,10 @@ public class MDThread implements Runnable
 					}
 				}
 
-				mdUtils.pushRM(packet);
+				// if (mdUtils.exists(packet.getAddress()))
+				// 	mdUtils.addOldRM(packet.getAddress());
+				// else
+					mdUtils.pushRM(packet);
 
 				if (debug)
 					System.out.println("Added host at" + packet.getAddress() + ":" + packet.getPort());
