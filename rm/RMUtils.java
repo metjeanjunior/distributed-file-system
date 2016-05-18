@@ -96,14 +96,15 @@ public class RMUtils implements java.io.Serializable
 		if (updateInfo.compareTo("__pass__") != 0)
 		{
 			System.out.println("waiting for workers to connect");
-			while (!workerFull)
-			{
-				byte[] rbuf = new byte[1024];
-				DatagramPacket packet = new DatagramPacket(rbuf, rbuf.length);
-				socket.receive(packet);
-				pushWorker(packet);
-				String req = getDataFromPacket(packet);
-			}
+			// if (!workerFull)
+				for (int x=0; x<2; x++)
+				{
+					byte[] rbuf = new byte[1024];
+					DatagramPacket packet = new DatagramPacket(rbuf, rbuf.length);
+					socket.receive(packet);
+					pushWorker(packet);
+					String req = getDataFromPacket(packet);
+				}
 			System.out.println("About to update");
 			update(updateInfo);
 		}
