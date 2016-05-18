@@ -313,14 +313,26 @@ public class WorkerUtils
 		File directory = new File(getDirName());
 		File[] fList = directory.listFiles();
 		System.out.println("About to upadte " + fList.length + " files from " + getDirName());
-		// System.out.println("About to upadte " + fList.length + " files from " + directory);
+		
+		packet = new DatagramPacket("".getBytes(), "".length(), packet.getAddress(), packet.getPort());
+		socket.send(packet);
 
 		for (File file : fList)
 		{
 			String fileName = file.getName();
-			System.out.println("Sending " + fileName);
-			packet = new DatagramPacket(fileName.getBytes(), fileName.length(), address, port);
+			String fileInfo = file.getName() + "," + getFileVersion(file.getName());
+			System.out.println("Sending " + fileInfo);
+			packet = new DatagramPacket(fileInfo.getBytes(), fileInfo.length(), address, port);
         	socket.send(packet);
+
+        	String need = getPacketAndDataAltSoc(socket);
+			if (need.compareTo("__pass__") == 0)
+			{
+				System.out.println("File not needed");
+				continue;
+			}
+			else
+				System.out.println("the file is needed and being sent");
 
         	BufferedReader reader = Files.newBufferedReader(Paths.get(getDirName() + fileName));
 
@@ -340,5 +352,22 @@ public class WorkerUtils
     	socket.send(packet);
 
 		socket.close();
+	}
+
+	public void sendFileVer(DatagramPacket packet) throws Exception
+	{
+		System.out.println("proccessing file need request");
+		DatagramSocket socket = new DatagramSocket();
+		packet = new DatagramPacket("".getBytes(), "".length(), packet.getAddress(), packet.getPort());
+		socket.send(packet);
+		String fileInfo = getPacketAndDataAltSoc(socket);
+		System.out.println("Request came in for "+ fileInfo);
+
+		int fVer = Integer.parseInt(fileInfo.split(",")[1]);
+
+		if(getFileVersion(fileInfo.split(",")[0]) == fVer)
+			sendPacket("no", packet.getAddress(), packet.getPort());
+		else
+			sendPacket("yes", packet.getAddress(), packet.getPort());
 	}
 }

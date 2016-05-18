@@ -37,7 +37,7 @@ public class UpdateMCThread implements Runnable
 					continue;
 				}
 
-				if(wUtils.getFileVersion(filename) == fileVer && fileVer != -1)
+				if(wUtils.getFileVersion(filename) == fileVer)
 					mUtils.passRecieve();
 				else
 					mUtils.recieveFile(filename);

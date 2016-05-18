@@ -102,6 +102,7 @@ public class RMUtils implements java.io.Serializable
 				DatagramPacket packet = new DatagramPacket(rbuf, rbuf.length);
 				socket.receive(packet);
 				pushWorker(packet);
+				String req = getDataFromPacket(packet);
 			}
 			System.out.println("About to update");
 			update(updateInfo);
@@ -123,9 +124,9 @@ public class RMUtils implements java.io.Serializable
 		DatagramPacket packet  = new DatagramPacket("__update__".getBytes(), "__update__".length(), 
 			address, port);
 		updateS.send(packet);
-		// updateS.receive(packet);
+		updateS.receive(packet);
     	// System.out.println(String(packet.getData(), packet.getLength()));
-	    String tell = getPacketAndDataAltSoc(updateS);
+	    String tell = getDataFromPacket(packet);
 	    System.out.println("told... " + tell);
 	    if (tell.compareTo("__quit__") == 0)
 	    {
@@ -138,9 +139,25 @@ public class RMUtils implements java.io.Serializable
 		String line;
 		while ((line = getPacketAndDataAltSoc(updateS)).compareTo("__done__") != 0)
 		{
+
 			System.out.println("Sending file: " + line);
-			// -1 because worker expects a file version
-			sendToWMC(line+",-1");
+			if(!needsFile(line))
+			{
+				System.out.println("file not needed");
+				packet  = new DatagramPacket("no".getBytes(), "no".length(), 
+					address, port);
+				updateS.send(packet);
+				continue;
+			}
+			else
+			{
+				System.out.println("file is needed");
+				packet  = new DatagramPacket("yes".getBytes(), "yes".length(), 
+					address, port);
+				updateS.send(packet);
+			}
+
+			sendToWMC(line);
 			while ((line = getPacketAndDataAltSoc(updateS)).compareTo("__end__") != 0)
 			{
 				System.out.println("Sending line: " + line);
@@ -180,12 +197,33 @@ public class RMUtils implements java.io.Serializable
 			wAddress, wPort);
 		socket.send(packet);
 
+		socket.receive(packet);
+		wAddress = packet.getAddress();
+		wPort = packet.getPort();
+
 		String line;
 		while ((line = getPacketAndDataAltSoc(socket)).compareTo("__done__") != 0)
 		{
 			packet = new DatagramPacket(line.getBytes(), line.length(), address, port);
 			System.out.println("Sending file: " + line);
 			socket.send(packet);
+
+			String need = getPacketAndDataAltSoc(socket);
+			System.out.println("the need is " + need);
+			if (need.compareTo("no") == 0)
+			{
+				packet = new DatagramPacket("__pass__".getBytes(), "__pass__".length(), wAddress, wPort);
+				socket.send(packet);
+				System.out.println("This file is needed");
+				continue;
+			}
+			else
+			{
+				packet = new DatagramPacket("yes".getBytes(), "yes".length(), wAddress, wPort);
+				socket.send(packet);
+				System.out.println("This file is not needed");
+			}
+
 			while (true)
 			{
 				line = getPacketAndDataAltSoc(socket);
@@ -391,6 +429,22 @@ public class RMUtils implements java.io.Serializable
 		wUploadSocket.send(packet);
 		System.out.println("Sending to " + group + ":" + wUploadPort);
 		System.out.println("\t"+data);
+	}
+
+	public boolean needsFile(String fileName) throws Exception
+	{
+		int worker = getRoleRep("upd");
+		DatagramSocket socket = new DatagramSocket();
+		DatagramPacket packet = new DatagramPacket("__rqfv__".getBytes(), "__rqfv__".length(), getWorkerAddress(worker), getWorkerPort(worker));
+		socket.send(packet);
+		socket.receive(packet);
+		System.out.println("Client network data recieved");
+		packet = new  DatagramPacket(fileName.getBytes(), fileName.length(), packet.getAddress(), packet.getPort());
+		socket.send(packet);
+
+		String need = getPacketAndDataAltSoc(socket);
+		System.out.println("the need replies " + need);
+		return need.compareTo("yes") == 0;
 	}
 
 	public synchronized void recieveRFile()
